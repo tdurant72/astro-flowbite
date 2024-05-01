@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+const title = "Web Design, Web Development, SEO & Branding";
+const subtitle =
+  "Your business needs more than a website. That’s why Sublime UX is here to:";
+import BannerIcon from "../../assets/icons/banner.webp";
+
+const features = [
+  {
+    name: "Build Your Brand",
+
+    description: "Stand out from the competition and build credibility.",
+    icon: "../src/assets/icons/monitor.webp",
+
+    cta: "Our Approach To Branding",
+    ctaLink: "../../assets/icons/services#design",
+  },
+  {
+    name: "Increase Traffic",
+
+    description:
+      "Attract more organic traffic to your website, by optimizing your website for search engines,",
+    icon: "../src/assets/icons/rocket.webp",
+    cta: "How We Optimize Sites",
+    ctaLink: "/services#seo",
+  },
+  {
+    name: "Grow Your Business",
+
+    description:
+      "Encourage your visitors to take action, this can lead to more sales and revenue for your business.",
+    icon: "../src/assets/icons/banner.webp",
+    cta: "Why User Experience Matters",
+    ctaLink: "/services#growth",
+  },
+];
+---
+
+<section
+  class="bg-gradient-to-b from-primary to-primaryWhite dark:bg-slate-800"
+>
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+      <h2
+        class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+      >
+        {title}
+      </h2>
+      <h3
+        class="mb-5 font-light text-2xl text-primaryBlk sm:text-xl dark:text-gray-400"
+      >
+        {subtitle}
+      </h3>
+    </div>
+    <div
+      class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
+    >
+      {
+        features.map((feature) => (
+          <div class="flex flex-col items-center p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <img
+              src={feature.icon}
+              width="100"
+              height="100"
+              alt={feature.name}
+              loading="lazy"
+            />
+            <h3 class="mb-2 text-2xl font-semibold">{feature.name}</h3>
+            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-8">
+              {feature.description}
+            </p>
+
+            <Button
+              text={feature.cta}
+              href={feature.ctaLink}
+              textColor="primaryBlk"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

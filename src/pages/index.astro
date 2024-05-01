@@ -1,16 +1,44 @@
 ---
+import { Image } from "astro:assets";
 
+import Layout from "../layouts/Layout.astro";
+
+import Timeline from "../components/Timeline.astro";
+
+import data from "../data/site.json";
+
+import CustomHero from "../components/custom/customHero.astro";
+import Services from "../components/custom/Services.astro";
+import Waves from "../assets/images/wavesOpacity3.svg";
+import CustomFeaturedProject from "../components/custom/CustomFeaturedProject.astro";
+import ProjectGallery from "../components/custom/ProjectGallery.astro";
+import Unique from "../components/custom/Unique.astro";
+import Process from "../components/custom/Process.astro";
+import Customers from "../components/custom/Customers.astro";
+import ContactUs from "../components/custom/ContactUs.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={data.siteName}>
+  <main>
+    <!-- <Header /> -->
+    <CustomHero />
+    <Image
+      src={Waves}
+      height={300}
+      width={Math.round((100 * 16) / 9)}
+      format="svg"
+      alt="waves"
+      class="w-full"
+    />
+    <Services />
+    <CustomFeaturedProject />
+    <ProjectGallery />
+    <Unique
+      title="Don't compromise"
+      subtitle="Your site should be as unique as you are"
+    />
+    <Process />
+    <Customers />
+    <ContactUs />
+  </main>
+</Layout>

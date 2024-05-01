@@ -1,0 +1,46 @@
+---
+import { getEntryBySlug, getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import CustomTags from "./CustomTags.astro";
+import Header from "../Header.astro";
+import CustomFeaturedProjectCard from "./CustomFeaturedProjectCard.astro";
+const { slug } = Astro.props;
+const allProjects = await getCollection("projects");
+const featuredProject = allProjects.filter(
+  (project) => project.data.type === "featured"
+);
+// console.log("featuredProject:", featuredProject);
+---
+
+<div>
+  {
+    featuredProject.map((f) => (
+      <div class="mx-auto mt-10 py-10">
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+          <a href={"/projects/" + f.slug}>
+            <h2 class="text-4xl my-8 text-center font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+              Featured Project
+            </h2>
+            <Image
+              src={"/images/" + f.data.image}
+              alt="Article Image"
+              height={400}
+              width={Math.round((100 * 16) / 9)}
+              transition:name={"/images/" + f.data.image}
+              class="w-full h-full object-cover hover:opacity-75 transition duration-300 ease-in-out my-10"
+            />
+          </a>
+          <div class="p-6">
+            <h2 class="text-2xl font-semibold mb-2">
+              <a href={"/projects/" + f.slug}> {f.data.title}</a>
+            </h2>
+
+            <CustomTags tags={f.data.tags} />
+          </div>
+        </div>
+      </div>
+    ))
+  }
+  <!-- {JSON.stringify(featuredProject)} -->
+  <!-- <CustomFeaturedProjectCard project={featuredProject} /> -->
+</div>

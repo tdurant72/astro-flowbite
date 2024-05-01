@@ -1,0 +1,85 @@
+{
+  "owner": "Sublime UX",
+  "siteName": "Sublime UX",
+  "siteDescription": "John Smith's Portfolio for potential employers",
+  "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
+  "contact": {
+    "email": "todurant@sublimeux.com",
+    "phone": "555-555-5555",
+    "address": "Greensboro, NC 27405"
+  },
+  "pages": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "Projects",
+      "href": "/projects"
+    },
+    {
+      "title": "Services",
+      "href": "/services"
+    },
+    {
+      "title": "Blog",
+      "href": "/blog"
+    },
+    {
+      "title": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "social": [
+    {
+      "title": "GitHub",
+      "href": "https://github.com/leabs"
+    },
+    {
+      "title": "YouTube",
+      "href": "https://www.youtube.com/@shadowstack"
+    },
+    {
+      "title": "LinkedIn",
+      "href": "https://www.linkedin.com/in/stevenleabo/"
+    },
+    {
+      "title": "CodePen",
+      "href": "https://codepen.io/shadowstack/pens/popular"
+    }
+  ],
+  "projects": [
+    {
+      "projectTitle": "Project 1",
+      "href": "project/one",
+      "about": "Database of books and reviews from users complete with auth and comments and so much more!!!",
+      "type": "Python, Django, HTML, CSS",
+      "repo": "https://github.com",
+      "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
+    },
+    {
+      "projectTitle": "Project 2",
+      "href": "project/two",
+      "about": "Video dashboard using JavaScript that allows user to build and share a layout of videos from YouTube.",
+      "repo": "https://github.com",
+      "type": "JavaScript, HTML, CSS",
+      "image": "../assets/screen2.png",
+      "featured": true
+    },
+    {
+      "projectTitle": "Project 3",
+      "href": "project/three",
+      "about": "Some info about this project here, please add something here for this project ok here.",
+      "type": "PHP, MySQL, HTML, CSS",
+      "repo": "https://github.com",
+      "image": "../assets/screen2.png"
+    },
+    {
+      "projectTitle": "Project 4",
+      "href": "project/four",
+      "about": "Some info about project 4 I'm not sure haha ok see ya",
+      "type": "WordPress",
+      "repo": "https://github.com"
+    }
+  ]
+}

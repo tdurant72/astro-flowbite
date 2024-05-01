@@ -1,0 +1,23 @@
+---
+interface Props {
+  text: string;
+  href: string;
+  bgColor?: string;
+  textColor?: string;
+  textSize?: string;
+}
+
+const {
+  text,
+  href,
+  bgColor = "primary",
+  textColor = "white",
+  textSize = "sm",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class=`text-${textColor} bg-${bgColor} focus:outline-none cursor-pointer focus:ring-4 focus:ring-secondary font-medium rounded-full text-${textSize} px-5 py-2.5 text-center`
+  >{text}</a
+>
