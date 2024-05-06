@@ -19,7 +19,7 @@ import Logo from "../assets/logo.png";
 
     <button
       data-collapse-toggle="navbar-default"
-      id="triggerEl"
+      id="navbar-default"
       type="button"
       class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       aria-controls="navbar-default"
@@ -75,10 +75,10 @@ import Logo from "../assets/logo.png";
   body.dark .hamburg {
     fill: white;
   }
-  .navbar a.active {
+  /* .navbar a.active {
     color: #fff;
     border-bottom: 5px solid var(--secondary);
-  }
+  } */
 </style>
 
 <script>
@@ -86,18 +86,18 @@ import Logo from "../assets/logo.png";
   const $targetEl = document.getElementById("targetEl");
 
   // optionally set a trigger element (eg. a button, hamburger icon)
-  const $triggerEl = document.getElementById("triggerEl");
+  const $triggerEl = document.getElementById("navbar-default");
 
   // optional options with default values and callback functions
   const options = {
     onCollapse: () => {
-      console.log("element has been collapsed");
+      // console.log("element has been collapsed");
     },
     onExpand: () => {
-      console.log("element has been expanded");
+      // console.log("element has been expanded");
     },
     onToggle: () => {
-      console.log("element has been toggled");
+      // console.log("element has been toggled");
     },
   };
 
