@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import ArticleCard from "./ArticleCard.astro";
+
+type Props = {
+  blog: CollectionEntry<"blog">[];
+};
+const { blog } = Astro.props;
+const sortedBlog = blog.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-32">
+  {sortedBlog.map((article) => <ArticleCard article={article} />)}
+</div>

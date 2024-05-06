@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
+import DeskTop from "../../assets/images/desk_view.webp"
 import ButtonGroup from "../ButtonGroup.astro";
 import type CustomImageScroll from "../CustomImageScroll.astro";
 
@@ -9,7 +9,7 @@ type Props = {
   title: string;
   subtitle?: string;
   showButtons?: boolean;
-  imageSrc: string;
+
   buttonLink1?: string;
   buttonText1?: string;
   buttonLink2?: string;
@@ -24,7 +24,7 @@ const {
   buttonText1 = "Googies",
   buttonLink2 = "https://msn.com",
   buttonText2 = "MSN",
-  imageSrc = "/images/desk_view.webp",
+  
 } = Astro.props;
 ---
 
@@ -33,7 +33,7 @@ const {
     class="relative h-[400px] overflow-hidden py-0 px-0 mx-auto max-w-screen-xl text-center lg:py-0"
   >
     <Image
-      src={imageSrc}
+      src={DeskTop}
       alt="hero"
       height={400}
       width={Math.round((100 * 16) / 9)}

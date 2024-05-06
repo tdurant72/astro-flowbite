@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import Prose from "../../components/Prose.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import CustomTags from "../../components/custom/CustomTags.astro";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<ProjectLayout title={project.data.title}>
+  <a
+    href="/#gallery"
+    class="inline-block bg-gray-100 p-2 mb-6 hover:bg-indigo-500 hover:text-white"
+    >Back To Home</a
+  >
+  <article>
+    <div class="projectGrid">
+      <h1 class="text-4xl font-bold mb-2">{project.data.title}</h1>
+
+      <div class="mb-10">
+        <CustomTags tags={project.data.tags} />
+      </div>
+
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </article>
+</ProjectLayout>
+
+<style>
+  .projectGrid {
+    display: grid;
+    justify-items: center;
+  }
+</style>

@@ -26,13 +26,14 @@ const { Content } = await entry.render();
   >
   <article>
     <h1 class="text-4xl font-bold mb-2">{entry.data.title}</h1>
+    <p>From Content</p>
     <CustomTags tags={entry.data.tags} />
     <Image
-      src={"/images/" + entry.data.image}
+      src={"/images/" + entry.data.cover}
       alt={entry.data.title}
       height={400}
       width={Math.round((100 * 16) / 9)}
-      transition:name={"/images/" + entry.data.image}
+      transition:name={"/images/" + entry.data.cover}
       class="w-full h-auto object-cover"
     />
     <Prose>

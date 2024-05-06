@@ -10,7 +10,7 @@ import CustomSectionHeader from "../components/custom/CustomSectionHeader.astro"
 import Graphics from "../assets/images/grahics.webp";
 import Code from "../assets/images/code.webp";
 import Tracking from "../assets/images/tracking.webp";
-
+import DeskTop from "../assets/images/desk_view.webp";
 const title = "Services";
 const subtitle =
   "We take care of all your website needs so you can focus on growing your business.";
@@ -22,16 +22,15 @@ const subtitle =
     <CustomFullImageHero
       title={title}
       subtitle={subtitle}
-      imageSrc="/images/desk_view.webp"
       showButtons={false}
     />
   </div>
-  <main class="mx-16">
+  <main class="mx-4 lg:mx-16">
     <div
-      class="my-8 flex sm:flex-col md:flex-row content-start space-x-6"
+      class="my-8 flex flex-col md:flex-row content-start md:space-x-6"
       id="design"
     >
-      <div class="w-1/2">
+      <div class="md:w-1/2">
         <CustomSectionHeader
           title="Design"
           subtitle="The importance of design for your business"
@@ -102,10 +101,10 @@ const subtitle =
     </div>
     <hr />
     <div
-      class="my-8 flex sm:flex-col md:flex-row content-start space-x-6"
+      class="my-8 flex flex-col md:flex-row content-start md:space-x-6"
       id="seo"
     >
-      <div class="w-1/2">
+      <div class="md:w-1/2">
         <CustomSectionHeader
           title="SEO"
           subtitle="What is Search Engine Optimization (SEO)"
@@ -175,10 +174,10 @@ const subtitle =
     </div>
     <hr />
     <div
-      class="my-8 flex sm:flex-col md:flex-row content-start space-x-6"
+      class="my-8 flex flex-col md:flex-row content-start space-x-6"
       id="growth"
     >
-      <div class="w-1/2">
+      <div class="md:w-1/2">
         <CustomSectionHeader
           title="Growth"
           subtitle="Boost Your Business by Optimizing Conversions"
@@ -202,7 +201,7 @@ const subtitle =
           lead magnets, email marketing, and digital dashboards.
         </p>
       </div>
-      <div class="lg:max-w-2xl mt-8">
+      <div class="mx-none lg:max-w-2xl mt-8">
         <h4 class="text-xl font-medium my-4">
           What is Conversion Rate Optimization (CRO)?
         </h4>
@@ -224,7 +223,7 @@ const subtitle =
           calls to action.
         </p>
         <h4 class="text-xl font-medium my-4">Why is CRO important?</h4>
-        <p>
+        <p class="text-md">
           CRO is important because it can help you get more value from your
           existing traffic. By optimizing your website and marketing campaigns,
           you can increase the number of leads, sales, or subscribers you

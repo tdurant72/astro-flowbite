@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import CardTop from "../../assets/images/card-mask2.svg";
 import CustomTags from "./CustomTags.astro";
@@ -23,12 +23,13 @@ interface Props {
         class="z-10 absolute"
       />
       <Image
-        src={"/images/" + project.data.image}
+        src={project.data.cover}
         height={300}
         width={350}
         alt={project.data.title}
         class="z-0 object-cover absolute top-4"
       />
+
       <h3 class="text-primaryDrk absolute bottom-4 left-4 z-20">
         {project.data.title}
       </h3>

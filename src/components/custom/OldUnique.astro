@@ -37,9 +37,16 @@ const {
 
 <section class="bg-white dark:bg-gray-900 w-full my-8">
   <div
-    class="relative h-full md:h-[400px] overflow-hidden py-2 md:py-0 md:px-0 mx-auto max-w-screen-xl text-center lg:py-0"
+    class="relative h-full md:h-[400px] overflow-hidden py-0 px-0 mx-auto max-w-screen-xl text-center lg:py-0"
   >
-    <div class="md:flex h-full sm:space-y-8  md:h-[400px] left-0 bottom-0 right-0 top-0">
+    <Image
+      src={UniqueImage}
+      alt=""
+      height={400}
+      width={Math.round((100 * 16) / 9)}
+      class="w-full h-auto object-contain lg:absolute"
+    />
+    <div class="absolute block md:flex h-full  md:h-[400px] left-0 bottom-0 right-0 top-0">
         <div class="lg:w-[50%] flex sm:flex-col justify-center items-center">
             <div class="h-[300px] w-[350px] bg-primary rounded-md relative">
                 <div class="absolute h-[85px] w-[63px] top-[119px] bottom-[127px] left-[127px] right-[135px] overflow-hidden rounded-md">
@@ -116,33 +123,33 @@ const {
                 </div>
             </div>
         </div>
-        <div
-          class="flex flex-col justify-center"
-        >
-          <h1
-            class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
-          >
-            {title}
-          </h1>
-          <h4
-            class="mb-8 text-lg font-normal text-gray-700 lg:text-2xl sm:px-16 lg:px-48 dark:text-gray-400"
-          >
-            {subtitle}
-          </h4>
-          {showButtons?
-          <div
-            class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
-          >
-            <!--Needs work -->
-            <ButtonGroup
-              text1={buttonText1}
-              href1={buttonLink1}
-              text2={buttonText2}
-              href2={buttonLink2}
-            />
-          </div>:null
-          }
-        </div>
+    <div
+      class="flex flex-col justify-center"
+    >
+      <h1
+        class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      >
+        {title}
+      </h1>
+      <h4
+        class="mb-8 text-lg font-normal text-gray-700 lg:text-2xl sm:px-16 lg:px-48 dark:text-gray-400"
+      >
+        {subtitle}
+      </h4>
+      {showButtons?
+      <div
+        class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
+      >
+        <!--Needs work -->
+        <ButtonGroup
+          text1={buttonText1}
+          href1={buttonLink1}
+          text2={buttonText2}
+          href2={buttonLink2}
+        />
+      </div>:null
+      }
+    </div>
     </div>
   </div>
 </section>
