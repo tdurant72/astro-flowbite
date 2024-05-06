@@ -8,6 +8,7 @@
 </p>
 <div class="contact-form">
   <form
+    id="contactForm"
     data-netlify="true"
     netlify-honeypot="bot-field"
     name="contact"
@@ -26,7 +27,7 @@
       value="Submission from Sublime UX form"
     />
     <p>
-      <input type="hidden" name="form-name" value="feedback" />
+      <input type="hidden" name="form-name" value="contact" />
 
       <label
         for="name"
@@ -71,41 +72,58 @@
       >
     </p>
   </form>
-
-  <style>
-    .contact-form {
-      margin: 40px 40px;
-      min-width: 250px;
-      width: 45%;
-    }
-    label {
-      font-size: 16px;
-    }
-
-    textarea,
-    button {
-      border-radius: 5px;
-      /* border: 1px solid #cbd5e1; */
-      font-size: inherit;
-      margin: 15px 0;
-      padding: 12px 20px;
-      width: 100%;
-    }
-    button {
-      /* background-color: #2bdcd2; */
-      /* border: 1px solid #2bdcd2; */
-
-      font-size: 16px;
-      width: 50%;
-    }
-    .hidden {
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
-  </style>
 </div>
+<style>
+  .contact-form {
+    margin: 40px 40px;
+    min-width: 250px;
+    width: 45%;
+  }
+  label {
+    font-size: 16px;
+  }
+
+  textarea,
+  button {
+    border-radius: 5px;
+    /* border: 1px solid #cbd5e1; */
+    font-size: inherit;
+    margin: 15px 0;
+    padding: 12px 20px;
+    width: 100%;
+  }
+  button {
+    /* background-color: #2bdcd2; */
+    /* border: 1px solid #2bdcd2; */
+
+    font-size: 16px;
+    width: 50%;
+  }
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+</style>
+<!-- <script>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const contactForm = event.target;
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
+  };
+
+  document.querySelector("form").addEventListener("submit", handleSubmit);
+</script> -->
