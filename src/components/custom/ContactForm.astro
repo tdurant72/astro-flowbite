@@ -7,14 +7,15 @@
   of our products or have any questions.
 </p>
 <div class="contact-form">
-  <form
+  <form action="https://submit-form.com/NXqDDWsq">
+    <!-- <form
     data-netlify="true"
     netlify-honeypot
     name="contact"
     method="POST"
     action="/success"
-  >
-    <p class="hidden">
+  > -->
+    <!-- <p class="hidden">
       <label>
         Don’t fill this out if you’re human: <input name="bot-field" />
       </label>
@@ -25,52 +26,52 @@
       value="Submission from Sublime UX form"
     />
     <p>
-      <input type="hidden" name="form-name" value="message" />
+      <input type="hidden" name="form-name" value="message" /> -->
+    <input type="hidden" name="_redirect" value="/success" />
+    <label
+      for="name"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Name</label
+    >
+    <input
+      id="name"
+      type="text"
+      name="name"
+      class="bg-gray-50 border-2 border-primaryDrk text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+    />
 
-      <label
-        for="name"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Name</label
-      >
-      <input
-        id="name"
-        type="text"
-        name="name"
-        class="bg-gray-50 border-2 border-primaryDrk text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
-      />
+    <label
+      for="email"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Email</label
+    >
+    <input
+      id="email"
+      type="email"
+      name="email"
+      required
+      class="bg-gray-50 border-2 border-primaryDrk text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+    />
 
-      <label
-        for="email"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Email</label
-      >
-      <input
-        id="email"
-        type="email"
-        name="email"
-        required
-        class="bg-gray-50 border-2 border-primaryDrk text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
-      />
-
-      <label
-        for="message"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Message:</label
-      >
-      <textarea
-        id="message"
-        wrap="soft"
-        name="message"
-        required
-        class="border-2 border-primaryDrk"></textarea>
-      <button
-        type="submit"
-        class="border-2 border-primary bg-primaryDrk text-primaryWhite"
-        >Submit</button
-      >
-    </p>
+    <label
+      for="message"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >Message:</label
+    >
+    <textarea
+      id="message"
+      wrap="soft"
+      name="message"
+      required
+      class="border-2 border-primaryDrk"></textarea>
+    <button
+      type="submit"
+      class="border-2 border-primary bg-primaryDrk text-primaryWhite"
+      >Submit</button
+    >
   </form>
 </div>
+
 <style>
   .contact-form {
     margin: 40px 40px;
