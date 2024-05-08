@@ -61,43 +61,74 @@ const features = [
     <div
       class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
     >
-      {
-        features.map((feature) => (
-          <div class="flex flex-col items-center p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-            {/* <img
-              src={feature.icon}
-              width="100"
-              height="100"
-              alt={feature.name}
-              loading="lazy"
-            /> */}
-            <Image
-              src={
-                feature.id === 1
-                  ? MonitorIcon
-                  : feature.id === 2
-                    ? RocketIcon
-                    : BannerIcon
-              }
-              alt={feature.name}
-              width={100}
-              height={100}
-              loading="eager"
-              class="h-[100px] width-[100px] aspect-square"
-            />
-            <h3 class="mb-2 text-2xl font-semibold">{feature.name}</h3>
-            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-8">
-              {feature.description}
-            </p>
+      <div
+        class="flex flex-col items-center p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <Image
+          src={MonitorIcon}
+          alt="Build Your Brand"
+          width={100}
+          height={100}
+          loading="eager"
+          class="h-[100px] width-[100px] aspect-square"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">Build Your Brand</h3>
+        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-8">
+          Stand out from the competition and build credibility.
+        </p>
 
-            <Button
-              text={feature.cta}
-              href={feature.ctaLink}
-              textColor="primaryBlk"
-            />
-          </div>
-        ))
-      }
+        <Button
+          text="Our Approach To Branding"
+          href="/services#design"
+          textColor="primaryBlk"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <Image
+          src={RocketIcon}
+          alt="Increase Traffic"
+          width={100}
+          height={100}
+          loading="eager"
+          class="h-[100px] width-[100px] aspect-square"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">Increase Traffic</h3>
+        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-8">
+          Attract more organic traffic to your website, by optimizing your
+          website for search engines.
+        </p>
+
+        <Button
+          text="How We Optimize Sites"
+          href="/services#seo"
+          textColor="primaryBlk"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+      >
+        <Image
+          src={BannerIcon}
+          alt="Grow Your Business"
+          width={100}
+          height={100}
+          loading="eager"
+          class="h-[100px] width-[100px] aspect-square"
+        />
+        <h3 class="mb-2 text-2xl font-semibold">Grow Your Business</h3>
+        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-8">
+          Encourage your visitors to take action, this can lead to more sales
+          and revenue for your business.
+        </p>
+
+        <Button
+          text="Why User Experience Matters"
+          href="/services#growth"
+          textColor="primaryBlk"
+        />
+      </div>
     </div>
   </div>
 </section>
