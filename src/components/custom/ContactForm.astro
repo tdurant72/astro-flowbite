@@ -7,7 +7,7 @@
   of our products or have any questions.
 </p>
 <div class="contact-form">
-  <form action="https://submit-form.com/NXqDDWsq">
+  <form action="https://submit-form.com/NXqDDWsq" id="contactForm">
     <!-- <form
     data-netlify="true"
     netlify-honeypot
@@ -27,11 +27,11 @@
     />
     <p>
       <input type="hidden" name="form-name" value="message" /> -->
-    <input
+    <!-- <input
       type="hidden"
       name="_redirect"
       value="https://www.sublimeux.com/success"
-    />
+    /> -->
     <label
       for="name"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -74,8 +74,29 @@
       >Submit</button
     >
   </form>
+  <div id="thankYou" class="2" style="display:none">
+    <h2 class="text-primaryMed text-3xl">ThankYou</h2>
+    <h6 class="text-primaryBlk text-xl">
+      Someone will reach out to you within one business day.
+    </h6>
+  </div>
 </div>
-
+<script>
+  document.forms["contactForm"].addEventListener("submit", function (event) {
+    // Do something with the form's data here
+    this.style["display"] = "none";
+    event.preventDefault();
+    showThankYou();
+  });
+  function showThankYou() {
+    var x = document.getElementById("thankYou");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
 <style>
   .contact-form {
     margin: 40px 40px;
