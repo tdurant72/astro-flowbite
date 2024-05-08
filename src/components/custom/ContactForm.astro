@@ -84,9 +84,10 @@
 <script>
   document.forms["contactForm"].addEventListener("submit", function (event) {
     // Do something with the form's data here
-    this.style["display"] = "none";
-    event.preventDefault();
+    // this.style["display"] = "none";
+
     showThankYou();
+    // event.preventDefault();
   });
   function showThankYou() {
     var x = document.getElementById("thankYou");
