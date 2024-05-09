@@ -29,6 +29,22 @@ import data from "../data/site.json";
         document.documentElement.classList.remove("dark");
       }
     </script>
+    <script type="application/ld+json" defer>
+      {
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Sublime UX",
+        "image": "@src/images/socialImage.webp",
+        "telephone": "(336) 517-7923",
+        "email": "todurant@sublimeux.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Greensboro",
+          "addressRegion": "NC"
+        },
+        "url": "https://www.sublimeux.com/"
+      }
+    </script>
   </head>
   <body>
     <div class="bg-slate-50 dark:bg-slate-800 min-h-screen">
