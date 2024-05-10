@@ -7,7 +7,13 @@
   of our products or have any questions.
 </p>
 <div class="contact-form">
-  <form action="https://formsubmit.co/contact@tyusdurant.com" method="POST">
+  <form
+    data-netlify="true"
+    name="contact"
+    method="POST"
+    action="/pages/success"
+  >
+    <!-- <form action="https://formsubmit.co/contact@tyusdurant.com" method="POST"> -->
     <!-- <form action="https://www.formbackend.com/f/a1446e0c7f9b138c" method="POST"> -->
     <!-- <form action="https://submit-form.com/NXqDDWsq" id="contactForm"> -->
     <!-- <form
@@ -34,9 +40,9 @@
       name="_redirect"
       value="https://www.sublimeux.com/success"
     /> -->
-    <input type="text" name="_honey" class="hidden" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input
+    <!-- <input type="text" name="_honey" class="hidden" />
+    <input type="hidden" name="_captcha" value="false" /> -->
+    <!-- <input
       type="hidden"
       name="_next"
       value="https://www.sublimeux.com/success"
@@ -45,7 +51,8 @@
       type="hidden"
       name="_subject"
       value="New submission from Sublime UX"
-    />
+    /> -->
+
     <label
       for="name"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -88,12 +95,12 @@
       >Submit</button
     >
   </form>
-  <div id="thankYou" class="2" style="display:none">
+  <!-- <div id="thankYou" class="2" style="display:none">
     <h2 class="text-primaryMed text-3xl">ThankYou</h2>
     <h6 class="text-primaryBlk text-xl">
       Someone will reach out to you within one business day.
     </h6>
-  </div>
+  </div> -->
 </div>
 <!-- <script>
   document.forms["contactForm"].addEventListener("submit", function (event) {
