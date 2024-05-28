@@ -3,11 +3,15 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import PostList from "../components/custom/PostList.astro";
-
+import siteData from "../data/site.json";
 const blog = await getCollection("blog");
 ---
 
-<Layout title="Sublime UX Blog">
+<Layout
+  title="Sublime UX Blog"
+  description={siteData.siteDescription}
+  image={siteData.image.src}
+>
   <h1 class="text-primaryDrk font-bold text-3xl">Sublime UX Blog</h1>
   <PostList blog={blog} />
 </Layout>

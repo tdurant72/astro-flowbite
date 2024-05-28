@@ -9,10 +9,15 @@ interface Props {
 }
 
 const { post } = Astro.props;
+// const {title, description, author, postImage} = frontmatter
 ---
 
-<Layout title={post.data.title}>
-  <div class="md:py-8 py-16">
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.postimage}
+>
+  <div class="md:pt-32 py-16">
     <a
       href="/blog"
       class="inline-block bg-gray-100 p-2 mb-6 hover:bg-indigo-500 hover:text-white border border-secondary"

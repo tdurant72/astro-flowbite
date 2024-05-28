@@ -33,7 +33,7 @@ import data from "../data/site.json";
   <body>
     <div class="bg-stone-100 dark:bg-slate-800 min-h-screen">
       <Nav />
-      <div class="container">
+      <div class="container px-4 py-28">
         <slot />
         <Footer />
       </div>
@@ -42,7 +42,6 @@ import data from "../data/site.json";
       .container {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 1rem;
       }
       .section {
         padding: 60px 0;

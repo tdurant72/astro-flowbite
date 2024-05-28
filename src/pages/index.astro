@@ -18,7 +18,11 @@ import Customers from "../components/custom/Customers.astro";
 import ContactUs from "../components/custom/ContactUs.astro";
 ---
 
-<Layout title={data.siteName}>
+<Layout
+  title={data.siteName}
+  description={data.siteDescription}
+  image={data.image.src}
+>
   <main>
     <!-- <Header /> -->
     <CustomHero />

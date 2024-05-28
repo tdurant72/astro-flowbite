@@ -8,6 +8,10 @@
     "phone": "336-517-7923",
     "address": "Greensboro, NC 27405"
   },
+  "image":{
+    "src":"/images/socialImage.webp",
+    "alt": "Sublime UX"
+  },
   "pages": [
     {
       "title": "Home",

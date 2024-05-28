@@ -15,5 +15,14 @@ function capitalize(str: string): string {
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
-
-export { formatDate, capitalize };
+function slugify(text: { toString: () => string }) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+}
+export { formatDate, capitalize, slugify };
