@@ -51,9 +51,12 @@ import VideoAlt from "../components/VideoAlt.astro";
 
 //Added 1/3/24
 import CustomImageScroll from "../components/CustomImageScroll.astro";
+
+import SublimeVideo from "@/components/custom/SublimeVideo.astro";
+import VideoModal from "@/components/custom/VideoModal.astro";
 ---
 
-<Layout title="Components">
+<Layout title="Components" description="components available">
   <div>
     <HeaderSmall title={title} subtitle={subtitle} />
   </div>
@@ -146,6 +149,8 @@ import CustomImageScroll from "../components/CustomImageScroll.astro";
 
       <Heading heading="Modal" />
       <Modal />
+      <Heading heading="Video Modal" />
+      <VideoModal />
 
       <Heading heading="Indicator Count" />
       <IndicatorCount button="Messages" count={69} href="https://google.com" />
@@ -179,6 +184,11 @@ import CustomImageScroll from "../components/CustomImageScroll.astro";
       <VideoAlt
         youtube="https://www.youtube.com/embed/8SqtRVx4yuc?si=tMAYAOBGstMZIyds"
       />
+      <Heading heading="Video Custom" />
+      <p class="mb-8 mt-2 text-lg text-gray-900 dark:text-gray-200">
+        Link needs to be the embedded link from youtube.
+      </p>
+      <SublimeVideo />
 
       <Heading heading="Custom Image Scroll" />
       <CustomImageScroll />
