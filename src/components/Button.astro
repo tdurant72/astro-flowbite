@@ -5,6 +5,7 @@ interface Props {
   bgColor?: string;
   textColor?: string;
   textSize?: string;
+  target?: string;
 }
 
 const {
@@ -13,11 +14,13 @@ const {
   bgColor = "primary",
   textColor = "white",
   textSize = "sm",
+  target = "_self",
 } = Astro.props;
 ---
 
 <a
   href={href}
+  target={target}
   class=`text-${textColor} bg-${bgColor} focus:outline-none cursor-pointer focus:ring-4 focus:ring-secondary font-medium rounded-full text-${textSize} px-5 py-2.5 text-center`
   >{text}</a
 >

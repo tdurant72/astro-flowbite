@@ -17,18 +17,28 @@
   </div>
   <div class="h-80">
     <div class="aspect-video py-5 max-h-[315px] max-w-[560px] mx-auto">
-      <iframe
+      <!-- <iframe
         class="w-full h-full rounded-lg"
         title="Why Choose Sublime UX"
         src="https://www.youtube.com/embed/XBX_pA7EzZY?si=tJ9BZaB1C8idZ6I8"
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
         allowfullscreen
-        allow="encrypted-media; fullscreen;"></iframe>
+        allow="encrypted-media; fullscreen;"></iframe> -->
+      <lite-youtube videoid="XBX_pA7EzZY">
+        <a
+          class="lite-youtube-fallback"
+          href="https://www.youtube.com/watch?v=XBX_pA7EzZY"
+          >Watch on YouTube: "Why Choose Sublime UX"</a
+        >
+      </lite-youtube>
     </div>
   </div>
 </section>
 
+<script>
+  import "@justinribeiro/lite-youtube";
+</script>
 <style>
   .videowrapper {
     float: none;
