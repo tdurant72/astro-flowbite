@@ -6,6 +6,7 @@ interface Props {
   bgColor?: string;
   textColor: string;
   textSize?: string;
+  textWeight?: string;
   target?: string;
 }
 
@@ -13,9 +14,10 @@ const {
   text,
   href,
   textColor,
-  bdColor = "primaryMed",
-  bgColor = "white",
-  textSize = "sm",
+  bdColor = "border-primaryMed",
+  bgColor = "bg-white",
+  textSize = "text-sm",
+  textWeight = "font-medium",
   target = "_self",
 } = Astro.props;
 ---
@@ -23,6 +25,6 @@ const {
 <a
   href={href}
   target={target}
-  class=`text-${textColor} bg-${bgColor} focus:outline-none cursor-pointer focus:ring-4 focus:ring-secondary font-medium rounded-full text-${textSize} px-5 py-2.5 text-center border border-${bdColor} `
+  class=`${textColor} ${bgColor} focus:outline-none cursor-pointer focus:ring-2 rounded-full ${textSize} px-2 md:px-5  py-1 md:py-2.5 text-center border border-2 ${bdColor} ${textWeight}`
   >{text}</a
 >

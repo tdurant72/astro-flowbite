@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+import ButtonAlt from "../ButtonAlt.astro";
+import VideoModal from "./VideoModal.astro";
+import Video from "../Video.astro";
+import Modal from "../Modal.astro";
+import QuoteWName from "./QuoteWName.astro";
+import siteImage from "../../../public/images/eagles-device.webp";
+import groupDesktop from "../../../public/images/group_desktop.webp";
+import groupMobile from "../../../public/images/group_mobile.webp";
+import performanceDesktop from "../../../public/images/performance_desktop.webp";
+import performanceMobile from "../../../public/images/performance_mobile.webp";
+import combineImage from "../../../public/images/combineImage.webp";
+
+const title = "Let's turn your website into a customer magnet";
+const body =
+  "Our simple 8-point plan will increase your page speed, help you rank higher in search engines, and expand customer base, all in 90 days";
+const buttonText = "Contact Us";
+const buttonLink = "/#contact-us";
+const buttonTwoText = "Get Started";
+const buttonTwoLink = "https://www.google.com";
+---
+
+<section
+  class="bg-slate-50 dark:bg-slate-800 lg:h-full section-parallax mt-10 md:mt-4"
+>
+  <div
+    class="grid max-w-screen-xl px-4 pt-8 pb-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
+  >
+    <div class="mr-auto place-self-center lg:col-span-5 copy-parallax">
+      <h1
+        class="text-primaryMed max-w-2xl mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+      >
+        Get<span
+          class="text-primaryBlk drop-shadow-none max-w-2xl mb-6 ml-2 text-lg font-extrabold tracking-tight leading-none md:text-xl xl:text-2xl"
+          >your business</span
+        ><br />
+        <span
+          class="text-primaryMed drop-shadow-[2px_2px_var(--tw-shadow-color)] shadow-gray-800 max-w-2xl mb-6 text-6xl font-extrabold tracking-tight leading-none md:text-7xl xl:text-8xl"
+          >Noticed</span
+        >
+      </h1>
+      <p
+        class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 text-lg md:text-xl lg:text-2xl dark:text-gray-400"
+      >
+        We buid fast modern sites, that customers love.
+      </p>
+      <ul class="list-disc list-outside my-2 ml-8">
+        <li>Lightning-quick</li>
+        <li>Boost your search engine rankings</li>
+        <li>Expand your customer base</li>
+      </ul>
+
+      <div
+        class="mt-5 mb-2 flex space-x-2 md:space-x-5 items-start animate__animated animate__fadeInUp animate__delay-1s"
+      >
+        <Button
+          text={buttonText}
+          href={buttonLink}
+          bgColor="bg-amber-500"
+          textColor="text-white"
+          textWeight="font-medium md:font-bold"
+          textSize="text-base md:text-md"
+        />
+
+        <ButtonAlt
+          textColor="text-amber-500"
+          bdColor="border-amber-500"
+          textWeight="font-medium md:font-bold"
+          textSize="text-base md:text-md"
+          text="Schedule an appointment"
+          href="https://calendar.app.google/qFjCk6JDCAxQkDPL7"
+          target="_blank"
+        />
+      </div>
+      <span class="text-xs mx-4">We will never share your information</span>
+      <span class="mr-4"></span>
+    </div>
+    <div id="site-graphic" class="hidden md:block col-span-7 overflow-hidden">
+      <Image
+        height={533}
+        width={800}
+        src={combineImage}
+        alt="Site Image"
+        loading="eager"
+        class="md:block ease-in-out duration-300 aspect-video rounded-xl"
+      />
+      <Image
+        height={339}
+        width={360}
+        src={performanceMobile}
+        alt="performance"
+        loading="eager"
+        class="md:hidden image-parallax ease-in-out duration-300 hover:rotate-1"
+      />
+    </div>
+  </div>
+  <div class="max-w-screen-xl px-4 pt-0 pb-8 mx-auto">
+    <QuoteWName
+      quote="We are very pleased with the redesign of our website.  Our experience working with them was tailored to our needs.  We were very impressed by their extensive knowledge of our business needs as well as our web design needs.  We were very fortunate to have them work with us."
+      name="Quinton"
+    />
+  </div>
+</section>
+
+<style>
+  .section-parallax {
+    transform-style: preserve-3d;
+    z-index: -1;
+  }
+  .image-parallax {
+    transform: translateZ(-16px) scale(2);
+  }
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  #hero-graphic {
+    animation: float ease-in-out 5.5s infinite alternate;
+  }
+</style>
