@@ -1,0 +1,169 @@
+{
+    "owner": "Sublime UX",
+    "siteName": "Sublime UX",
+    "siteDescription": "Sublime UX, a user experience web design firm",
+    "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
+    "contact": {
+      "email": "todurant@sublimeux.com",
+      "phone": "336-517-7923",
+      "address": "Greensboro, NC 27405"
+    },
+    "image":{
+      "src":"/images/socialImage.webp",
+      "alt": "Sublime UX"
+    },
+    "pages": [
+      {
+        "title": "Home",
+        "href": "/"
+      },
+      {
+        "title": "Projects",
+        "href": "/#gallery"
+      },
+      {
+        "title": "Services",
+        "href": "/services"
+      },
+      {
+        "title": "Blog",
+        "href": "/blog"
+      },
+      {
+        "title": "Contact",
+        "href": "/#contact-us"
+      }
+    ],
+    "sections":[
+        {
+            "hero":{
+                "header": "Automation For Staffing",
+                "icon": "money-bill",
+                "title": "Automate Staffing Workflows: 80% Less Time on Timesheets, Invoices & Payroll",
+                "description": "Our automation workflow, customized for staffing agencies, slashes processing time by over 80%...",
+                "benefits":[{
+                    "benefit1":"Lightning-quick",
+                    "benefit2":"Boost your search engine rankings",
+                    "benefit3":"Expand your customer bases"
+                }],
+                "buttons":[{
+                    "button1": {
+                    "text":"Start Automating Today",
+                     "link": "https://tally.so/r/wgZG8P"
+                    },
+                    "button2": {
+                        "text":"Download your free kit",
+                        "link": "https://tally.so/r/wgZG8P"
+                    }
+                }],
+                
+                "userReviews": [
+                    {
+                        "user1":{
+                            "name": "user1",
+                            "image": "https://via.placeholder.com/40"
+                        }
+                    }
+                ],
+                "videoUrl": "https://www.youtube.com/embed/XMhU3bRsezA",
+                "heroImage":"/public/images/combineImage.webp"
+            },
+            "painpoints":{
+                "painpointImage":"/public/images/combineImage.webp",
+                "painpointsTitle": "Streamline Timesheets, Invoicing, and Payroll...",
+                "painpointList": [
+                    {
+                        "point1":{
+                            "problem":"Time-Consuming Manual Processes:",
+                            "solution":"Staffing agencies struggle with the tedious..."
+                        },
+                        "point2":
+                        {
+                            "problem":"Invoicing Delays and Errors:",
+                            "solution":"Manual generation of invoices based on approved timesheets is slow..."
+                        }
+                    }
+                ]
+            },
+            "howItWorks":{
+                "howItWorksImage":"/public/images/combineImage.webp",
+                "howItWorksTitle": "How It Works",
+                "howItWorksSteps": [
+                    {
+                        "step1":{
+                            "Step 1:":"Assessment and Planning",
+                            "description":"Staffing agencies struggle with the tedious..."
+                        },
+                        "step2":
+                        {
+                            "Step 2:":"Solution Design",
+                            "description":"Manual generation of invoices based on approved timesheets is slow..."
+                        },
+                        "step3":
+                        {
+                            "Step 3:":"Solution Design",
+                            "description":"Manual generation of invoices based on approved timesheets is slow..."
+                        }
+                    }
+                ]
+            },
+            "faqs":{
+                "faqTitle": "Frequently Asked Questions",
+                "faqItems": [
+                    {
+                        "question": "What is automation in this context?", "answer": "Automation refers to..."
+                    }
+                ]
+            }
+        }
+    ],
+    "social": [
+      {
+        "title": "Twitter",
+        "href": "https://twitter.com/sublime_ux"
+      },
+      {
+        "title": "YouTube",
+        "href": "https://www.youtube.com/@sublimeux"
+      },
+      {
+        "title": "LinkedIn",
+        "href": "https://www.linkedin.com/in/tyus-durant-98697511"
+      }
+    ],
+    "projects": [
+      {
+        "projectTitle": "Project 1",
+        "href": "project/one",
+        "about": "Database of books and reviews from users complete with auth and comments and so much more!!!",
+        "type": "Python, Django, HTML, CSS",
+        "repo": "https://github.com",
+        "image": "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
+      },
+      {
+        "projectTitle": "Project 2",
+        "href": "project/two",
+        "about": "Video dashboard using JavaScript that allows user to build and share a layout of videos from YouTube.",
+        "repo": "https://github.com",
+        "type": "JavaScript, HTML, CSS",
+        "image": "../assets/screen2.png",
+        "featured": true
+      },
+      {
+        "projectTitle": "Project 3",
+        "href": "project/three",
+        "about": "Some info about this project here, please add something here for this project ok here.",
+        "type": "PHP, MySQL, HTML, CSS",
+        "repo": "https://github.com",
+        "image": "../assets/screen2.png"
+      },
+      {
+        "projectTitle": "Project 4",
+        "href": "project/four",
+        "about": "Some info about project 4 I'm not sure haha ok see ya",
+        "type": "WordPress",
+        "repo": "https://github.com"
+      }
+    ]
+  }
+  

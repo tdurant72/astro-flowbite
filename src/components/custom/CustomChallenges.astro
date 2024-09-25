@@ -1,0 +1,115 @@
+---
+// interface Props {
+//   youtube: string;
+// }
+
+// const { youtube } = Astro.props;
+const tabs = [
+  {
+    tabTitle: "Beyond looks",
+    tabContent:
+      "A website that looks great but is not created for the target audience or lacks clear and compelling call to action, will fail to gain qualified leads and conversions. Just having a site with a nice design is not enough; so just using a template that is attractive and replacing the content with yours will not bring in more customers.",
+    largerContent:
+      "Website design can help you establish a strong brand identity. The layout, graphics, and color schemes can be used to create a consistent look and feel that represents your brand. A strong brand identity can help you stand out from the competition and attract more customers.",
+  },
+  {
+    tabTitle: "Built better",
+    tabContent:
+      "Many customers use mobile devices to search for local businesses, and not having a mobile-friendly website can lead to missed opportunities. Matter of fact over 60% of businesses found online are by their mobile sites.  We make fast, responsive, mobile-first web design & development that fit your needs.",
+    largerContent:
+      "The dirty little secret in the web industry is most web sites are slow.  Find the top 5 web designers in your area and put their web address into page speed insights you will find most will fail. And not by a little.  Many sites will only score a 30%. If you wont accept a 30% on your kids math test why accept it on your website?",
+  },
+  {
+    tabTitle: "Getting noticed",
+    tabContent:
+      "Is your website struggling to get noticed? This often happens when it’s not set up to show up in search results, doesn’t have enough valuable content, or isn’t connected with social media. Showing up on the 8th page of a Google search does not help business will not help you find potential customers.",
+    largerContent:
+      "If your website has fast load speeds and provides a better user experience, it will likely rank higher in search engine results. Users place a high value  website's content and technical features is crucial.",
+  },
+  {
+    tabTitle: "Tailor made",
+    tabContent:
+      "If your website isn’t set up properly, it can be hard to attract and keep visitors. It might not feel personal, making it tough to bring in new customers or keep the ones you already have. A confusing or frustrating design can give your competitors an edge. Your site must be made for your customers.",
+    largerContent:
+      "Are you struggling to turn website visitors into customers? You're not alone. Many businesses fail to convert visitors into leads, sales, or subscribers, and that's where Conversion Rate Optimization (CRO) comes in. By optimizing your website and marketing campaigns, you can increase your conversion rate and drive more revenue.",
+  },
+];
+---
+
+<section class="bg-primary py-4">
+  <!-- width="560" height="315 -->
+  <div class="flex flex-col max-w-xl lg:max-w-5xl mx-auto">
+    <div class="text-center my-5">
+      <h2
+        class="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+      >
+        Solving real business challenges.
+      </h2>
+      <p
+        class="mb-4 text-xl md:text-2xl tracking-tight font-medium text-gray-900 dark:text-white"
+      >
+        Tired of chasing unqualified leads? Supercharge your lead generation
+        with custom web design solutions crafted to fit your unique goals and
+        budget.
+      </p>
+    </div>
+    <div class="grid gap-x-4 mb-6 md:grid md:grid-cols-4" id="challenges">
+      <div
+        class="ml-2 col-span-1 lg:ml-0 mb-2 lg:mb-4 border-b border-gray-200 dark:border-gray-700"
+      >
+        <ul
+          class="flex flex-wrap -mb-px text-2xl font-medium text-left"
+          id="default-tab"
+          data-tabs-toggle="#default-tab-content"
+          role="tablist"
+        >
+          {
+            tabs.map((tab, index) => (
+              <li class="mr-2 " role="presentation">
+                <button
+                  class="inline-block p-4 border-b-2 rounded-t-lg text-gray-900"
+                  id={`tab-${index}`}
+                  data-tabs-target={`#tab-content-${index}`}
+                  type="button"
+                  role="tab"
+                  aria-controls={`tab-content-${index}`}
+                  aria-selected="false"
+                >
+                  {tab.tabTitle}
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div id="default-tab-content" class="h-full col-span-3">
+        {
+          tabs.map((tab, index) => (
+            <div
+              class="hidden h-full p-2 mx-2 lg:p-4 lg:m-0 rounded-lg bg-stone-50 dark:bg-slate-900"
+              id={`tab-content-${index}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${index}`}
+            >
+              <>
+                <p class="text-xl text-gray-800 dark:text-gray-400">
+                  {tab.tabContent}
+                </p>
+                <br />
+              </>
+              <p class="hidden md:block text-xl text-gray-800 dark:text-gray-400">
+                {tab.largerContent}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-tabs {
+    grid-template-columns: 200px 1fr;
+  }
+</style>

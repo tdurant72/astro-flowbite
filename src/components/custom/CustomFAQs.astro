@@ -1,0 +1,127 @@
+---
+const faqs = [
+  {
+    id: 1,
+    question: "How much does a custom website design cost?",
+    answer:
+      "The cost of a custom website design can vary widely based on the complexity of the site, the number of pages, and the specific features required. Our price may differ than other agencies because of our development process and plans but on average, small business websites in the area range from $2,500 to $10,000. More advanced websites with e-commerce functionality, custom animations, or integrations can cost $10,000 to $30,000 or more. Check our pricing table and if you need more information reach out to us.",
+  },
+  {
+    id: 2,
+    question: "How long does it take to build a website?",
+    answer:
+      "The timeline for building a website depends on the project scope. A simple brochure-style website can take 4-6 weeks to complete, while more complex sites with custom functionality, e-commerce features, or intricate design elements might take 3-6 months. This timeline includes stages like discovery, design, development, and testing, along with any revisions.",
+  },
+  {
+    id: 3,
+    question: "What is responsive web design, and why is it important?",
+    answer:
+      "Responsive web design ensures your website looks great and functions properly on all devices—desktops, tablets, and smartphones. In a mobile-first world, having a responsive website is crucial because about 60% of all web traffic comes from mobile devices. A responsive site enhances the user experience, improves SEO (Google ranks mobile-friendly sites higher), and helps increase conversions by catering to mobile visitors.",
+  },
+  {
+    id: 4,
+    question: "Can you help my website rank higher on Google?",
+    answer:
+      "Yes, we offer search engine optimization (SEO) services as part of our web design packages. This includes optimizing your site’s structure, improving page load times, using relevant keywords, and ensuring that your site is mobile-friendly. SEO is an ongoing effort, so we also recommend ongoing SEO maintenance to keep your rankings high and adjust to Google’s changing algorithms.",
+  },
+  {
+    id: 5,
+    question: "What platform do you build websites on?",
+    answer:
+      "We specialize in building websites on Astro, but it depends on your needs. Astro is our top choice because of speed, flexibility,  customization and cost to host, especially for businesses needing blog functionality or custom integrations.",
+  },
+  {
+    id: 6,
+    question: "Do you offer website maintenance and support?",
+    answer:
+      "Yes, we offer ongoing maintenance and support services. This includes updating your site’s content, plugin and theme updates, security monitoring, and performance optimization. Regular maintenance ensures your site remains secure, runs smoothly, and adapts to changes in the digital landscape. Our support packages can be customized to meet your specific needs.",
+  },
+  {
+    id: 7,
+    question: "Can you redesign my existing website?",
+    answer:
+      "Absolutely! Whether your site is outdated, not mobile-friendly, or underperforming, we can help with a full redesign. We’ll start by analyzing your current site’s strengths and weaknesses, then develop a new design that improves user experience, functionality, and visual appeal. Our redesign process ensures that your new site will meet modern web standards and perform better across all devices.",
+  },
+  {
+    id: 8,
+    question: "How important is website speed, and how do you optimize it?",
+    answer:
+      "Website speed is critical for user experience and SEO. Slow-loading sites can frustrate visitors and cause them to leave, while Google uses page speed as a ranking factor. We optimize website speed by using efficient coding practices, compressing images, leveraging browser caching, and implementing content delivery networks (CDNs). Fast websites lead to better engagement, higher rankings, and improved conversion rates.",
+  },
+  {
+    id: 9,
+    question: "Will I be able to update my website on my own?",
+    answer:
+      "It depends, we build websites with user-friendly content management systems (CMS) that allow you to update your content easily on our higher tier sites. This part of the reason our websites or cheaper. Making every website with a complete CMS is expensive. After your site is launched, we’ll provide training so you can make changes to text, images, blog posts, and more without needing technical expertise. If you prefer not to manage updates yourself, we offer affordable maintenance packages to handle this for you.",
+  },
+  {
+    id: 10,
+    question: "What kind of businesses do you work with?",
+    answer:
+      "We work with a diverse range of businesses, from local startups and small businesses to established corporations. Our portfolio includes industries like finance, government, non-profits, and more. We tailor each project to the client’s specific goals, industry, and audience to deliver a custom solution that drives results.",
+  },
+];
+---
+
+<section>
+  <div class="text-center my-4 md:my-5 max-w-5xl mx-auto">
+    <h2
+      class="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+    >
+      Frequently Asked Questions
+    </h2>
+    <p
+      class="mb-4 text-xl md:text-2xl tracking-tight font-medium text-gray-900 dark:text-white"
+    >
+      If you have any questions or need clarity please reach out to us.
+    </p>
+  </div>
+  <div
+    id="accordion-collapse"
+    data-accordion="collapse"
+    class="max-w-5xl mx-auto"
+  >
+    {
+      faqs.map((item, index) => (
+        <>
+          <h2 id={`accordion-collapse-heading-${index + 1}`}>
+            <button
+              type="button"
+              class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+              data-accordion-target={`#accordion-collapse-body-${index + 1}`}
+              aria-expanded="true"
+              aria-controls={`accordion-collapse-body-${index + 1}`}
+            >
+              <span>{item.question}</span>
+              <svg
+                data-accordion-icon
+                class="w-3 h-3 rotate-180 shrink-0 transition duration-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </button>
+          </h2>
+          <div
+            id={`accordion-collapse-body-${index + 1}`}
+            class="hidden"
+            aria-labelledby={`accordion-collapse-heading-${index + 1}`}
+          >
+            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+              <p class="mb-2 text-gray-500 dark:text-gray-400">{item.answer}</p>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</section>

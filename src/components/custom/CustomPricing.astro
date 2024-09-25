@@ -1,0 +1,178 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+const title = "Website Design Solutions for Every Business Size";
+const subtitle =
+  "Elevate your website’s performance with our tailored web design solutions! Our expert team focuses on creating user-friendly sites that not only look great but also keep visitors engaged. Plus, we ensure your site ranks higher on Google, helping more people find you. With fast, modern designs, we guarantee top-notch performance every time.";
+import Business1 from "../../public/images/business1.webp";
+import Business2 from "../../public/images/business2.webp";
+import Business3 from "../../public/images/business3.webp";
+
+const pricing = [
+  {
+    name: "Affordable Single Page Website Design",
+    image: "/images/business1.webp",
+    price: "$99",
+    description: "Best option for personal use or a digital business card.",
+    features: [
+      {
+        name: "Great for those just starting out.",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "No setup, or hidden fees",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Flexible plan if necessary for upates",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Basic support: 6 months",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Basic Search Engine optimization",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+    cta: "Book Appointment",
+    ctaLink: "https://www.google.com",
+  },
+  {
+    name: "Multipage Website Design For Small Businesses",
+    image: "/images/business2.webp",
+    price: "$599",
+    description: "1 to 3 pages plus a CMS for a blog and projects",
+    features: [
+      {
+        name: "Ideal for small businesses that need to keep customers engaged",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "No setup, or hidden fees",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Flexible plan if necessary for upates",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Premium support: 8 months",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Advanced Search Engine optimization for all pages including blog posts",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Customers can create their own content update blogs and projects",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+    cta: "Book Appointment",
+    ctaLink: "https://www.google.com",
+  },
+  {
+    name: "Multipage and CMS Website Designs For Larger Businesses",
+    image: "/images/business3.webp",
+    price: "$1199",
+    description: "5+ pages plus a CMS for all pages, blog posts and projects",
+    features: [
+      {
+        name: "Ideal for larger business that want to control every aspect of their site",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "No setup, or hidden fees",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Update your own content or partner with us.",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Premium support: 12 months",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Advanced Search Engine optimization",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Coplete CMS built out for every page, blog post, and project",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+    cta: "Book Appointment",
+    ctaLink: "https://www.google.com",
+  },
+];
+---
+
+<section class="bg-stone-100 dark:bg-slate-800">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+      <h2
+        class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+      >
+        {title}
+      </h2>
+      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        {subtitle}
+      </p>
+    </div>
+    <div
+      class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
+    >
+      {
+        pricing.map((plan) => (
+          <div class="flex flex-col flex-1 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 p-2 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <img
+              src={plan.image}
+              alt={plan.name}
+              width={175}
+              height={175}
+              loading="lazy"
+              class="border-primary border-4 rounded-full h-[175px] w-[175px] mx-auto mb-8"
+            />
+            <h3 class="mb-4 text-2xl font-semibold">{plan.name}</h3>
+            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+              {plan.description}
+            </p>
+            <div class="flex justify-center items-baseline my-8">
+              <span class="mr-2 text-5xl font-extrabold">{plan.price}</span>
+              {/* <span class="text-gray-500 dark:text-gray-400">/month</span> */}
+            </div>
+
+            <ul role="list" class="mb-8 space-y-4 text-left">
+              {plan.features.map((feature) => (
+                <li class="flex items-center space-x-3">
+                  <svg
+                    class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>{feature.name}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-auto">
+              <Button
+                text={plan.cta}
+                href="https://calendar.app.google/qFjCk6JDCAxQkDPL7"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

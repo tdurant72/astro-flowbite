@@ -19,6 +19,9 @@ import ContactUs from "../components/custom/ContactUs.astro";
 import VideoModal from "@/components/custom/VideoModal.astro";
 import SublimeVideo from "@/components/custom/SublimeVideo.astro";
 import HeroAlt from "@/components/custom/HeroAlt.astro";
+import CustomChallenges from "@/components/custom/CustomChallenges.astro";
+import CustomPricing from "@components/custom/CustomPricing.astro";
+import CustomFAQs from "@/components/custom/CustomFAQs.astro";
 ---
 
 <Layout
@@ -38,7 +41,9 @@ import HeroAlt from "@/components/custom/HeroAlt.astro";
       alt="waves"
       class="w-full overflow-hidden object-cover"
     />
+    <CustomChallenges />
     <SublimeVideo />
+
     <Services />
     <CustomFeaturedProject />
     <ProjectGallery />
@@ -47,6 +52,8 @@ import HeroAlt from "@/components/custom/HeroAlt.astro";
       subtitle="Your site should be as unique as you are"
     />
     <Process />
+    <CustomPricing />
+    <CustomFAQs />
     <Customers />
     <ContactUs />
   </main>
