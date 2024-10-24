@@ -1,11 +1,12 @@
 ---
+import "aos/dist/aos.css";
 import { Image } from "astro:assets";
 import VideoCall from "../../assets/images/video-call.webp";
 ---
 
 <!-- https://gist.github.com/goodreds/3d044027175954984fb96c7407a955ab --><!-- Container -->
 <div
-  class="relative flex flex-col items-center mx-auto lg:flex-row-reverse mt-12 md:m-0"
+  class="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:mt-12 md:m-0"
 >
   <!-- <div class="curve absolute h-[250px] top-0"></div> -->
   <div class="custom-shape-divider-top-1728589509">
@@ -34,6 +35,9 @@ import VideoCall from "../../assets/images/video-call.webp";
   <!-- Text Column -->
   <div
     class="max-w-lg bg-white md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12"
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-easing="ease-in-sine"
   >
     <!-- Text Wrapper -->
     <div class="flex flex-col p-12 md:px-16">
