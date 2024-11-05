@@ -13,6 +13,8 @@ import performanceDesktop from "../../../public/images/performance_desktop.webp"
 import performanceMobile from "../../../public/images/performance_mobile.webp";
 import combineImage from "../../../public/images/combineImage.webp";
 import creator from "../../../public/images/creatorhappy.webp";
+import heroDesktop from "../../../public/images/heroImage.webp";
+import heroMobile from "../../../public/images/heroImage-mobile.webp";
 
 const title = "Let's turn your website into a customer magnet";
 const body =
@@ -29,7 +31,7 @@ const buttonTwoLink = "https://www.google.com";
   <div
     class="grid max-w-screen-xl px-4 pt-8 pb-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12"
   >
-    <div class="mr-auto place-self-center lg:col-span-5 copy-parallax">
+    <div class="mr-auto place-self-center lg:col-span-6 copy-parallax">
       <h1
         class="text-primaryMed max-w-2xl mb-6 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
       >
@@ -114,14 +116,14 @@ const buttonTwoLink = "https://www.google.com";
           href={buttonLink}
           bgColor="bg-amber-500"
           textColor="text-white"
-          textWeight="font-medium md:font-bold"
+          textWeight="font-normal md:font-bold"
           textSize="text-base md:text-md"
         />
 
         <ButtonAlt
           textColor="text-amber-500"
           bdColor="border-amber-500"
-          textWeight="font-medium md:font-bold"
+          textWeight="font-normal md:font-bold"
           textSize="text-base md:text-md"
           text="Schedule an appointment"
           href="https://calendar.app.google/qFjCk6JDCAxQkDPL7"
@@ -131,22 +133,22 @@ const buttonTwoLink = "https://www.google.com";
       <span class="text-xs mx-4">We will never share your information</span>
       <span class="mr-4"></span>
     </div>
-    <div id="site-graphic" class="hidden md:block col-span-7 overflow-hidden">
+    <div id="site-graphic" class="block md:col-span-6">
       <Image
-        height={533}
-        width={800}
-        src={creator}
-        alt="Site Image"
+        height={640}
+        width={678}
+        src={heroDesktop}
+        alt="Happy customer"
         loading="eager"
-        class="md:block ease-in-out duration-300 aspect-video rounded-xl"
+        class="hidden md:block ease-in-out duration-300 hover:scale-105 h-[640px] w-[678px]"
       />
       <Image
-        height={339}
-        width={360}
-        src={performanceMobile}
-        alt="performance"
+        height={274}
+        width={311}
+        src={heroMobile}
+        alt="happy customer"
         loading="eager"
-        class="md:hidden image-parallax ease-in-out duration-300 hover:rotate-1"
+        class="block md:hidden h-[274px] w-[311px] object-scale-down mx-auto"
       />
     </div>
   </div>
