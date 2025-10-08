@@ -3,7 +3,7 @@ title: Why your next site should be in Astro
 slug: why-astro
 author: Tyus Durant
 postimage:
-  src: "images/posts/why-your-next-site/cover.webp"
+  src: "/images/posts/why-your-next-site/cover.webp"
   alt: "Astro"
 pubDate: "2024-04-22"
 tags: ["Astro", "development"]

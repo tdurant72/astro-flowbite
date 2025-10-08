@@ -3,7 +3,7 @@ title: Why I like Framer
 slug: why-framer
 author: Tyus Durant
 postimage:
-  src: "images/posts/why-framer/cover.webp"
+  src: "/images/posts/why-framer/cover.webp"
   alt: "Framer interface"
 pubDate: "2023-04-1"
 tags: ["Framer", "low-code", "development"]
