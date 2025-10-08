@@ -80,14 +80,17 @@ import Logo from "../assets/logo.png";
 </style>
 
 <script>
+  import { Collapse } from "flowbite";
+  import type { CollapseOptions, CollapseInterface } from "flowbite";
+  import type { InstanceOptions } from "flowbite";
   // set the target element that will be collapsed or expanded (eg. navbar menu)
   const $targetEl = document.getElementById("targetEl");
-
+  const $triggerEl: HTMLElement = document.getElementById("triggerEl");
   // optionally set a trigger element (eg. a button, hamburger icon)
   // const $triggerEl = document.getElementById("triggerEl");
 
   // optional options with default values and callback functions
-  const options = {
+  const options: CollapseOptions = {
     onCollapse: () => {
       console.log("element has been collapsed");
     },
@@ -99,14 +102,21 @@ import Logo from "../assets/logo.png";
     },
   };
 
-  import { Collapse } from "flowbite";
-
+  const instanceOptions: InstanceOptions = {
+    id: "targetEl",
+    override: true,
+  };
   /*
    * $targetEl: required
    * $triggerEl: optional
    * options: optional
    */
-  const collapse = new Collapse($targetEl);
+  const collapse: CollapseInterface = new Collapse(
+    $targetEl,
+    $triggerEl,
+    options,
+    instanceOptions
+  );
 
   // show the target element
   collapse.expand();
