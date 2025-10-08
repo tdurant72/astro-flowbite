@@ -3,7 +3,7 @@ title: Why might you need a CMS
 slug: why-a-cms
 author: Tyus Durant
 postimage:
-  src: "public/images/posts/why-a-cms/cover.webp"
+  src: "images/posts/why-a-cms/cover.webp"
   alt: "multitask"
 pubDate: "2024-05-28"
 tags: ["CMS", "development"]
