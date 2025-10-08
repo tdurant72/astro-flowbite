@@ -2,7 +2,12 @@
 import { Image } from "astro:assets";
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import Prose from "../../components/Prose.astro";
-import { getEntry } from "astro:content";
+import {
+  getEntry,
+  getCollection,
+  render,
+  type CollectionEntry,
+} from "astro:content";
 import CustomTags from "../../components/custom/CustomTags.astro";
 
 const { slug } = Astro.params;
@@ -15,7 +20,7 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <ProjectLayout title="Fetured Project">
@@ -29,11 +34,10 @@ const { Content } = await entry.render();
     <p>From Content</p>
     <CustomTags tags={entry.data.tags} />
     <Image
-      src={"/images/" + entry.data.cover}
-      alt={entry.data.title}
+      src={entry.data.projectimage?.src ?? ""}
+      alt={entry.data.projectimage?.alt ?? entry.data.title}
       height={400}
       width={Math.round((100 * 16) / 9)}
-      transition:name={"/images/" + entry.data.cover}
       class="w-full h-auto object-cover"
     />
     <Prose>
