@@ -1,7 +1,8 @@
 ---
+import { title } from "motion/react-client";
 import HeaderSmall from "../HeaderSmall.astro";
 import Heading from "../Heading.astro";
-
+import { ProcessTimeline } from "@/components/React/ProcessTimeline";
 const heading = "Our Process";
 const items = ["1", "2", "3"];
 const info = ["Discovery", "Build", "Launch"];
@@ -34,21 +35,10 @@ const details = [
 // ];
 ---
 
-<div class="mt-16 max-w-2xl mx-auto">
-  <div class="p-2 mb-8 text-center">
-    <h4
-      class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl"
-    >
-      {heading}
-    </h4>
-    <p class="mt-6 text-xl leading-8 text-gray-600 dark:text-white">
-      Our process is streamlined with our customers in mind. Design and
-      development do not happen in a vacuum. We are with you every step of the
-      way, keeping you informed, involved, and in the know.
-    </p>
-  </div>
-</div>
-<div class="mb-12 px-8 max-w-3xl mx-auto hidden md:block">
+<section class="mt-16 max-w-5xl mx-auto min-h-screen w-full">
+  <ProcessTimeline client:load />
+</section>
+<!-- <div class="mb-12 px-8 max-w-3xl mx-auto hidden md:block">
   <ol class="relative border-l border-gray-200 dark:border-gray-700">
     {
       items.map((item) => {
@@ -70,4 +60,4 @@ const details = [
       })
     }
   </ol>
-</div>
+</div> -->

@@ -1,12 +1,13 @@
 ---
-const title = "Projects";
-const subtitle = "Some Projects";
-
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-
+import ProjectCard from "@/components/custom/ProjectCard.astro";
 import HeaderSmall from "../components/HeaderSmall.astro";
-import ProjectCard from "../components/ProjectCards.astro";
+// import ProjectCard from "../components/ProjectCards.astro";
 import data from "../data/site.json";
+const title = "Projects";
+const subtitle = "Some projects we've worked on";
+const allProjects = await getCollection("projects");
 
 type Props = {
   projectTitle: string;
@@ -17,13 +18,20 @@ type Props = {
 };
 ---
 
-<Layout title="Projects">
+<Layout title={title} description="A list of some projects we've worked on">
   <main>
     <HeaderSmall title={title} subtitle={subtitle} />
     <div class="">
       <section class="section">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-          <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
+        <div
+          id="gallery"
+          class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {allProjects.map((project) => <ProjectCard project={project} />)}
+          <!-- put back gallery -->
+        </div>
+        <!--<div class="py-8 px-4 mx-auto max-w-(--breakpoint-xl) lg:py-16">
+           <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
             {
               data.projects.map(
                 (
@@ -48,8 +56,9 @@ type Props = {
                 }
               )
             }
-          </div>
-        </div>
+          </div> 
+        
+        </div>-->
       </section>
     </div>
   </main>

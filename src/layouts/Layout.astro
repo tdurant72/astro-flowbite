@@ -1,16 +1,16 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
   frontmatter?: object;
 }
-
+import "../styles/global.css";
 const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-
+import PulsingCircle from "@/components/React/PulsingCircle";
 import data from "../data/site.json";
 import Seo from "@/components/custom/Seo.astro";
 import "animate.css";
@@ -59,8 +59,9 @@ import "animate.css";
   <body>
     <div class="bg-slate-50 dark:bg-slate-800 min-h-screen">
       <Nav />
-      <div class="container">
+      <div class="container pt-10 pb-[1rem] px-[1rem]">
         <slot />
+        <PulsingCircle client:load />
         <Footer />
       </div>
     </div>
@@ -69,7 +70,7 @@ import "animate.css";
       import AOS from "aos"; // [!code ++]
       AOS.init(); // [!code ++]
     </script>
-    <script type="text/javascript" is:inline>
+    <!-- <script type="text/javascript" is:inline>
       (function (d, t) {
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
@@ -84,12 +85,11 @@ import "animate.css";
         v.type = "text/javascript";
         s.parentNode.insertBefore(v, s);
       })(document, "script");
-    </script>
+    </script> -->
     <style>
       .container {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 1rem;
         /* height: 100vh;
         overflow-y: auto;
         perspective: 16px; */

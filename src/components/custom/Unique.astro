@@ -11,8 +11,8 @@ import Image4 from '../../assets/images/image4.webp'
 import Image5 from '../../assets/images/image5.webp'
 import Image6 from '../../assets/images/image6.webp'
 import Image7 from '../../assets/images/image7.webp'
-import Button from "../Button.astro";
-
+// import Button from "../Button.astro";
+import { Button } from "../ui/button";
 type Props = {
   title: string;
   subtitle?: string;
@@ -38,7 +38,7 @@ const {
 
 <section class="bg-white dark:bg-gray-900 w-full my-8 px-4">
   <div
-    class="relative h-full md:h-[400px] overflow-hidden py-2 md:py-0 md:px-0 mx-auto max-w-screen-xl text-center lg:py-0"
+    class="relative h-full md:h-[400px] overflow-hidden py-2 md:py-0 md:px-0 mx-auto max-w-(--breakpoint-xl) text-center lg:py-0"
   >
     <div class="md:flex h-full sm:space-y-8  md:h-[400px] left-0 bottom-0 right-0 top-0">
         <div class="lg:w-[50%] flex sm:flex-col justify-center items-center"
@@ -46,13 +46,13 @@ const {
         data-aos-delay="500"
         data-aos-easing="ease-in-sine"
         >
-            <div class="h-[300px] w-[350px] bg-primary rounded-md relative">
+            <div class="h-[300px] w-[350px] bg-teal-500 rounded-md relative">
                 <div class="absolute h-[85px] w-[63px] top-[119px] bottom-[127px] left-[127px] right-[135px] overflow-hidden rounded-md">
-                    <Image 
-                        src={Dancing}
+                    <img
+                        src="/images/dancing.webp"
                         alt="dancing"
-                        width={62}
-                        height={110}
+                        width="62"
+                        height="110"
                         class='object-cover'
                     />
                 </div>
@@ -148,7 +148,14 @@ const {
               text2={buttonText2}
               href2={buttonLink2}
             /> */}
-            <Button text="Contact Us" href="/#contact-us" bgColor="primary" textColor="primaryBlk" />
+            
+            <Button asChild>
+              <a
+                href="/#contact-us"
+                class="bg-teal-500 text-gray-100 hover:bg-teal-900 hover:text-white rounded-lg px-4 py-2 transition-colors duration-300"
+                >Contact Us</a
+              >
+            </Button>
           </div>:null
           }
         </div>

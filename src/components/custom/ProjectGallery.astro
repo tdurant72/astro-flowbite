@@ -1,12 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-// import type { CollectionEntry } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
 
 const allProjects = await getCollection("projects");
-import ProjectCard from "./ProjectCard.astro";
+const filteredProjects = allProjects.filter(
+  (project) => project.data.type !== "featured"
+);
 ---
 
 <div id="gallery" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {allProjects.map((project) => <ProjectCard project={project} />)}
+  {filteredProjects.map((project) => <ProjectCard project={project} />)}
   <!-- put back gallery -->
 </div>

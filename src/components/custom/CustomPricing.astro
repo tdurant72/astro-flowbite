@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Button from "../Button.astro";
-const title = "Website Design Solutions for Every Business Size";
+const title = "Your Website Is Losing You Money.";
 const subtitle =
   "Elevate your website’s performance with our tailored web design solutions! Our expert team focuses on creating user-friendly sites that not only look great but also keep visitors engaged. Plus, we ensure your site ranks higher on Google, helping more people find you. With fast, modern designs, we guarantee top-notch performance every time.";
 import Business1 from "../../public/images/business1.webp";
@@ -111,48 +111,59 @@ const pricing = [
 ---
 
 <section class="bg-stone-100 dark:bg-slate-800">
-  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-    <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+  <div class="py-8 px-4 mx-auto max-w-(--breakpoint-xl) lg:py-16 lg:px-6">
+    <div class="mx-auto max-w-(--breakpoint-md) text-center mb-8 lg:mb-12">
       <h2
         class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
       >
         {title}
       </h2>
-      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-        {subtitle}
+      <p
+        class="mb-5 font-light text-gray-700 text-xl md:text-2xl dark:text-gray-400"
+      >
+        Your website isn't a digital brochure; it's a sales asset. We build
+        high-performance websites engineered to do one thing: <span
+          class="font-bold"
+        >
+          convert visitors into paying customers.</span
+        >
+        Our solutions are designed to not only look professional but also to rank
+        high on Google, capture leads, and drive revenue. Stop hoping your site will
+        perform and start demanding it.
       </p>
     </div>
     <div
       class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
-      data-aos="fade-up"
-      data-aos-delay="500"
-      data-aos-easing="ease-in-sine"
     >
       {
         pricing.map((plan) => (
-          <div class="flex flex-col flex-1 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 p-2 xl:p-8 dark:bg-gray-800 dark:text-white">
-            <img
+          <div
+            class="flex flex-col flex-1 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 p-2 xl:p-8 dark:bg-gray-800 dark:text-white"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-easing="ease-in-sine"
+          >
+            <Image
               src={plan.image}
               alt={plan.name}
               width={175}
               height={175}
               loading="lazy"
-              class="border-primary border-4 rounded-full h-[175px] w-[175px] mx-auto mb-8"
+              class="border-teal-500 border-4 rounded-full h-[175px] w-[175px] mx-auto mb-8"
             />
             <h3 class="mb-4 text-2xl font-semibold">{plan.name}</h3>
-            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 my-4">
               {plan.description}
             </p>
-            <div class="flex justify-center items-baseline my-8">
+            {/* <div class="flex justify-center items-baseline my-8">
               <span class="mr-2 text-5xl font-extrabold">{plan.price}</span>
-              {/* <span class="text-gray-500 dark:text-gray-400">/month</span> */}
-            </div>
+            </div> */}
 
             <ul role="list" class="mb-8 space-y-4 text-left">
               {plan.features.map((feature) => (
                 <li class="flex items-center space-x-3">
                   <svg
-                    class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                    class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

@@ -7,10 +7,10 @@ import Logo from "../assets/logo.png";
 
 <nav
   transition:persist
-  class="bg-stone-100 border-gray-200 dark:bg-slate-800 fixed w-full z-40 top-0 start-0"
+  class="bg-stone-100/85 border-gray-200 dark:bg-slate-800 fixed w-full z-[9999] top-0 start-0 backdrop-blur-xs"
 >
   <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 animate__animated animate__fadeInDown"
+    class="max-w-(--breakpoint-xl) flex flex-wrap items-center justify-between mx-auto p-4 animate__animated animate__fadeInDown"
   >
     <a href="/" class="flex justify-between">
       <Image src={Logo} width={60} height={60} alt="Sublime UX Logo" />
@@ -50,10 +50,10 @@ import Logo from "../assets/logo.png";
         {
           data.pages.map((page) => {
             return (
-              <li>
+              <li class="mx-2">
                 <a
                   href={page.href}
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   aria-current="page"
                 >
                   {page.title}

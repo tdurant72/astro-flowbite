@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-
 import Layout from "../layouts/Layout.astro";
 
 import Timeline from "../components/Timeline.astro";
@@ -16,14 +15,13 @@ import Unique from "../components/custom/Unique.astro";
 import Process from "../components/custom/Process.astro";
 import Customers from "../components/custom/Customers.astro";
 import ContactUs from "../components/custom/ContactUs.astro";
-import VideoModal from "@/components/custom/VideoModal.astro";
-import SublimeVideo from "@/components/custom/SublimeVideo.astro";
-import HeroAlt from "@/components/custom/HeroAlt.astro";
-import CustomChallenges from "@/components/custom/CustomChallenges.astro";
+
 import CustomPricing from "@components/custom/CustomPricing.astro";
 import CustomFAQs from "@/components/custom/CustomFAQs.astro";
 import CustomProblems from "@/components/custom/CustomProblems.astro";
 import CustomSolution from "@/components/custom/CustomSolution.astro";
+import { Hero } from "@/components/React/Hero.tsx";
+import CustomerQuote from "@/components/Sections/CustomerQuote.astro";
 ---
 
 <Layout
@@ -34,7 +32,9 @@ import CustomSolution from "@/components/custom/CustomSolution.astro";
   <main>
     <!-- <Header /> -->
     <!-- <CustomHero /> -->
-    <HeroAlt />
+    <!-- <HeroAlt /> -->
+    <Hero client:load />
+    <CustomerQuote />
     <Image
       src={Waves}
       height={50}

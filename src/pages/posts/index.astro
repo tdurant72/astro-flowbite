@@ -1,0 +1,37 @@
+---
+import Prose from "../../components/Prose.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getEntry, getCollection, render } from "astro:content";
+
+// const entry = await getEntry("blog", "entry");
+const allPosts = await getCollection("posts");
+const mostRecentPosts = allPosts
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  )
+  .slice(0, 3);
+// const { Content } = await render(entry);
+// console.log(mostRecentPosts);
+---
+
+<Layout
+  title="Blog"
+  description="Read our latest articles and updates on web development, design, and more."
+>
+  <Prose>
+    <h1>Blog</h1>
+    <p>
+      Welcome to our blog! Here you'll find the latest articles and updates on
+      web development, design, and more.
+    </p>
+    <h2>Most Recent Posts</h2>
+    <ul>
+      <!-- {mostRecentPosts.map(post => (
+        <li>
+          <a href={`/posts/${post.data.url}`}>{post.data.title}</a> - <time datetime={post.data.pubDate}>{new Date(post.data.pubDate).toLocaleDateString()}</time>
+        </li>
+      ))} -->
+    </ul>
+  </Prose>
+</Layout>

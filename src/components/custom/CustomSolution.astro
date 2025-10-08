@@ -2,6 +2,7 @@
 import "aos/dist/aos.css";
 import { Image } from "astro:assets";
 import VideoCall from "../../assets/images/video-call.webp";
+import { Button } from "../ui/button";
 ---
 
 <!-- https://gist.github.com/goodreds/3d044027175954984fb96c7407a955ab --><!-- Container -->
@@ -49,7 +50,7 @@ import VideoCall from "../../assets/images/video-call.webp";
       <ul role="list" class="mb-8 space-y-4 text-left mt-5">
         <li class="flex items-center space-x-3">
           <svg
-            class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+            class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +64,7 @@ import VideoCall from "../../assets/images/video-call.webp";
         </li>
         <li class="flex items-center space-x-3">
           <svg
-            class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+            class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +78,7 @@ import VideoCall from "../../assets/images/video-call.webp";
         </li>
         <li class="flex items-center space-x-3">
           <svg
-            class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+            class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -92,12 +93,14 @@ import VideoCall from "../../assets/images/video-call.webp";
       </ul>
       <!-- Button Container -->
       <div class="mt-8">
-        <a
-          href="https://forms.gle/68DVC2oHmjpEE2Nm8"
-          target="_blank"
-          class="inline-block w-full text-center text-xl font-bold text-primaryBlk bg-primary border-solid border-2 border-gray-600 py-2 px-8 hover:bg-primaryDrk hover:text-primaryWhite hover:shadow-md md:w-48 rounded-lg"
-          >Start Today!</a
+        <Button
+          asChild
+          className="inline-block w-full text-center text-xl font-bold text-neutral-900 bg-teal-500 border-solid border-2 border-gray-600 py-2 px-8 hover:bg-teal-900 hover:text-gray-100 hover:shadow-md md:w-48 rounded-lg"
         >
+          <a href="https://forms.gle/68DVC2oHmjpEE2Nm8" target="_blank"
+            >Start Today!</a
+          >
+        </Button>
       </div>
     </div>
     <!-- Close Text Wrapper -->

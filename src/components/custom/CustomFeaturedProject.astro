@@ -1,40 +1,46 @@
 ---
-import { getEntryBySlug, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import CustomTags from "./CustomTags.astro";
-import Header from "../Header.astro";
-import CustomFeaturedProjectCard from "./CustomFeaturedProjectCard.astro";
+
 import FeaturedImage from "../../assets/images/ncgtpMockup-web.webp";
-const { slug } = Astro.props;
+
 const allProjects = await getCollection("projects");
 const featuredProject = allProjects.filter(
   (project) => project.data.type === "featured"
 );
+const { id } = featuredProject[0];
 ---
 
 <div>
   {
     featuredProject.map((f) => (
-      <div class="mx-auto mt-10 py-10">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-          <a href={"/projects/" + f.slug} class="flex flex-col items-center">
-            <h2 class="text-4xl my-8 text-center font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+      <div class="mx-auto mt-10 py-10" id="featured-project">
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg max-h-screen">
+          <a
+            href={`/projects/${id.replace(".mdx", "")}`}
+            class="flex flex-col items-center"
+          >
+            <h2 class="text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
               Featured Project
             </h2>
-            <div class="overflow-hidden lg:h-[350px] lg:w-[500px] h-[250px] w-[350px]">
+            <div class="overflow-hidden">
               <Image
                 src={FeaturedImage}
                 alt="Article Image"
-                height={300}
-                width={Math.round((100 * 16) / 9)}
-                transition:name={"/images/" + f.data.cover}
+                height={428}
+                width={800}
+                layout="constrained"
                 class="w-full h-full object-contain hover:opacity-75 transition duration-300 ease-in-out my-10"
               />
             </div>
           </a>
           <div class="p-6">
-            <h2 class="text-2xl font-semibold mb-2">
-              <a href={"/projects/" + f.slug}> {f.data.title}</a>
+            <h2 class="text-2xl font-semibold">
+              <a href={`/projects/${id.replace(".mdx", "")}`}>
+                {" "}
+                {f.data.title}
+              </a>
             </h2>
 
             <CustomTags tags={f.data.tags} />

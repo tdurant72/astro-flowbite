@@ -5,13 +5,14 @@ import CardTop from "../../assets/images/card-mask2.svg";
 import CustomTags from "./CustomTags.astro";
 
 const { project } = Astro.props;
-
+const { title, developer, tags, description } = project.data;
 interface Props {
   project: CollectionEntry<"projects">;
 }
+console.log("project id:", project.id, "project data:", project.data);
 ---
 
-<a href={"/projects/" + project.slug}>
+<a href=`/projects/${project.id.replace('.mdx','')}`>
   <div class="rounded-md shadow-md h-[300px] w-[350px] overflow-hidden">
     <div class="h-[300px] w-[350px] relative bg-white">
       <Image
@@ -23,15 +24,15 @@ interface Props {
         class="z-10 absolute"
       />
       <Image
-        src={project.data.cover}
+        src={project.data.projectimage.src}
         height={300}
         width={350}
-        alt={`${project.data.title} Mockup`}
+        alt={`${project.data.projectimage.alt}`}
         class="z-0 object-cover absolute top-4"
       />
 
       <h3 class="text-primaryDrk absolute bottom-4 left-4 z-20">
-        {project.data.title}
+        {title}
       </h3>
     </div>
   </div>

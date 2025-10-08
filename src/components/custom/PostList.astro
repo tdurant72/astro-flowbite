@@ -1,15 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
-
+import { getCollection } from "astro:content";
 import ArticleCard from "./ArticleCard.astro";
 
-type Props = {
-  blog: CollectionEntry<"blog">[];
-};
-const { blog } = Astro.props;
+// Fetch all blog entries from the 'blog' collection
+const blog = await getCollection("blog");
+
+// Sort by pubDate descending
 const sortedBlog = blog.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+  (a, b) =>
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
 ---

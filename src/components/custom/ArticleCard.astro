@@ -1,13 +1,20 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { formatDate } from "@/utils";
+import { convertOffsetToTimes } from "motion";
 
-interface Props {
-  article: CollectionEntry<"blog">;
-}
+// interface Props {
+//   article: CollectionEntry<"blog">;
+// }
 const { article } = Astro.props;
-
+// const { frontmatter } = article;
+const { id, title, author, pubDate, description, category } = article.data;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/posts/**/*.{jpg,jpeg,png,svg,gif,webp,avif}",
+  { eager: true }
+);
 // console.log("article", article);
 
 // const cover = article.data.image.fsPath
@@ -15,28 +22,28 @@ const { article } = Astro.props;
 
 <div class="cursor-pointer group">
   <div
-    class="h-[400px] w-[350px] flex-shrink-0 overflow-hidden shadow-md transition-all bg-primaryWhite rounded-md hover:scale-105 m-2 lg:m-6"
+    class="h-full w-full shrink-0 overflow-hidden shadow-md transition-all bg-primaryWhite rounded-md hover:scale-105 m-2 p-3 lg:m-6"
   >
     <a
-      href={"/blog/" + article.slug}
+      href=`/posts/${article.id.replace('.md', '')}`
       class="flex flex-col justify-center items-center"
     >
-      <h4 class="text-2xl text-center text-primaryDrk my-6">
-        {article.data.title}
+      <h4 class="text-2xl text-center text-teal-900 my-6">
+        {title}
       </h4>
       <Image
-        src={article.data.postimage}
-        alt={article.data.title}
+        src={article.data.postimage.src}
+        alt={article.data.postimage.alt}
         height={300}
-        width={Math.round((100 * 16) / 9)}
+        width={533}
         class="rounded-xl shadow-md aspect-video overflow-hidden object-contain"
       />
       <div class="flex flex-col mx-8
        my-4">
-        <p class="text-primaryDrk mb-2">{article.data.author}</p>
-        <p class="text-primaryDrk">{article.data.description}</p>
-        <p class="text-primaryBlk mt-4">{article.data.pubDate}</p>
-        <p class="text-secondary mt-0">{article.data.category}</p>
+        <p class="text-teal-900 italic text-xs mb-2">{author}</p>
+        <p class="text-teal-900">{description}</p>
+        <p class="text-teal-950 font-medium mt-4">{pubDate}</p>
+        <p class="text-amber-500 mt-0">{category}</p>
       </div>
     </a>
   </div>

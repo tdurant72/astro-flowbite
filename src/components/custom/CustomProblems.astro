@@ -1,9 +1,8 @@
 ---
-// interface Props {
-//   youtube: string;
-// }
-
-// const { youtube } = Astro.props;
+import { Activity, BadgeDollarSign, Check, Binoculars } from "@lucide/astro";
+import { RotateWords } from "@/components/React/RotateWords.tsx";
+// import Features from "../React/Features.tsx";
+import ProblemRotator from "../React/ProblemRotator.tsx";
 const tabs = [
   {
     tabTitle: "Beyond looks",
@@ -34,28 +33,88 @@ const tabs = [
       "Are you struggling to turn website visitors into customers? You're not alone. Many businesses fail to convert visitors into leads, sales, or subscribers, and that's where Conversion Rate Optimization (CRO) comes in. By optimizing your website and marketing campaigns, you can increase your conversion rate and drive more revenue.",
   },
 ];
+const problems = [
+  {
+    id: 1,
+    icon: Activity,
+    title: "Low Engagement & High Donor Drop-Off",
+    description:
+      "A staggering number of non-profit and government websites have a bounce rate of 60-70%. This isn't just a number; it means for every 10 people who visit your site, 6 or 7 of them leave almost instantly. They're not finding what they need, they're not connecting with your mission, and they're not taking action. That's a direct loss of potential volunteers, community members, and donors.",
+    image: "/images/problems/low_engagement.webp",
+  },
+  {
+    id: 2,
+    icon: BadgeDollarSign,
+    title: "Your Website is Costing You Revenue (Not Just Donations):",
+    description:
+      "The average donation on a mobile device is $76, while the average on a desktop is $145. If your site isn't fully optimized for a mobile-first world (which over 50% of your visitors are living in), you're literally leaving money on the table. A confusing or clunky donation process can cause up to a quarter of your potential online donations to be abandoned. Your website isn't an expense; it's a critical fundraising asset. When it fails, your mission suffers.",
+    image: "/images/problems/donations.webp",
+  },
+  {
+    id: 3,
+    icon: Check,
+    title: "Loss of Credibility & Trust:",
+    description:
+      "Your website is your organization's first impression. Studies show that 75% of users judge an organization's credibility based on its website design. If your site looks outdated or is difficult to navigate, it signals that your organization is out of touch. In a competitive space where every dollar and every volunteer hour counts, you can't afford to have your digital presence undermine your mission.",
+    image: "/images/problems/credibility.webp",
+  },
+  {
+    id: 4,
+    icon: Binoculars,
+    title: "Invisible to Your Ideal Audience:",
+    description:
+      "Even with high-quality content, if your site isn't built with modern SEO standards in mind, you are effectively invisible to the very people you're trying to reach. A significant portion of non-profit traffic comes from organic search, and if you're not ranking, you're not getting found. You are being out-maneuvered by organizations with better digital strategy, regardless of the quality of your work.",
+    image: "/images/problems/seo.webp",
+  },
+];
 ---
 
-<section class="bg-primary pt-4 pb-8">
+<section class="bg-[#3de4c1ff] pt-4 pb-8 min-h-[70vh]">
   <!-- width="560" height="315 -->
-  <div class="flex flex-col max-w-xl lg:max-w-5xl mx-auto">
-    <div class="text-center my-5">
+  <div
+    class="content flex flex-col mx-auto justify-center max-w-xl lg:max-w-5xl"
+  >
+    <div class="text-center mt-5">
       <h2
-        class="mb-4 text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+        class="text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
       >
-        Most web design projects fall short of their potential.
+        Is Your Website Undermining Your Mission?
       </h2>
-      <p
-        class="mb-4 text-xl md:text-2xl tracking-tight font-medium text-gray-900 dark:text-white"
+      <!-- <p
+        class="mb-4 text-xl text-left md:text-2xl tracking-tight font-medium text-gray-900 dark:text-white"
       >
         Many creators struggle with websites that fail to attract and retain
         their ideal audience. Even with high-quality content, they often face
         challenges like low traffic, poor search engine rankings, and high
         bounce rates.
-      </p>
+      </p> -->
     </div>
-    <div class="h-full w-full pt-12 p-4">
-      <div class="grid gap-8 md:grid-cols-4 md:gap-4">
+    <div class="h-full w-full">
+      <!-- <Features
+        primaryColor="teal-500"
+        progressGradientLight="bg-gradient-to-r from-teal-400 to-teal-500"
+        progressGradientDark="bg-gradient-to-r from-teal-300 to-teal-400"
+        features={features}
+        client:visible
+      /> -->
+      <ProblemRotator
+        primaryColor="teal-500"
+        progressGradientDark="bg-gradient-to-r from-teal-300 to-teal-400"
+        progressGradientLight="bg-gradient-to-r from-teal-400 to-teal-500"
+        problems={problems}
+        client:visible
+      />
+      <!-- <RotateWords
+        client:load
+        text="Most sites are not built"
+        words={[
+          " for mobile devices",
+          " to help creators engage with their audience",
+          " to showcase content",
+          " to draw in new followers",
+        ]}
+      /> -->
+      <!-- <div class="grid gap-8 md:grid-cols-4 md:gap-4">
         <div class="rounded-xl bg-white p-6 text-center shadow-xl">
           <div
             class="mx-auto flex h-16 w-16 -translate-y-12 transform items-center justify-center rounded-full bg-red-700 shadow-lg shadow-red-900/40"
@@ -104,6 +163,7 @@ const tabs = [
           <p class="px-4 text-lg text-gray-900">
             Most sites are not built for mobile devices and modern audiences.
           </p>
+          
         </div>
         <div class="rounded-xl bg-white p-6 text-center shadow-xl">
           <div
@@ -154,7 +214,7 @@ const tabs = [
             Most sites are not created to showcase content.
           </p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
