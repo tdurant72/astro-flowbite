@@ -28,6 +28,13 @@ import "animate.css";
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={data.siteName}
+      href={`${Astro.site}rss.xml`}
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline>
@@ -38,22 +45,32 @@ import "animate.css";
         document.documentElement.classList.remove("dark");
       }
     </script>
-    <script type="application/ld+json" defer>
-      {
-        "@context": "http://schema.org",
+    <script
+      type="application/ld+json"
+      class="json-ld"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Sublime UX",
-        "image": "@src/images/socialImage.webp",
-        "telephone": "(336) 517-7923",
-        "email": "todurant@sublimeux.com",
-        "address": {
+        name: "Sublime UX",
+        image: "https://www.sublimeux.com/images/socialImage.webp",
+        telephone: "(336) 517-7923",
+        email: "todurant@sublimeux.com",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "Greensboro",
-          "addressRegion": "NC"
+          addressLocality: "Greensboro",
+          addressRegion: "NC",
+          postalCode: "27405",
         },
-        "url": "https://www.sublimeux.com/"
-      }
-    </script>
+        url: "https://www.sublimeux.com/",
+        sameAs: [
+          "https://twitter.com/sublime_ux",
+          "https://www.youtube.com/@sublimeux",
+          "https://www.linkedin.com/in/tyus-durant-98697511",
+        ],
+        description: data.siteDescription,
+        priceRange: "$$",
+      })}
+    />
     <Seo title={title} description={description} image={data.image} />
   </head>
   <body>
@@ -66,9 +83,8 @@ import "animate.css";
       </div>
     </div>
     <script>
-      // [!code ++]
-      import AOS from "aos"; // [!code ++]
-      AOS.init(); // [!code ++]
+      import AOS from "aos";
+      AOS.init();
     </script>
     <!-- <script type="text/javascript" is:inline>
       (function (d, t) {
@@ -86,7 +102,10 @@ import "animate.css";
         s.parentNode.insertBefore(v, s);
       })(document, "script");
     </script> -->
-    <style>
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
       .container {
         max-width: 1280px;
         margin: 0 auto;

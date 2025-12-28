@@ -1,15 +1,15 @@
 {
   "owner": "Sublime UX",
   "siteName": "Sublime UX",
-  "siteDescription": "Sublime UX, a user experience web design firm",
+  "siteDescription": "Sublime UX helps you convert more visitors into loyal customers by eliminating confusing user experiences. Get a free $800 landing page audit to maximize your ROI.",
   "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
   "contact": {
     "email": "todurant@sublimeux.com",
     "phone": "336-517-7923",
     "address": "Greensboro, NC 27405"
   },
-  "image":{
-    "src":"/images/socialImage.webp",
+  "image": {
+    "src": "/images/socialImage.webp",
     "alt": "Sublime UX"
   },
   "pages": [

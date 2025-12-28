@@ -62,7 +62,7 @@ const ProblemRotator = ({
         setProgress(0);
     };
     return (
-        <div className="min-h-screen py-4 md:py-16 px-4">
+        <div className="h-full py-4 md:py-16 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="grid lg:grid-cols-2 lg:gap-16 gap-8   items-center">
                     <div

@@ -3,11 +3,11 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import CustomTags from "./CustomTags.astro";
 
-import FeaturedImage from "../../assets/images/ncgtpMockup-web.webp";
+import FeaturedImage from "../../assets/images/furman-after.jpg";
 
 const allProjects = await getCollection("projects");
 const featuredProject = allProjects.filter(
-  (project) => project.data.type === "featured"
+  (project) => project.data.type === "featured",
 );
 const { id } = featuredProject[0];
 ---
@@ -21,13 +21,10 @@ const { id } = featuredProject[0];
             href={`/projects/${id.replace(".mdx", "")}`}
             class="flex flex-col items-center"
           >
-            <h2 class="text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-              Featured Project
-            </h2>
             <div class="overflow-hidden">
               <Image
                 src={FeaturedImage}
-                alt="Article Image"
+                alt={`Featured Project: ${f.data.title} - Modern Web Design by Sublime UX`}
                 height={428}
                 width={800}
                 layout="constrained"
@@ -37,10 +34,7 @@ const { id } = featuredProject[0];
           </a>
           <div class="p-6">
             <h2 class="text-2xl font-semibold">
-              <a href={`/projects/${id.replace(".mdx", "")}`}>
-                {" "}
-                {f.data.title}
-              </a>
+              <a href={`/projects/${id.replace(".mdx", "")}`}>{f.data.title}</a>
             </h2>
 
             <CustomTags tags={f.data.tags} />

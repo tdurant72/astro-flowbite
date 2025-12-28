@@ -9,7 +9,12 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://sublimeux.com",
-  integrations: [tailwindcss(), mdx(), sitemap(), react()],
+  integrations: [tailwindcss(), mdx(), react(), sitemap({
+    filter: (page) => page !== 'https://sublimeux.com/success',
+    changefreq: 'monthly',
+    priority: 0.7,
+    lastmod: new Date(),
+  })],
   adapter: netlify(),
 
   vite: {

@@ -1,11 +1,17 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
+import Breadcrumbs from "../components/custom/Breadcrumbs.astro";
 type Props = CollectionEntry<"projects">["data"];
-const { title, developer, tags, description, type } = Astro.props;
+const { title, developer, tags, description, type, projectimage } = Astro.props;
 console.log("tags:", tags);
 ---
 
-<Layout title={title} description={description}>
-  <slot />
+<Layout title={title} description={description} image={projectimage?.src}>
+  <div class="mx-auto max-w-(--breakpoint-xl) px-4 py-10">
+    <Breadcrumbs
+      items={[{ label: "Projects", href: "/projects" }, { label: title }]}
+    />
+    <slot />
+  </div>
 </Layout>

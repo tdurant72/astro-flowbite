@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sublimeux.com/sitemap-index.xml

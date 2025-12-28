@@ -33,22 +33,17 @@ export const Hero = () => {
         <div className="relative bg-slate-50 my-4 md:my-6">
             <ContainerStagger className="relative z-[8888] -mb-12 place-self-center px-6 pt-18 text-center">
                 <ContainerAnimated>
-                    <h1 className="font-serif text-4xl font-extralight  md:text-5xl">
-                        We Build{" "}
-                        <span className=" font-serif font-extralight text-teal-500">
-                            Websites
-                        </span>,
-                    </h1>
-                </ContainerAnimated>
-                <ContainerAnimated>
                     <h1 className="font-serif text-4xl font-extralight md:text-5xl">
-                        That Tell Your Story.
+                        Convert More Visitors Into{" "}
+                        <span className=" font-serif font-extralight text-teal-500">
+                            Loyal Customers.
+                        </span>
                     </h1>
                 </ContainerAnimated>
 
                 <ContainerAnimated className="my-4">
-                    <h2 className="leading-normal tracking-tight text-muted-foreground text-xl md:text-2xl max-w-3xl mx-auto">
-                        We build powerful, purpose driven websites for organizations committed to building a better future from community leaders to non-profits on a mission.
+                    <h2 className="leading-normal tracking-tight text-slate-600 text-xl md:text-2xl max-w-3xl mx-auto">
+                        Stop losing traffic to a confusing user experience. We specialize in purpose-driven design that turns passive browsing into active growth. Claim your <span className="font-bold text-slate-900 dark:text-white underline decoration-amber-500 decoration-2 underline-offset-4">free $800 landing page audit</span> today, we'll analyze your site’s performance and provide a roadmap to maximize your ROI.
                     </h2>
                 </ContainerAnimated>
 
@@ -56,7 +51,7 @@ export const Hero = () => {
                     <Button asChild
                         className="gap-1 bg-amber-500 text-white text-base md:text-lg hover:bg-amber-600 transition-colors duration-200 mt-3"
                     >
-                        <a href="#contact-us">Start a Conversation About Your Mission</a>
+                        <a href="#contact-us">Give me my free audit - $800 value</a>
 
                     </Button>
                     <Button asChild className="bg-teal-500 mx-2 text-white text-base md:text-lg hover:bg-teal-600 transition-colors duration-200 mt-3">
@@ -82,7 +77,7 @@ export const Hero = () => {
                                     key={index}
                                     className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
                                     src={imageUrl}
-                                    alt="gallery item"
+                                    alt={`Sublime UX project gallery - ${imageUrl.split('/').pop().split('.')[0]}`}
                                 />
                             ))}
                         </GalleryCol>
@@ -93,7 +88,7 @@ export const Hero = () => {
                                     key={index}
                                     className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
                                     src={imageUrl}
-                                    alt="gallery item"
+                                    alt={`Sublime UX design showcase - ${imageUrl.split('/').pop().split('.')[0]}`}
                                 />
                             ))}
                         </GalleryCol>
@@ -104,7 +99,7 @@ export const Hero = () => {
                                     key={index}
                                     className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
                                     src={imageUrl}
-                                    alt="gallery item"
+                                    alt={`Sublime UX web development - ${imageUrl.split('/').pop().split('.')[0]}`}
                                 />
                             ))}
                         </GalleryCol>

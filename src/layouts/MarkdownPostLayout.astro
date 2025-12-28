@@ -3,14 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
 import Layout from "../layouts/Layout.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import Breadcrumbs from "../components/custom/Breadcrumbs.astro";
 
 type Props = CollectionEntry<"posts">["data"] & { headings: MarkdownHeading[] };
 
-const { title, pubDate, description, headings } = Astro.props;
+const { title, pubDate, description, headings, postimage } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={postimage?.src}>
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14">
+    <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: title }]} />
     <div>
       <a href="/blog" class="my-5 text-amber-600 underline">Back to Blog Home</a
       >

@@ -9,7 +9,7 @@ const { title, developer, tags, description } = project.data;
 interface Props {
   project: CollectionEntry<"projects">;
 }
-console.log("project id:", project.id, "project data:", project.data);
+// console.log("project id:", project.id, "project data:", project.data);
 ---
 
 <a href=`/projects/${project.id.replace('.mdx','')}`>
