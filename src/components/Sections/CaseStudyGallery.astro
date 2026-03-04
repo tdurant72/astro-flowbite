@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+// import GallerySection from "../React/GallerySection.tsx";
+import FeaturedCaseStudies from "@/components/React/FeaturedCaseStudies.tsx";
+
+import Button from "../Button.astro";
+const projects = await getCollection("projects");
+
+const caseStudies = projects.filter(
+    (project) => project.data.type === "highlighted",
+);
+
+const formattedProjects = caseStudies.map((project, index) => ({
+    id: String(index + 1).padStart(2, "0"),
+    slug: project.id,
+    title: project.data.title,
+    category: project.data.description || project.data.type || "Case Study",
+    image: project.data.projectimage?.src || "",
+    video: project.data.projectvideo?.src || "",
+    preview: project.data.projectimage?.src || "",
+}));
+
+// console.log(formattedProjects);
+---
+
+<div
+    class="container mx-auto h-full min-h-screen w-full pb-16"
+    data-aos="fade-up"
+    data-aos-delay="100"
+>
+    <!-- <GallerySection client:load caseStudies={caseStudies} /> -->
+    <FeaturedCaseStudies projects={formattedProjects} client:load />
+    <div data-aos="fade-up" class="flex justify-center">
+        <Button text="View More Projects" href="/projects" />
+    </div>
+</div>

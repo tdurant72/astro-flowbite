@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { ArrowRight } from "@lucide/astro";
+import FeaturedImage from "@/assets/images/projects/ncgtpedrMockup.webp";
+const allProjects = await getCollection("projects");
+const featuredProject = allProjects.filter(
+    (project) => project.data.type === "featured",
+);
+const { id } = featuredProject[0];
+---
+
+<section id="case-studies" class="py-32 md:py-48 px-6">
+    <span
+        class="text-[8vw] uppercase tracking-tight font-semibold mb-8 block gradient-text"
+        data-aos="fade-down"
+        data-aos-delay="200">Featured Impact</span
+    >
+    <div
+        class="max-w-screen-xl mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="100"
+    >
+        <div
+            class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8"
+        >
+            <div class="max-w-2xl" data-aos="fade-right" data-aos-delay="100">
+                <h2
+                    class="text-2xl md:text-4xl font-serif font-light leading-[0.9] tracking-tight"
+                >
+                    The 9M Regional <span class="italic text-teal-500"
+                        >Engine.</span
+                    >
+                </h2>
+            </div>
+            <p
+                class="text-lg font-light opacity-80 max-w-sm"
+                data-aos="fade-left"
+                data-aos-delay="100"
+            >
+                How we designed a fragmented economic development initiative
+                into a unified regional powerhouse.
+            </p>
+        </div>
+
+        <div
+            class="relative group cursor-pointer overflow-hidden rounded-3xl"
+            data-aos="fade-up"
+            data-aos-delay="200"
+        >
+            {
+                featuredProject.map((f) => (
+                    <>
+                        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+                            <Image
+                                src={FeaturedImage}
+                                alt="Case Study"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+                                loading="lazy"
+                                transition:name={f.id}
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-brand-ink/20 group-hover:bg-brand-ink/0 transition-colors duration-700" />
+                        <div class="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-end gap-8">
+                            <div class="bg-brand-paper/90 backdrop-blur-md p-8 rounded-2xl max-w-xl text-neutral-50">
+                                <h3 class="text-3xl font-serif mb-4">
+                                    Hook → Impact
+                                </h3>
+                                <p class="text-sm leading-relaxed opacity-80 mb-7">
+                                    A public private partnership site designed
+                                    to facilitate $9M in regional investment
+                                    through streamlined data visualization and
+                                    narrative driven site selection.
+                                </p>
+                                <a
+                                    href={`/projects/${id.replace(".mdx", "")}`}
+                                    class="h-14 px-10 py-6 inline-flex items-center justify-center text-lg font-bold text-white bg-teal-500 rounded-full hover:bg-teal-600 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 group"
+                                >
+                                    View Case Study <ArrowRight size={12} />
+                                </a>
+                            </div>
+                            <div class="hidden md:flex flex-col items-end gap-2 text-brand-paper">
+                                <span class="text-[10px] uppercase tracking-[0.3em] font-bold">
+                                    01 / 04
+                                </span>
+                                <div class="h-[1px] w-32 bg-brand-paper/40" />
+                            </div>
+                        </div>
+                    </>
+                ))
+            }
+        </div>
+    </div>
+</section>

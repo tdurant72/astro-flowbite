@@ -28,6 +28,22 @@ const { Content } = await render(project);
     >Back To Home</a
   >
   <article>
+    <div
+      class="w-full max-h-[500px] overflow-hidden rounded-3xl mb-12 shadow-2xl relative"
+    >
+      <Image
+        src={project.data.projectimage.src}
+        alt={project.data.projectimage.alt}
+        width={1200}
+        height={600}
+        class="w-full h-full object-cover"
+        transition:name={project.id}
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"
+      >
+      </div>
+    </div>
     <div class="projectGrid">
       <h1 class="text-4xl font-bold mb-2">{project.data.title}</h1>
 

@@ -21,6 +21,7 @@ interface Props {
         height={300}
         width={350}
         alt="top"
+        loading="lazy"
         class="z-10 absolute"
       />
       <Image
@@ -28,12 +29,21 @@ interface Props {
         height={300}
         width={350}
         alt={`${project.data.projectimage.alt}`}
+        loading="lazy"
         class="z-0 object-cover absolute top-4"
+        transition:name={project.id}
       />
 
-      <h3 class="text-primaryDrk absolute bottom-4 left-4 z-20">
-        {title}
-      </h3>
+      <div
+        class="absolute bottom-0 left-0 right-0 p-4 z-20 bg-gradient-to-t from-gray-900 to-transparent"
+      >
+        <h3 class="text-white font-bold text-xl mb-1">
+          {title}
+        </h3>
+        <!-- <p class="text-teal-400 font-semibold text-sm">
+          Astro Architecture • Higher Conversions
+        </p> -->
+      </div>
     </div>
   </div>
 </a>

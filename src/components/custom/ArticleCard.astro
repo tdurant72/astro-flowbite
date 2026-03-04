@@ -13,37 +13,60 @@ const { article } = Astro.props;
 const { id, title, author, pubDate, description, category } = article.data;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/content/posts/**/*.{jpg,jpeg,png,svg,gif,webp,avif}",
-  { eager: true }
+  { eager: true },
 );
 // console.log("article", article);
 
 // const cover = article.data.image.fsPath
 ---
 
-<div class="cursor-pointer group">
+<div class="group h-full">
   <div
-    class="h-full w-full shrink-0 overflow-hidden shadow-md transition-all bg-primaryWhite rounded-md hover:scale-105 m-2 p-3 lg:m-6"
+    class="h-full w-full shrink-0 overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-4 lg:p-6"
   >
     <a
       href=`/posts/${article.id.replace('.md', '')}`
-      class="flex flex-col justify-center items-center"
+      class="flex flex-col h-full"
     >
-      <h4 class="text-2xl text-center text-teal-900 my-6">
-        {title}
-      </h4>
       <Image
         src={article.data.postimage.src}
         alt={article.data.postimage.alt}
         height={300}
         width={533}
-        class="rounded-xl shadow-md aspect-video overflow-hidden object-contain"
+        loading="lazy"
+        class="rounded-xl aspect-video overflow-hidden object-cover w-full mb-6"
       />
-      <div class="flex flex-col mx-8
-       my-4">
-        <p class="text-teal-900 italic text-xs mb-2">{author}</p>
-        <p class="text-teal-900">{description}</p>
-        <p class="text-teal-950 font-medium mt-4">{pubDate}</p>
-        <p class="text-amber-500 mt-0">{category}</p>
+      <div class="flex flex-col flex-grow">
+        <div class="flex items-center gap-2 mb-3">
+          <span
+            class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400"
+            >{category}</span
+          >
+          <span class="text-slate-300 dark:text-slate-600">•</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400"
+            >{pubDate}</span
+          >
+        </div>
+        <h4
+          class="text-2xl font-bold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-teal-600 transition-colors"
+        >
+          {title}
+        </h4>
+        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6">
+          {description}
+        </p>
+        <div class="mt-auto flex items-center gap-3">
+          <div
+            class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500"
+          >
+            {author.charAt(0)}
+          </div>
+          <p
+            class="text-slate-500 dark:text-slate-400 text-xs font-medium italic"
+          >
+            {author}
+          </p>
+        </div>
       </div>
     </a>
   </div>

@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import CustomTags from "./CustomTags.astro";
 
-import FeaturedImage from "../../assets/images/furman-after.jpg";
+import FeaturedImage from "../../assets/images/projects/ncgtpedrMockup.webp";
 
 const allProjects = await getCollection("projects");
 const featuredProject = allProjects.filter(
@@ -15,12 +15,18 @@ const { id } = featuredProject[0];
 <div>
   {
     featuredProject.map((f) => (
-      <div class="mx-auto mt-10 py-10" id="featured-project">
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg max-h-screen">
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-6 mt-10 py-10"
+        id="featured-project"
+      >
+        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 max-h-screen">
           <a
             href={`/projects/${id.replace(".mdx", "")}`}
             class="flex flex-col items-center"
           >
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white my-2">
+              Featured Project
+            </h2>
             <div class="overflow-hidden">
               <Image
                 src={FeaturedImage}
@@ -28,16 +34,78 @@ const { id } = featuredProject[0];
                 height={428}
                 width={800}
                 layout="constrained"
+                loading="lazy"
                 class="w-full h-full object-contain hover:opacity-75 transition duration-300 ease-in-out my-10"
+                transition:name={f.id}
               />
             </div>
           </a>
           <div class="p-6">
-            <h2 class="text-2xl font-semibold">
-              <a href={`/projects/${id.replace(".mdx", "")}`}>{f.data.title}</a>
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2">
+              <a
+                href={`/projects/${id.replace(".mdx", "")}`}
+                class="hover:text-teal-600 transition-colors"
+              >
+                {f.data.title}
+              </a>
             </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 font-light mb-6">
+              {f.data.description ||
+                "Transformed from a passive digital brochure into a high-velocity revenue engine."}
+            </p>
+
+            <div
+              class="bg-slate-50 dark:bg-slate-800/50 p-6 md:p-8 rounded-2xl mb-8 border border-slate-100 dark:border-slate-700 relative overflow-hidden"
+              data-aos="fade-up"
+            >
+              <div class="absolute top-0 left-0 w-1 h-full bg-teal-500" />
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-400 mb-6">
+                Strategic Impact
+              </h3>
+              <div class="grid grid-cols-2 gap-8">
+                <div data-aos="zoom-in" data-aos-delay="200">
+                  <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">
+                    $9M+
+                  </p>
+                  <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                    Regional Investment Lift
+                  </p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="400">
+                  <p class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-1">
+                    9.9/10
+                  </p>
+                  <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                    Readiness Score
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <CustomTags tags={f.data.tags} />
+
+            <div class="my-5">
+              <a
+                href={`/projects/${id.replace(".mdx", "")}`}
+                class="h-14 px-10 inline-flex items-center justify-center text-lg font-bold text-white bg-teal-500 rounded-full hover:bg-teal-600 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 group"
+              >
+                Read Case Study
+                <svg
+                  class="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>

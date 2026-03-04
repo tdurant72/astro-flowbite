@@ -1,0 +1,167 @@
+---
+import { Image } from "astro:assets";
+const title = "Your Website Is Losing You Money.";
+const subtitle =
+  "Elevate your website’s performance with our tailored web design solutions! Our expert team focuses on creating user-friendly sites that not only look great but also keep visitors engaged. Plus, we ensure your site ranks higher on Google, helping more people find you. With fast, modern designs, we guarantee top-notch performance every time.";
+import Business1 from "../../public/images/business1.webp";
+import Business2 from "../../public/images/business2.webp";
+import Business3 from "../../public/images/business3.webp";
+
+const solutions = [
+  {
+    name: "Revenue Engine Accelerator",
+    image: "/images/business1.webp",
+    price: "",
+    description:
+      "Rapid deployment of high-conversion digital assets for scaling teams.",
+    features: [
+      {
+        name: "Lightning-fast Astro architecture",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Frictionless UX mapping",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Integrated Lead Capture Systems",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "6 Months Strategic Support",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+  },
+  {
+    name: "Enterprise Authority Suite",
+    image: "/images/business2.webp",
+    price: "",
+    description:
+      "Multi-system integration for established brands and regional scaling.",
+    features: [
+      {
+        name: "Advanced Authority Stacking & Social Proof",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Custom CMS & Content Governance",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "High-density Data Dashboards",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Technical SEO & Conversion Optimization",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+  },
+  {
+    name: "GovTech / Institutional Protocol",
+    image: "/images/business3.webp",
+    price: "",
+    description:
+      "Mission-critical infrastructure for organizations that cannot fail.",
+    features: [
+      {
+        name: "Maximum Security & Compliance standards",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Advanced System Analytics & ROI Tracking",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Dedicated Engineering Partnership",
+        icon: "heroicon-o-check-circle",
+      },
+      {
+        name: "Premium 12-Month Advisory Support",
+        icon: "heroicon-o-check-circle",
+      },
+    ],
+  },
+];
+---
+
+<section class="bg-stone-100 dark:bg-slate-800">
+  <div class="py-12 lg:py-24 px-4 md:px-6 mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center mb-12 lg:mb-20">
+      <h2
+        class="mb-6 text-3xl md:text-5xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+      >
+        {title}
+      </h2>
+      <p
+        class="mb-5 font-light text-gray-700 text-xl md:text-2xl dark:text-gray-400"
+      >
+        Your website isn't a digital brochure; it's a sales asset. We build
+        high-performance websites engineered to do one thing: <span
+          class="font-bold text-teal-600 dark:text-teal-400"
+        >
+          convert visitors into paying customers.</span
+        >
+        Our solutions are designed to not only look professional but also to rank
+        high on Google, capture leads, and drive revenue. Stop hoping your site will
+        perform and start demanding it.
+      </p>
+    </div>
+    <div
+      class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
+    >
+      {
+        solutions.map((plan) => (
+          <div
+            class="flex flex-col flex-1 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-2xl border border-slate-100 shadow-sm p-6 xl:p-10 dark:bg-gray-800 dark:text-white hover:shadow-xl transition-shadow duration-300"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-easing="ease-in-sine"
+          >
+            <div class="relative mb-8 group">
+              <div class="absolute inset-0 bg-teal-500 rounded-full blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+              <Image
+                src={plan.image}
+                alt={plan.name}
+                width={175}
+                height={175}
+                loading="lazy"
+                class="relative border-teal-500 border-4 rounded-full h-[175px] w-[175px] mx-auto shadow-lg"
+              />
+            </div>
+            <h3 class="mb-4 text-2xl font-bold">{plan.name}</h3>
+            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 mb-8 min-h-[80px]">
+              {plan.description}
+            </p>
+
+            <ul
+              role="list"
+              class="mb-8 space-y-4 text-left border-t border-slate-100 pt-8 dark:border-slate-700"
+            >
+              {plan.features.map((feature) => (
+                <li class="flex items-center space-x-3">
+                  <svg
+                    class="shrink-0 w-5 h-5 text-teal-500 dark:text-teal-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-300">
+                    {feature.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

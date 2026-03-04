@@ -1,7 +1,7 @@
 {
   "owner": "Sublime UX",
   "siteName": "Sublime UX",
-  "siteDescription": "Sublime UX helps you convert more visitors into loyal customers by eliminating confusing user experiences. Get a free $800 landing page audit to maximize your ROI.",
+  "siteDescription": "Sublime UX partners with non-profits, foundations, and public-private partnerships to transform complex missions into high impact digital experiences. We don't just design websites; we build the front door for your organization's legacy. Let us audit your website to turn it into a conversion machine.",
   "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
   "contact": {
     "email": "todurant@sublimeux.com",
@@ -19,7 +19,11 @@
     },
     {
       "title": "Projects",
-      "href": "/#featured-project"
+      "href": "/projects"
+    },
+    {
+      "title": "Case Studies",
+      "href": "/case-studies"
     },
     {
       "title": "Services",

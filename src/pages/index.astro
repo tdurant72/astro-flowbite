@@ -2,27 +2,21 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 
-import Timeline from "../components/Timeline.astro";
-
 import data from "../data/site.json";
 
-import CustomHero from "../components/custom/customHero.astro";
-import Services from "../components/custom/Services.astro";
 import Waves from "../assets/images/wavesOpacity3.svg";
-import CustomFeaturedProject from "../components/custom/CustomFeaturedProject.astro";
-import ProjectGallery from "../components/custom/ProjectGallery.astro";
-import Unique from "../components/custom/Unique.astro";
-import Process from "../components/custom/Process.astro";
 import Customers from "../components/custom/Customers.astro";
 import ContactUs from "../components/custom/ContactUs.astro";
 
-import CustomPricing from "@components/custom/CustomPricing.astro";
 import CustomFAQs from "@/components/custom/CustomFAQs.astro";
-import CustomProblems from "@/components/custom/CustomProblems.astro";
-import CustomSolution from "@/components/custom/CustomSolution.astro";
-import { Hero } from "@/components/React/Hero.tsx";
+import MarketingHero from "@/components/React/MarketingHero.tsx";
 import CustomerQuote from "@/components/Sections/CustomerQuote.astro";
 import BlogPreview from "@/components/custom/BlogPreview.astro";
+import Strategies from "@/components/Strategies.astro";
+import FeaturedImpact from "@/components/FeaturedImpact.astro";
+import Pillars from "@/components/Pillars.astro";
+import Methodology from "@/components/Methodology.astro";
+import CaseStudyGallery from "@/components/Sections/CaseStudyGallery.astro";
 ---
 
 <Layout
@@ -30,36 +24,43 @@ import BlogPreview from "@/components/custom/BlogPreview.astro";
   description={data.siteDescription}
   image={data.image.src}
 >
-  <main>
+  <main class="pt-16 md:pt-20">
     <!-- <Header /> -->
     <!-- <CustomHero /> -->
-    <!-- <HeroAlt /> -->
-    <Hero client:load />
-    <CustomerQuote />
-    <Image
-      src={Waves}
-      height={50}
-      width={1200}
-      format="webp"
-      alt="waves"
-      class="w-full overflow-hidden object-cover"
-    />
-    <!-- <CustomChallenges /> -->
-    <!-- <SublimeVideo /> -->
-    <CustomProblems />
-    <CustomSolution />
-    <Services />
-    <CustomFeaturedProject />
-    <ProjectGallery />
-    <Unique
-      title="Don't compromise"
-      subtitle="Your site should be as unique as you are"
-    />
-    <Process />
-    <CustomPricing />
-    <CustomFAQs />
-    <BlogPreview />
+    <div data-aos="fade">
+      <MarketingHero client:load />
+    </div>
     <Customers />
-    <ContactUs />
+
+    <Strategies />
+
+    <Methodology />
+
+    <FeaturedImpact />
+
+    <CaseStudyGallery />
+    <div data-aos="fade-up">
+      <Image
+        src={Waves}
+        height={50}
+        width={1200}
+        format="webp"
+        alt="waves"
+        class="w-full overflow-hidden object-cover"
+      />
+      <Pillars />
+    </div>
+
+    <div data-aos="fade-up">
+      <CustomerQuote />
+    </div>
+
+    <BlogPreview />
+
+    <CustomFAQs />
+
+    <div data-aos="fade-up">
+      <ContactUs />
+    </div>
   </main>
 </Layout>

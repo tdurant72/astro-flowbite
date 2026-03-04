@@ -15,7 +15,9 @@ export default defineConfig({
     priority: 0.7,
     lastmod: new Date(),
   })],
-  adapter: netlify(),
+  adapter: netlify({
+    edgeMiddleware: false,
+  }),
 
   vite: {
     plugins: [tailwindcss()],

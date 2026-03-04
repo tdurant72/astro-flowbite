@@ -2,40 +2,69 @@
 import Button from "../Button.astro";
 import ContactForm from "./ContactForm.astro";
 
-const heading = "Free landing page audit";
+const heading = "Request a High-Stakes Audit";
 ---
 
-<section class="bg-slate-100 dark:bg-primaryBlk px-4 py-4" id="contact-us">
-  <div class="mt-16 max-w-2xl">
-    <div class="p-2 mb-8">
-      <h4 class="ml-8 mt-6 text-xl leading-8 text-primaryDrk dark:text-white">
-        Contact Us
-      </h4>
-      <h2
-        class="ml-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl"
-      >
-        {heading}
-      </h2>
-    </div>
-  </div>
-  <div class="flex flex-col md:flex-row gap-x-16">
-    <div class="lg:w-1/2">
-      <ContactForm />
-    </div>
-    <div class="lg:w-1/2">
-      <h3 class="text-primaryBlk text-3xl mb-12">Get in touch</h3>
-      <h4 class="mb-2 text-primaryBlk">Location 1</h4>
-      <p class="mb-8 text-primaryDrk">Greensboro, NC</p>
-      <h4 class="mb-2 text-primaryBlk">Location 2</h4>
-      <p class="mb-8 text-primaryDrk">Atlanta, GA</p>
-      <p class="mb-4 mt-12 text-primaryDrk">
-        Email directly: <a href="mailto:todurant@sublimeux.com"
-          >todurant@sublimeux.com</a
+<section class="bg-slate-50 dark:bg-slate-900 py-16 lg:py-24" id="contact-us">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex flex-col md:flex-row gap-16 lg:gap-24">
+      <div class="lg:w-1/2">
+        <div class="mb-12">
+          <span
+            class="text-teal-600 dark:text-teal-400 font-bold uppercase tracking-widest text-sm mb-4 block"
+          >
+            Start Your Transformation
+          </span>
+          <h2
+            class="text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+          >
+            {heading}
+          </h2>
+        </div>
+        <ContactForm />
+      </div>
+      <div class="lg:w-1/2">
+        <div
+          class="bg-white dark:bg-slate-800 p-8 lg:p-12 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 sticky top-32"
         >
-      </p>
-      <p class="mb-4 text-primaryDrk">
-        Sublime UX: <a href="tel:3365177923">(336) 517-7923</a>
-      </p>
+          <h3 class="text-slate-900 dark:text-white text-3xl font-bold mb-8">
+            Get in touch
+          </h3>
+
+          <div class="space-y-8">
+            <div>
+              <h4 class="text-slate-900 dark:text-white font-bold mb-2">
+                Location 1
+              </h4>
+              <p class="text-slate-600 dark:text-slate-400">Greensboro, NC</p>
+            </div>
+
+            <div>
+              <h4 class="text-slate-900 dark:text-white font-bold mb-2">
+                Location 2
+              </h4>
+              <p class="text-slate-600 dark:text-slate-400">Atlanta, GA</p>
+            </div>
+
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-700">
+              <p class="text-slate-600 dark:text-slate-400 mb-2">
+                Email directly: <a
+                  href="mailto:todurant@sublimeux.com"
+                  class="text-teal-600 dark:text-teal-400 font-semibold hover:underline"
+                  >todurant@sublimeux.com</a
+                >
+              </p>
+              <p class="text-slate-600 dark:text-slate-400">
+                Sublime UX: <a
+                  href="tel:3365177923"
+                  class="text-teal-600 dark:text-teal-400 font-semibold hover:underline"
+                  >(336) 517-7923</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

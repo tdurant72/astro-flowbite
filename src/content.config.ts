@@ -41,6 +41,12 @@ const project = defineCollection({
           alt: z.string(),
         })
         .optional(),
+      projectvideo: z
+        .object({
+          src: z.string(),
+          alt: z.string(),
+        })
+        .optional(),
       developer: z.string().optional(),
       tags: z.array(z.string()),
       description: z.string().optional(),

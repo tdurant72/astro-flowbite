@@ -35,73 +35,66 @@ const problems = [
   {
     id: 1,
     icon: Activity,
-    title: "Low Engagement & High Donor Drop-Off",
+    title: "Capital Leaks & Conversions",
     description:
-      "A staggering number of non-profit and government websites have a bounce rate of 60-70%. This isn't just a number; it means for every 10 people who visit your site, 6 or 7 of them leave almost instantly. They're not finding what they need, they're not connecting with your mission, and they're not taking action. That's a direct loss of potential volunteers, community members, and donors.",
+      "A staggering number of government and enterprise websites have a bounce rate over 60%. This isn't just an analytics metric; it's a direct loss of potential contracts, user engagement, and capital. When your interface creates friction, you are effectively paying a tax to your competitors every time a procurement officer Googles a solution.",
     image: "/images/problems/low_engagement.webp",
   },
   {
     id: 2,
     icon: BadgeDollarSign,
-    title: "Your Website is Costing You Revenue (Not Just Donations):",
+    title: "The Invisibility Tax",
     description:
-      "The average donation on a mobile device is $76, while the average on a desktop is $145. If your site isn't fully optimized for a mobile-first world (which over 50% of your visitors are living in), you're literally leaving money on the table. A confusing or clunky donation process can cause up to a quarter of your potential online donations to be abandoned. Your website isn't an expense; it's a critical fundraising asset. When it fails, your mission suffers.",
+      "You have 'Big Game' logos but a 'Small Game' digital footprint. If your site isn't fully optimized for modern search infrastructure and mobile-first indexing, you are invisible to the very institutions you are trying to reach. A confusing user journey can cause up to a quarter of your high-value pipeline to be abandoned before they ever speak to sales.",
     image: "/images/problems/donations.webp",
   },
   {
     id: 3,
     icon: Check,
-    title: "Loss of Credibility & Trust:",
+    title: "Loss of Institutional Trust",
     description:
-      "Your website is your organization's first impression. Studies show that 75% of users judge an organization's credibility based on its website design. If your site looks outdated or is difficult to navigate, it signals that your organization is out of touch. In a competitive space where every dollar and every volunteer hour counts, you can't afford to have your digital presence undermine your mission.",
+      "Your website is your organization's digital storefront. Studies show that 75% of users judge an organization's credibility based on its UI/UX. If your site feels like a budget template, it creates cognitive dissonance for $50k+ contracts. In a competitive space where precision matters, you cannot afford to have your digital presence undermine your authority.",
     image: "/images/problems/credibility.webp",
   },
   {
     id: 4,
     icon: Binoculars,
-    title: "Invisible to Your Ideal Audience:",
+    title: "Outdated Technical Infrastructure",
     description:
-      "Even with high-quality content, if your site isn't built with modern SEO standards in mind, you are effectively invisible to the very people you're trying to reach. A significant portion of non-profit traffic comes from organic search, and if you're not ranking, you're not getting found. You are being out-maneuvered by organizations with better digital strategy, regardless of the quality of your work.",
+      "Even with high-quality offerings, if your site is built on bloated, legacy frameworks (like traditional WordPress setups), you are sacrificing speed, security, and scalability. Institutional clients require lightning-fast, highly secure platforms. You are being out-maneuvered by organizations deploying modern, high-velocity Astro architectures.",
     image: "/images/problems/seo.webp",
   },
 ];
 ---
 
-<section class="bg-[#3de4c1ff] pt-4 pb-8 h-full">
-  <!-- width="560" height="315 -->
-  <div
-    class="content flex flex-col mx-auto justify-center max-w-xl lg:max-w-5xl"
-  >
-    <div class="text-center mt-5">
-      <h2
-        class="text-2xl md:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+<section class="bg-slate-50 dark:bg-slate-950 py-16 lg:py-24" id="leaks">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex flex-col mx-auto justify-center">
+      <div class="text-center mb-12 lg:mb-20">
+        <span
+          class="inline-block py-1 px-3 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-sm font-bold tracking-widest uppercase mb-4"
+        >
+          Efficiency Audit
+        </span>
+        <h2
+          class="text-3xl md:text-5xl lg:text-6xl tracking-tight font-extrabold text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight"
+        >
+          Is Your Digital Infrastructure <span class="text-teal-500"
+            >Leaking Capital?</span
+          >
+        </h2>
+      </div>
+      <div
+        class="h-full w-full bg-white dark:bg-slate-900 p-8 lg:p-12 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800"
       >
-        Is Your Website Undermining Your Mission?
-      </h2>
-      <!-- <p
-        class="mb-4 text-xl text-left md:text-2xl tracking-tight font-medium text-gray-900 dark:text-white"
-      >
-        Many creators struggle with websites that fail to attract and retain
-        their ideal audience. Even with high-quality content, they often face
-        challenges like low traffic, poor search engine rankings, and high
-        bounce rates.
-      </p> -->
-    </div>
-    <div class="h-full w-full">
-      <!-- <Features
-        primaryColor="teal-500"
-        progressGradientLight="bg-gradient-to-r from-teal-400 to-teal-500"
-        progressGradientDark="bg-gradient-to-r from-teal-300 to-teal-400"
-        features={features}
-        client:visible
-      /> -->
-      <ProblemRotator
-        primaryColor="teal-500"
-        progressGradientDark="bg-gradient-to-r from-teal-300 to-teal-400"
-        progressGradientLight="bg-gradient-to-r from-teal-400 to-teal-500"
-        problems={problems}
-        client:visible
-      />
+        <ProblemRotator
+          primaryColor="teal-500"
+          progressGradientDark="bg-gradient-to-r from-teal-400 to-teal-600"
+          progressGradientLight="bg-gradient-to-r from-teal-400 to-teal-500"
+          problems={problems}
+          client:visible
+        />
+      </div>
     </div>
   </div>
 </section>

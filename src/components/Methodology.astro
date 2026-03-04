@@ -1,0 +1,98 @@
+---
+import { Users } from "@lucide/astro";
+import { Image } from "astro:assets";
+import Boardroom from "public/images/board-room.webp";
+---
+
+<section id="methodology" class="py-32 md:py-48 px-6 overflow-hidden">
+    <span
+        class="text-[8vw] uppercase tracking-tight font-semibold mb-8 block gradient-text text-right"
+        data-aos="fade-down"
+        data-aos-delay="200">Methodology</span
+    >
+    <div
+        class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-24 items-center"
+        data-aos="fade-up"
+    >
+        <div class="relative">
+            <div class="aspect-[4/5] rounded-[3rem] overflow-hidden">
+                <Image
+                    src={Boardroom}
+                    alt="The Boardroom"
+                    class="w-full h-full object-cover grayscale-25"
+                    loading="lazy"
+                    height={700}
+                    width={593}
+                />
+            </div>
+            <div
+                class="absolute -bottom-12 -right-12 bg-brand-accent text-brand-paper p-12 rounded-3xl max-w-xs hidden lg:block z-40 bg-teal-500"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
+                <Users size={48} class="mb-6 text-teal-50" />
+                <h4 class="text-2xl font-serif italic mb-4">
+                    Stakeholder-First
+                </h4>
+                <p class="text-lg opacity-80 leading-relaxed">
+                    Facilitating consensus between government, private donors,
+                    and the public.
+                </p>
+            </div>
+        </div>
+        <div>
+            <h2
+                class="text-5xl md:text-7xl font-serif font-light leading-tight mb-12"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                De-risking the <br />
+                <span class="italic">Institutional Project.</span>
+            </h2>
+            <div class="space-y-12">
+                <div class="flex gap-8" data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-2xl font-serif opacity-20">01</span>
+                    <div>
+                        <h4
+                            class="text-xl font-bold uppercase tracking-widest mb-4"
+                        >
+                            Narrative Alignment
+                        </h4>
+                        <p class="text-lg font-light opacity-60">
+                            We begin by interviewing key stakeholders to find
+                            the "North Star" that everyone can agree on.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-8" data-aos="fade-up" data-aos-delay="400">
+                    <span class="text-2xl font-serif opacity-20">02</span>
+                    <div>
+                        <h4
+                            class="text-xl font-bold uppercase tracking-widest mb-4"
+                        >
+                            Consensus Facilitation
+                        </h4>
+                        <p class="text-lg font-light opacity-60">
+                            Our design reviews are structured to move from "I
+                            like this color" to "This achieves our mission."
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-8" data-aos="fade-up" data-aos-delay="500">
+                    <span class="text-2xl font-serif opacity-20">03</span>
+                    <div>
+                        <h4
+                            class="text-xl font-bold uppercase tracking-widest mb-4"
+                        >
+                            Legacy Building
+                        </h4>
+                        <p class="text-lg font-light opacity-60">
+                            The final platform isn't just a site; it's a digital
+                            home for your organization's multi-decade legacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

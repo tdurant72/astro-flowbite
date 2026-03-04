@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "@/components/custom/ProjectCard.astro";
+import HeaderSmall from "../components/HeaderSmall.astro";
+
+const title = "Case Studies";
+const subtitle = "Deep Dives into High-Stakes Migrations & Architectures";
+const allProjects = await getCollection("projects");
+const caseStudies = allProjects.filter((project) =>
+    project.data.tags?.includes("case study"),
+);
+---
+
+<Layout title={title} description="A selection of our high-stakes case studies">
+    <main class="pt-16 md:pt-20">
+        <HeaderSmall title={title} subtitle={subtitle} />
+        <div class="">
+            <section class="section">
+                <div
+                    id="gallery"
+                    class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto px-4 md:px-6"
+                >
+                    {
+                        caseStudies.length > 0 ? (
+                            caseStudies.map((project) => (
+                                <ProjectCard project={project} />
+                            ))
+                        ) : (
+                            <p class="text-center col-span-full py-12 text-gray-500">
+                                Case studies are currently being updated.
+                            </p>
+                        )
+                    }
+                </div>
+            </section>
+        </div>
+    </main>
+</Layout>

@@ -30,13 +30,40 @@ const {
   })}
 />
 
-<section class="max-w-(--breakpoint-xl) px-4 pt-0 pb-8 mx-auto">
-  <QuoteWName quote={quote} name={name} />
-  <div class="mt-4">
-    <h3 class="text-2xl text-slate-800 dark:text-slate-50 pl-4">
-      We helped {name}'s site go from page 9 on Google to page <span
-        class="font-semibold">1 in 90 days.</span
-      >
-    </h3>
+<section class="py-16 lg:py-24 bg-white dark:bg-slate-900">
+  <div class="max-w-7xl px-4 md:px-6 mx-auto">
+    <div
+      class="bg-slate-50 dark:bg-slate-800 p-8 md:p-12 lg:p-16 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm relative overflow-hidden"
+    >
+      <div class="absolute top-0 right-0 p-8 opacity-10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="120"
+          height="120"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="text-teal-500"
+        >
+          <path
+            d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM3.01697 21L3.01697 18C3.01697 16.8954 3.9124 16 5.01697 16H8.01697C8.56925 16 9.01697 15.5523 9.01697 15V9C9.01697 8.44772 8.56925 8 8.01697 8H5.01697C3.9124 8 3.01697 7.10457 3.01697 6V3L11.017 3V15C11.017 18.3137 8.3307 21 5.01697 21H3.01697Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="relative z-10">
+        <QuoteWName quote={quote} name={name} />
+        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700">
+          <h3
+            class="text-2xl md:text-3xl text-slate-800 dark:text-slate-50 font-medium"
+          >
+            We helped <span class="text-teal-600 dark:text-teal-400 font-bold"
+              >{name}'s</span
+            > site go from page 9 on Google to <span
+              class="text-teal-600 dark:text-teal-400 font-bold"
+              >page 1 in 90 days.</span
+            >
+          </h3>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

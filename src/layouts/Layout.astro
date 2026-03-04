@@ -7,7 +7,8 @@ interface Props {
 }
 import "../styles/global.css";
 const { title, description } = Astro.props;
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
+import { fade } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import PulsingCircle from "@/components/React/PulsingCircle";
@@ -18,8 +19,9 @@ import "animate.css";
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <ViewTransitions />
+  <head transition:animate={fade({ duration: "0.4s" })}>
+    <ClientRouter />
+
     <meta charset="UTF-8" />
     <meta name="description" content={data.siteDescription} />
     <meta
@@ -41,6 +43,12 @@ import "animate.css";
       content="9IyPrr2wq-W0ydHdMEZu2mV4qdB-kWtqkzsV2tMlpuE"
     />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script is:inline>
       //check for dark mode in local storage using the theme var
       if (localStorage.getItem("theme") === "dark") {
@@ -78,17 +86,28 @@ import "animate.css";
     <Seo title={title} description={description} image={data.image} />
   </head>
   <body>
-    <div class="bg-slate-50 dark:bg-slate-800 min-h-screen">
+    <div
+      class="relative bg-white dark:bg-slate-900 min-h-screen overflow-x-hidden"
+    >
       <Nav />
-      <div class="container pt-10 pb-[1rem] px-[1rem]">
-        <slot />
-        <PulsingCircle client:load />
-        <Footer />
-      </div>
+      <slot />
+      <PulsingCircle client:only="react" />
+      <Footer />
     </div>
     <script>
       import AOS from "aos";
-      AOS.init();
+      import "aos/dist/aos.css";
+
+      const initAOS = () => {
+        AOS.init({
+          duration: 800,
+          once: true,
+          easing: "ease-out-cubic",
+        });
+      };
+
+      initAOS();
+      document.addEventListener("astro:after-swap", initAOS);
     </script>
     <!-- <script type="text/javascript" is:inline>
       (function (d, t) {
@@ -109,13 +128,6 @@ import "animate.css";
     <style is:global>
       html {
         scroll-behavior: smooth;
-      }
-      .container {
-        max-width: 1280px;
-        margin: 0 auto;
-        /* height: 100vh;
-        overflow-y: auto;
-        perspective: 16px; */
       }
       .section {
         padding: 60px 0;

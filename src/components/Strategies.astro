@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import crowd from "public/images/crowd.webp";
+---
+
+<section
+    id="strategy"
+    class="relative overflow-hidden py-8 md:py-12 px-6 bg-brand-ink text-brand-paper h-screen min-h-[500px] max-h-[1200px]"
+>
+    <!-- Background Element -->
+    <!-- <div
+        id="strategic-session"
+        class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+    >
+        <div
+            class="hidden md:block absolute right-0 top-0 h-full w-full bg-gradient-to-b from-neutral-50/10 to-neutral-50"
+            style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%); opacity: 0.6;"
+        >
+            <Image
+                src={crowd}
+                width={1080}
+                alt="Strategic session"
+                class="object-cover w-full h-full grayscale-75 opacity-70"
+            />
+        </div>
+    </div> -->
+    <span
+        class="text-[8vw] uppercase tracking-tight font-semibold mb-8 block gradient-text"
+        data-aos="fade-down"
+        data-aos-delay="200">The Strategic Gap</span
+    >
+    <div
+        class="relative z-10 max-w-screen-xl mx-auto grid md:grid-cols-2 gap-24 items-center"
+    >
+        <div>
+            <h2
+                class="text-lg md:text-2xl font-serif font-light leading-tight mb-12"
+                data-aos="fade-right"
+                data-aos-delay="100"
+            >
+                Your mission is clear. <br />
+                <span
+                    class="italic opacity-70 text-teal-500 mix-blend-difference text-xl md:text-4xl"
+                    >Your digital presence is not.</span
+                >
+            </h2>
+            <div class="space-y-8">
+                <p
+                    class="text-lg md:text-xl font-light leading-relaxed opacity-90"
+                >
+                    Most public-private partnerships suffer from "Information
+                    Bloat." When stakeholders are fragmented and the mission is
+                    complex, the digital experience often becomes a labyrinth of
+                    confusion.
+                </p>
+                <p
+                    class="text-lg md:text-xl font-light leading-relaxed text-neutral-900"
+                >
+                    We solve this through Narrative Consensus. We don't just
+                    design websites; we facilitate a process that aligns
+                    government, private donors, and the public under one
+                    cohesive digital vision.
+                </p>
+            </div>
+        </div>
+        <div
+            class="space-y-8 grid grid-cols-1 grid-rows-1 justify-center items-center"
+            data-aos="fade-left"
+            data-aos-delay="100"
+        >
+            <div
+                class="col-start-1 col-end-2 row-start-1 row-end-2 rounded-lg overflow-hidden"
+            >
+                <Image
+                    src={crowd}
+                    width={1080}
+                    alt="Strategic session"
+                    class="object-cover w-full h-full"
+                />
+            </div>
+        </div>
+    </div>
+</section>
