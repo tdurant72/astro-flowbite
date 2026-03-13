@@ -8,25 +8,25 @@ import { Search, Map, Layout, Rocket } from 'lucide-react';
 
 const STAGES = [
     {
-        icon: <Search className="w-6 h-6 text-teal-500" />,
+        icon: <Search className="w-6 h-6 text-brand-teal" />,
         title: "Discovery & Audit",
         description: "Identifying capital leaks and regional competitive gaps through rigorous data analysis.",
         tag: "Stage 01"
     },
     {
-        icon: <Map className="w-6 h-6 text-teal-500" />,
+        icon: <Map className="w-6 h-6 text-brand-teal" />,
         title: "Strategic Blueprint",
         description: "Mapping the institutional buyer journey and site-selection requirements for global investors.",
         tag: "Stage 02"
     },
     {
-        icon: <Layout className="w-6 h-6 text-teal-500" />,
+        icon: <Layout className="w-6 h-6 text-brand-teal" />,
         title: "Rapid Prototyping",
         description: "Visualizing the authoritative digital asset before the first line of code is ever written.",
         tag: "Stage 03"
     },
     {
-        icon: <Rocket className="w-6 h-6 text-teal-500" />,
+        icon: <Rocket className="w-6 h-6 text-brand-teal" />,
         title: "Institutional Launch",
         description: "Deploying lightning-fast systems that secure multi-million dollar regional investments.",
         tag: "Stage 04"
@@ -39,7 +39,7 @@ export const ProcessAlt = () => {
             <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <ContainerStagger className="mb-16">
                     <ContainerAnimated>
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-teal-500 mb-4">
+                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-brand-teal mb-4">
                             The Path to Authority
                         </h2>
                     </ContainerAnimated>

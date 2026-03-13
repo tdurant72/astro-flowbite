@@ -42,7 +42,7 @@ export const HeroAlt = () => {
                         <ContainerAnimated>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                                 Frictionless Websites Systems for<br />
-                                <span className="text-teal-500">
+                                <span className="text-brand-teal">
                                     explosive growth.
                                 </span>
                             </h1>
@@ -60,7 +60,7 @@ export const HeroAlt = () => {
                             >
                                 <a href="#contact-us">Get a High-Stakes Audit</a>
                             </Button>
-                            <Button asChild className="h-14 px-8 bg-teal-500 text-white text-lg font-bold hover:bg-teal-600 transition-all duration-300 rounded-full shadow-lg hover:shadow-teal-500/25">
+                            <Button asChild className="h-14 px-8 bg-brand-teal text-white text-lg font-bold hover:bg-teal-600 transition-all duration-300 rounded-full shadow-lg hover:shadow-brand-teal/25">
                                 <a href="/case-studies">View Case Studies</a>
                             </Button>
                         </ContainerAnimated>

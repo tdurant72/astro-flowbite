@@ -40,6 +40,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand-teal: #2db3a1;
+  --color-brand-amber: #f59e0b;
 
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
@@ -136,7 +138,7 @@
 
 @layer base {
   * {
-    @apply border-slate-100 dark:border-slate-800 outline-teal-500/50;
+    @apply border-slate-100 dark:border-slate-800 outline-brand-teal/50;
   }
 
   html {
@@ -146,7 +148,7 @@
   }
 
   body {
-    @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans selection:bg-teal-100 selection:text-teal-900 dark:selection:bg-teal-500/30 dark:selection:text-teal-100;
+    @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans selection:bg-teal-100 selection:text-teal-900 dark:selection:bg-brand-teal/30 dark:selection:text-teal-100;
   }
 
   h1,

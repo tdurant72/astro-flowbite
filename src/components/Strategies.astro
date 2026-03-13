@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import crowd from "public/images/crowd.webp";
+import crowd from "../assets/images/crowd.webp";
 ---
 
 <section
@@ -18,7 +18,9 @@ import crowd from "public/images/crowd.webp";
         >
             <Image
                 src={crowd}
-                width={1080}
+                width={600}
+                format="avif"
+                quality={75}
                 alt="Strategic session"
                 class="object-cover w-full h-full grayscale-75 opacity-70"
             />
@@ -40,7 +42,7 @@ import crowd from "public/images/crowd.webp";
             >
                 Your mission is clear. <br />
                 <span
-                    class="italic opacity-70 text-teal-500 mix-blend-difference text-xl md:text-4xl"
+                    class="italic opacity-70 text-brand-teal mix-blend-difference text-xl md:text-4xl"
                     >Your digital presence is not.</span
                 >
             </h2>
@@ -72,7 +74,9 @@ import crowd from "public/images/crowd.webp";
             >
                 <Image
                     src={crowd}
-                    width={1080}
+                    width={600}
+                    format="avif"
+                    quality={75}
                     alt="Strategic session"
                     class="object-cover w-full h-full"
                 />

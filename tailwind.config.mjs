@@ -47,6 +47,10 @@ module.exports = {
         indigo: colors.indigo,
         yellow: colors.yellow,
         amber: colors.amber,
+        brand: {
+          teal: "#2db3a1",
+          amber: "#f59e0b",
+        },
       },
       translate: ["dark"],
       animation: {

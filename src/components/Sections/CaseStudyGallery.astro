@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 // import GallerySection from "../React/GallerySection.tsx";
 import FeaturedCaseStudies from "@/components/React/FeaturedCaseStudies.tsx";
 
@@ -10,15 +11,33 @@ const caseStudies = projects.filter(
     (project) => project.data.type === "highlighted",
 );
 
-const formattedProjects = caseStudies.map((project, index) => ({
-    id: String(index + 1).padStart(2, "0"),
-    slug: project.id,
-    title: project.data.title,
-    category: project.data.description || project.data.type || "Case Study",
-    image: project.data.projectimage?.src || "",
-    video: project.data.projectvideo?.src || "",
-    preview: project.data.projectimage?.src || "",
-}));
+const formattedProjects = await Promise.all(
+    caseStudies.map(async (project, index) => {
+        // Pre-optimize image for the gallery card
+        let optimizedImage = null;
+        const projectImage = project.data.projectimage;
+        
+        if (projectImage && projectImage.src) {
+            optimizedImage = await getImage({
+                src: projectImage.src as any,
+                width: 600,
+                format: "avif",
+                quality: 75,
+            });
+        }
+
+        return {
+            id: String(index + 1).padStart(2, "0"),
+            slug: project.id,
+            title: project.data.title,
+            category:
+                project.data.description || project.data.type || "Case Study",
+            image: optimizedImage?.src || "",
+            video: project.data.projectvideo?.src || "",
+            preview: optimizedImage?.src || "",
+        };
+    }),
+);
 
 // console.log(formattedProjects);
 ---

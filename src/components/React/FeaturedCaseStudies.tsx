@@ -28,7 +28,7 @@ const FeaturedCaseStudies = ({ onHover, projects }: { onHover?: (id: string | nu
 
             <div className="max-w-screen-2xl mx-auto">
                 <RevealText className="mb-24">
-                    <h2 className="text-2xl md:text-4xl font-serif italic text-teal-500">Selected Works.</h2>
+                    <h2 className="text-2xl md:text-4xl font-serif italic text-brand-teal">Selected Works.</h2>
                 </RevealText>
 
                 <div className="grid md:grid-cols-3 gap-12">

@@ -32,12 +32,12 @@ const posts = defineCollection({
 });
 const project = defineCollection({
   loader: glob({ pattern: "**/[^_]*.mdx", base: "./src/content/projects" }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       projectimage: z
         .object({
-          src: z.string(),
+          src: image(),
           alt: z.string(),
         })
         .optional(),

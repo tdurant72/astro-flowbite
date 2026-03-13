@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 export default function PulsingCircle() {
     return (
         <div className="fixed bottom-8 right-8 z-30 bg-slate-50 rounded-full">
-            <a href="/#contact-us">
+            <a href="/#contact-us" aria-label="Contact us today">
                 <div className="relative w-20 h-20 flex items-center justify-center">
                     {/* Pulsing Border Circle */}
                     <PulsingBorder

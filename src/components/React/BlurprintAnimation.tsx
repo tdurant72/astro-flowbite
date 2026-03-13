@@ -27,7 +27,7 @@ export default function BlurprintAnimation() {
 
                     {/* X-Ray Scanner Line */}
                     <motion.div
-                        className="absolute top-0 left-0 w-full h-[2px] bg-teal-500 shadow-[0_0_15px_rgba(0,85,255,0.8)]"
+                        className="absolute top-0 left-0 w-full h-[2px] bg-brand-teal shadow-[0_0_15px_rgba(0,85,255,0.8)]"
                         animate={{ top: ["0%", "100%", "0%"] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                     />

@@ -47,7 +47,7 @@ export default function TypewriterAnimation() {
             </span>
             <h3 className="font-serif text-4xl md:text-5xl text-slate-800 leading-tight">
                 {displayText}
-                <span className="inline-block w-[3px] h-[1em] bg-teal-500 ml-1 animate-pulse align-middle" />
+                <span className="inline-block w-[3px] h-[1em] bg-brand-teal ml-1 animate-pulse align-middle" />
             </h3>
         </div>
     );

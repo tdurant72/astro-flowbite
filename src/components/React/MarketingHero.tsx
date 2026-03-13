@@ -93,7 +93,7 @@ export default function MarketingHero() {
                             Your Mission is Essential.
                         </motion.span>
                         <br />
-                        <motion.span className="inline-block text-2xl md:text-[5vw] font-medium font-serif text-teal-500" variants={contentVariants}>
+                        <motion.span className="inline-block text-2xl md:text-[5vw] font-medium font-serif text-brand-teal" variants={contentVariants}>
                             Make Sure the Future Can Find It.
                         </motion.span>
                     </motion.h1>
@@ -111,14 +111,14 @@ export default function MarketingHero() {
                     >
                         <div className='flex flex-col items-center gap-y-2.5'>
                             <Button asChild
-                                className="h-14 px-8 bg-amber-500 dark:bg-amber-100 text-white dark:text-slate-900 text-lg font-bold hover:bg-amber-600 dark:hover:bg-amber-200 transition-all duration-300 rounded-full shadow-lg"
+                                className="h-14 px-8 bg-brand-amber dark:bg-amber-100 text-slate-900 text-lg font-bold hover:bg-amber-600 dark:hover:bg-amber-200 transition-all duration-300 rounded-full shadow-lg"
                             >
                                 <a href="#contact-us">Request a High Stakes Audit</a>
                             </Button>
                             <p className='text-slate-700 text-[0.8rem]'>Identify your Friction Tax in 15 minutes.</p>
                         </div>
                         <div className='flex flex-col items-center gap-y-2.5'>
-                            <Button asChild className="h-14 px-8 bg-teal-500 text-white text-lg font-bold hover:bg-teal-600 transition-all duration-300 rounded-full shadow-lg hover:shadow-teal-500/25">
+                            <Button asChild className="h-14 px-8 bg-teal-700 text-white text-lg font-bold hover:bg-teal-800 transition-all duration-300 rounded-full shadow-lg hover:shadow-teal-700/25">
                                 <a href="/services/V2VFramework">The V2V Methodology</a>
                             </Button>
                             <p className='text-slate-700 text-[0.8rem]'>How we engineer institutional authority.</p>
@@ -149,7 +149,9 @@ export default function MarketingHero() {
                         muted
                         playsInline
                         className="w-full h-auto object-cover pointer-events-none"
-                    />
+                    >
+                        <track kind="captions" />
+                    </video>
                 </motion.div>
             </motion.div>
         </section>
