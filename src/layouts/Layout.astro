@@ -3,10 +3,10 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
-  frontmatter?: object;
+  frontmatter?: Record<string, any>;
 }
 import "../styles/global.css";
-const { title, description } = Astro.props;
+const { title, description, image, frontmatter } = Astro.props;
 import { ClientRouter } from "astro:transitions";
 import { fade } from "astro:transitions";
 import Nav from "../components/Nav.astro";
@@ -26,7 +26,7 @@ import "animate.css";
     <meta name="description" content={data.siteDescription} />
     <meta
       name="keywords"
-      content="Sublime UX, User Experience, web dsesign, web development, Greensboro, design, user interface, Triad, North Carolina, design expert, fast website, modern web site"
+      content="Sublime UX, User Experience, web design, web development, Greensboro, design, user interface, Triad, North Carolina, design expert, fast website, modern web site"
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -57,38 +57,15 @@ import "animate.css";
         document.documentElement.classList.remove("dark");
       }
     </script>
-    <script
-      type="application/ld+json"
-      class="json-ld"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        name: "Sublime UX",
-        image: "https://www.sublimeux.com/images/socialImage.webp",
-        telephone: "(336) 517-7923",
-        email: "todurant@sublimeux.com",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Greensboro",
-          addressRegion: "NC",
-          postalCode: "27405",
-        },
-        url: "https://www.sublimeux.com/",
-        sameAs: [
-          "https://twitter.com/sublime_ux",
-          "https://www.youtube.com/@sublimeux",
-          "https://www.linkedin.com/in/tyus-durant-98697511",
-        ],
-        description: data.siteDescription,
-        priceRange: "$$",
-      })}
+    <Seo
+      title={title}
+      description={description}
+      image={image ? { src: image, alt: title } : data.image}
+      frontmatter={frontmatter}
     />
-    <Seo title={title} description={description} image={data.image} />
   </head>
   <body>
-    <div
-      class="relative bg-white dark:bg-slate-900 min-h-screen overflow-x-hidden"
-    >
+    <div class="relative bg-white dark:bg-slate-900 min-h-screen">
       <Nav />
       <slot />
       <PulsingCircle client:only="react" />
@@ -109,22 +86,6 @@ import "animate.css";
       initAOS();
       document.addEventListener("astro:after-swap", initAOS);
     </script>
-    <!-- <script type="text/javascript" is:inline>
-      (function (d, t) {
-        var v = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: "67609c9373a2bb187bcbd163" },
-            url: "https://general-runtime.voiceflow.com",
-            versionID: "production",
-          });
-        };
-        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
-        v.type = "text/javascript";
-        s.parentNode.insertBefore(v, s);
-      })(document, "script");
-    </script> -->
     <style is:global>
       html {
         scroll-behavior: smooth;

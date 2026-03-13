@@ -51,6 +51,14 @@ const project = defineCollection({
       tags: z.array(z.string()),
       description: z.string().optional(),
       type: z.string(),
+      schema: z.object({
+        type: z.string(),
+        name: z.string(),
+        protocol: z.string(),
+        metric: z.string(),
+        keywords: z.array(z.string()).optional(),
+      })
+        .optional(),
     }),
 });
 export const collections = {

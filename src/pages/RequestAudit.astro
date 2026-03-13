@@ -1,0 +1,427 @@
+---
+import { ArrowRight } from "@lucide/astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+    title="Request Audit"
+    description="Intake form to start the audit process with Sublime UX"
+>
+    <div class="pt-20 min-h-screen bg-white">
+        <div class="max-w-4xl mx-auto px-6 py-32">
+            <div class="mb-20">
+                <span
+                    class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-6 block"
+                    >Intake Briefing</span
+                >
+                <h1
+                    class="font-serif text-5xl md:text-6xl text-slate-800 leading-tight mb-6"
+                >
+                    Let's Architect Your Growth.
+                </h1>
+                <p
+                    class="font-sans text-xl text-slate-800/80 font-light max-w-2xl"
+                >
+                    Stop paying a friction tax. Provide your details below, and
+                    an architect will reach out to analyze your digital
+                    infrastructure and conversion pipeline.
+                </p>
+            </div>
+
+            <div
+                id="success-message"
+                class="hidden mb-12 p-8 bg-teal-50 border border-teal-200 rounded-lg"
+            >
+                <h3 class="font-serif text-3xl text-slate-800 mb-4">
+                    Brief Received.
+                </h3>
+                <p class="font-sans text-lg text-slate-800/80">
+                    Thank you for submitting your diagnostic parameters. Our
+                    team will review your friction points and follow up with you
+                    shortly.
+                </p>
+            </div>
+
+            <form
+                id="audit-form"
+                data-netlify="true"
+                name="contact"
+                method="POST"
+                action="/success"
+                class="space-y-6"
+            >
+                {/* Phase 1 */}
+                <section class="space-y-12">
+                    <div class="border-b border-slate-800/10 pb-4">
+                        <h2 class="font-serif text-2xl text-slate-800">
+                            Phase 1: Institutional Identity
+                        </h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label
+                                class="font-mono text-[10px] uppercase tracking-widest text-slate-800/80 block"
+                                >Full Name</label
+                            >
+                            <input
+                                id="name"
+                                type="text"
+                                name="name"
+                                required
+                                placeholder="John Smith"
+                                class="w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-mono text-[10px] uppercase tracking-widest text-slate-800/80 block"
+                                >Email Address</label
+                            >
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                required
+                                placeholder="jsmith@organization.com"
+                                class="w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-mono text-[10px] uppercase tracking-widest text-slate-800/80 block"
+                                >Organization Name</label
+                            >
+                            <input
+                                required
+                                type="text"
+                                name="organizationName"
+                                placeholder="Who are you?"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-mono text-[10px] uppercase tracking-widest text-slate-800/80 block"
+                                >Primary Mission Domain</label
+                            >
+                            <input
+                                required
+                                type="text"
+                                name="missionDomain"
+                                placeholder="e.g., Economic Development, Philanthropy"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                        <div class="space-y-2 md:col-span-2">
+                            <label
+                                class="font-mono text-[10px] uppercase tracking-widest text-slate-800/80 block"
+                                >Current Primary Metric for Success</label
+                            >
+                            <input
+                                required
+                                type="text"
+                                name="primaryMetric"
+                                placeholder="e.g., Regional Job Growth, Donor Retention"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                {/* Phase 2 */}
+                <section class="space-y-12">
+                    <div class="border-b border-slate-800/10 pb-4">
+                        <h2 class="font-serif text-2xl text-slate-800">
+                            Phase 2: Identifying the "Friction Tax"
+                        </h2>
+                    </div>
+
+                    <div class="space-y-12">
+                        <div class="space-y-4">
+                            <label
+                                class="font-sans text-lg text-slate-800 block"
+                            >
+                                The Narrative Gap: On a scale of 1–10, how
+                                aligned are your various stakeholders (Board,
+                                Public, Partners) on your current digital story?
+                            </label>
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="font-mono text-xs text-slate-800/70"
+                                    >1 (Fragmented)</span
+                                >
+                                <input
+                                    type="range"
+                                    name="narrativeGap"
+                                    min="1"
+                                    max="10"
+                                    value="5"
+                                    oninput="document.getElementById('narrativeGapOutput').innerText = this.value"
+                                    class="audit-field flex-1 accent-teal-500"
+                                />
+                                <span
+                                    class="font-mono text-xs text-slate-800/70"
+                                    >10 (Unified)</span
+                                >
+                            </div>
+                            <div
+                                id="narrativeGapOutput"
+                                class="text-center font-mono text-xl text-teal-500"
+                            >
+                                5
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <label
+                                class="font-sans text-lg text-slate-800 block"
+                            >
+                                The Discovery Problem: When a stakeholder uses
+                                an AI tool (like ChatGPT) to ask about your
+                                mission, are you confident your data is being
+                                cited accurately?
+                            </label>
+                            <div class="flex gap-6">
+                                {
+                                    ["Yes", "No", "Unsure"].map((option) => (
+                                        <label class="flex items-center gap-2 cursor-pointer group">
+                                            <div class="w-4 h-4 rounded-full border border-slate-800/30 group-hover:border-slate-800 flex items-center justify-center transition-colors relative">
+                                                <input
+                                                    required
+                                                    type="radio"
+                                                    name="discoveryProblem"
+                                                    value={option}
+                                                    class="audit-field absolute inset-0 opacity-0 cursor-pointer peer"
+                                                />
+                                                <div class="w-2 h-2 rounded-full bg-teal-500 opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                            </div>
+
+                                            <span class="font-sans text-slate-800/80">
+                                                {option}
+                                            </span>
+                                        </label>
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="font-sans text-lg text-slate-800 block mb-2"
+                            >
+                                The Conversion Bottleneck: What is the single
+                                biggest action a user takes on your site that
+                                currently feels difficult or manual?
+                            </label>
+                            <textarea
+                                required
+                                name="conversionBottleneck"
+                                rows="3"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors resize-none"
+                            ></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Phase 3 */}
+                <section class="space-y-12">
+                    <div class="border-b border-slate-800/10 pb-4">
+                        <h2 class="font-serif text-2xl text-slate-800">
+                            Phase 3: Strategic Roadblocks
+                        </h2>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="space-y-2">
+                            <label
+                                class="font-sans text-lg text-slate-800 block mb-2"
+                            >
+                                The Primary Mission Roadblock: If your digital
+                                presence could solve one systemic challenge for
+                                your organization this year, what would it be?
+                            </label>
+                            <textarea
+                                required
+                                name="missionRoadblock"
+                                rows="3"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="font-sans text-lg text-slate-800 block mb-2"
+                            >
+                                The Stakeholder Dynamic: Who is the final
+                                'Sign-Off' authority for this project?
+                            </label>
+                            <input
+                                required
+                                type="text"
+                                name="stakeholderDynamic"
+                                placeholder="e.g., CEO, Board of Directors, Multi-Agency Committee"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                {/* Phase 4 */}
+                <section class="space-y-12">
+                    <div class="border-b border-slate-800/10 pb-4">
+                        <h2 class="font-serif text-2xl text-slate-800">
+                            Phase 4: Investment & Timeline
+                        </h2>
+                    </div>
+
+                    <div class="space-y-12">
+                        <div class="space-y-4">
+                            <label
+                                class="font-sans text-lg text-slate-800 block"
+                            >
+                                Investment Band
+                            </label>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                {
+                                    ["$5k–$10k", "$10k–$50k", "$50k+"].map(
+                                        (band) => (
+                                            <label class="border border-slate-800/20 hover:border-slate-800/50 bg-white p-6 cursor-pointer transition-all duration-300 has-[:checked]:border-teal-500 has-[:checked]:bg-teal-500/5">
+                                                <input
+                                                    required
+                                                    type="radio"
+                                                    name="investmentBand"
+                                                    value={band}
+                                                    class="audit-field hidden peer"
+                                                />
+                                                <div class="flex items-center justify-between">
+                                                    <span class="font-mono text-sm tracking-widest text-slate-800">
+                                                        {band}
+                                                    </span>
+                                                    <div class="w-4 h-4 rounded-full border border-slate-800/30 peer-checked:border-teal-500 flex items-center justify-center transition-colors">
+                                                        <div class="w-2 h-2 rounded-full bg-teal-500 opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        ),
+                                    )
+                                }
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="font-sans text-lg text-slate-800 block mb-2"
+                            >
+                                Urgency: Is there a specific legislative
+                                session, board meeting, or grant cycle this
+                                transformation must align with?
+                            </label>
+                            <textarea
+                                required
+                                name="urgency"
+                                rows="3"
+                                class="audit-field w-full bg-slate-800/5 border-b border-slate-800/20 px-4 py-3 font-sans text-slate-800 focus:outline-none focus:border-teal-500 transition-colors resize-none"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    {/* The Hidden Message Field that Netlify Captures */}
+                    <div class="hidden space-y-2">
+                        <label for="message">Project Focus</label>
+                        <textarea id="message" name="message" rows="4"
+                            >I would like to request a High-Stakes UX Audit.</textarea
+                        >
+                    </div>
+                </section>
+
+                {/* Submit */}
+                <div class="pt-12 border-t border-slate-800/10">
+                    <button
+                        type="submit"
+                        id="submitBtn"
+                        class="group flex items-center justify-center gap-4 w-full md:w-auto px-12 py-6 bg-slate-800 text-white hover:bg-teal-500 transition-all duration-300"
+                    >
+                        <span
+                            class="font-mono text-sm uppercase tracking-widest font-medium"
+                            id="submitText">Submit Initial Form</span
+                        >
+                        <ArrowRight
+                            class="w-4 h-4 transition-transform group-hover:translate-x-2"
+                        />
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</Layout>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("audit-form") as HTMLFormElement;
+        const successMessage = document.getElementById("success-message");
+        const submitText = document.getElementById("submitText");
+
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (submitText) submitText.innerText = "Submitting...";
+
+            // 1. Combine Custom Inputs
+            const messageField = document.getElementById(
+                "message",
+            ) as HTMLTextAreaElement;
+            const customFields = document.querySelectorAll(
+                ".audit-field",
+            ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+
+            let combinedMessage = "High-Stakes Audit Request:\n\n";
+
+            customFields.forEach((field) => {
+                // Ignore unchecked radio buttons
+                if (
+                    field.type === "radio" &&
+                    !(field as HTMLInputElement).checked
+                )
+                    return;
+
+                const labelName = field.name
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase());
+                combinedMessage += `== ${labelName} ==\n${field.value}\n\n`;
+            });
+
+            // 2. Set the hidden textarea
+            if (messageField) {
+                messageField.value = combinedMessage;
+            }
+
+            // 3. Submit to Netlify via AJAX so we can show success message without reloading
+            const formData = new FormData(form);
+
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(formData as any).toString(),
+            })
+                .then(() => {
+                    // Target success handling
+                    form.classList.add("hidden");
+                    if (successMessage) {
+                        successMessage.classList.remove("hidden");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Submission Error:", error);
+                    if (submitText)
+                        submitText.innerText = "Submit Initial Form";
+                    alert(
+                        "There was an issue submitting your form. Please try again.",
+                    );
+                });
+        });
+    });
+</script>

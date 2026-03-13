@@ -1,0 +1,311 @@
+---
+import { Eye, ShieldCheck, FastForward, Network } from "@lucide/astro";
+import V2VHeroAnimation from "../../components/React/V2VHeroAnimation";
+import Layout from "../../layouts/Layout.astro";
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "The V2V Framework: Visibility-to-Velocity",
+    description:
+        "An institutional engineering framework for Visibility-to-Velocity (V2V). Specializing in Generative Engine Optimization (GEO), Information Gain, and AI search authority for non-profits and PPPs.",
+    mainEntity: {
+        "@type": "Methodology",
+        name: "V2V Framework",
+        description:
+            "A proprietary three-phase digital architecture system focusing on Information Gain and Institutional Indexing.",
+        steps: [
+            {
+                "@type": "HowToStep",
+                name: "Visibility",
+                itemListElement:
+                    "Generative Engine Optimization and Entity Alignment",
+            },
+            {
+                "@type": "HowToStep",
+                name: "Trust",
+                itemListElement:
+                    "High-Performance Infrastructure and Accessibility",
+            },
+            {
+                "@type": "HowToStep",
+                name: "Velocity",
+                itemListElement:
+                    "Conversion Architecture and Mission Acceleration",
+            },
+        ],
+    },
+    keywords:
+        "V2V Framework, Generative Engine Optimization, GEO for Non-Profits, Information Gain SEO, Institutional Digital Architecture",
+};
+---
+
+<Layout
+    title="The V2V Framework"
+    description={jsonLd.description}
+    frontmatter={{ schema: jsonLd }}
+>
+    <section
+        class="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-800 text-white pt-[3vw]"
+    >
+        <div
+            class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+        >
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center z-10 py-20"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+        >
+            <div>
+                <span
+                    class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-6 block"
+                    >Methodology</span
+                >
+                <h1
+                    class="font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight text-balance mb-8"
+                >
+                    The V2V Framework:<br />
+                    <span class="text-slate-300 italic"
+                        >Architecting Information Gain.</span
+                    >
+                </h1>
+                <p
+                    class="font-sans text-xl text-white/90 font-light leading-relaxed max-w-lg"
+                >
+                    Bridging the gap between institutional mission and
+                    Generative Engine Optimization (GEO).
+                </p>
+            </div>
+            <V2VHeroAnimation client:only />
+        </div>
+    </section>
+    {/* The Executive Summary */}
+    <section class="py-32 bg-white border-b border-slate-800/10">
+        <div
+            class="max-w-4xl mx-auto px-6"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+        >
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-4">
+                    <span
+                        class="font-mono text-xs text-slate-800/40 uppercase tracking-widest block"
+                        >The Executive Summary</span
+                    >
+                </div>
+                <div class="md:col-span-8">
+                    <h2
+                        class="font-serif text-3xl md:text-4xl text-slate-800 leading-tight mb-6"
+                    >
+                        In an era where AI models like ChatGPT and Claude are
+                        the primary gatekeepers of information, a website must
+                        be more than a visual brochure.
+                    </h2>
+                    <p
+                        class="font-sans text-xl text-slate-600 font-light leading-relaxed mb-6"
+                    >
+                        It must be an <strong class="text-slate-800font-medium"
+                            >Authority Engine</strong
+                        >.
+                    </p>
+                    <p
+                        class="font-sans text-lg text-slate-600 font-light leading-relaxed"
+                    >
+                        The V2V (Visibility-to-Velocity) Framework is our
+                        proprietary system for ensuring your mission is not just
+                        seen, but correctly cited and prioritized by the
+                        machines that drive modern discovery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* The Three Pillars of the V2V Engine */}
+    <section class="py-32 bg-slate-800 text-white">
+        <div
+            class="max-w-7xl mx-auto px-6"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+        >
+            <div class="mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4">
+                    The Three Pillars of the V2V Engine
+                </h2>
+                <p
+                    class="font-mono text-xs uppercase tracking-widest text-slate-400"
+                >
+                    Architectural Methodology
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                {/* Pillar 01 */}
+                <div
+                    class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex flex-col h-full"
+                >
+                    <Network class="w-8 h-8 text-teal-500/80 mb-8" />
+                    <div class="mb-6 flex-1">
+                        <span
+                            class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block mb-2"
+                            >Pillar 01</span
+                        >
+                        <h3 class="font-serif text-2xl mb-2">Visibility</h3>
+                        <p
+                            class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-4"
+                        >
+                            GEO & Information Gain
+                        </p>
+                        <p
+                            class="font-sans text-slate-200 font-light leading-relaxed"
+                        >
+                            We architect for Information Gain—a metric AI models
+                            use to prioritize content that provides unique,
+                            factual value.
+                        </p>
+                    </div>
+                    <div class="space-y-6 pt-6 border-t border-white/10">
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Process</span
+                            >
+                            <p
+                                class="font-sans text-sm text-slate-300 leading-relaxed"
+                            >
+                                We move your site from generic "keyword" content
+                                to Entity-Based Authority. By structuring your
+                                data for Generative Engine Optimization (GEO),
+                                we ensure your organization is the "Grounding
+                                Signal" for AI search results in your sector.
+                            </p>
+                        </div>
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Result</span
+                            >
+                            <p
+                                class="font-sans text-sm text-white/90 font-medium leading-relaxed"
+                            >
+                                Higher citation rates and 25X better lead
+                                qualification through AI-driven search.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Pillar 02 */}
+                <div
+                    class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex flex-col h-full relative overflow-hidden"
+                >
+                    <div class="absolute top-0 left-0 w-full h-1 bg-teal-500">
+                    </div>
+                    <ShieldCheck class="w-8 h-8 text-teal-500/80 mb-8" />
+                    <div class="mb-6 flex-1">
+                        <span
+                            class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block mb-2"
+                            >Pillar 02</span
+                        >
+                        <h3 class="font-serif text-2xl mb-2">Trust</h3>
+                        <p
+                            class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-4"
+                        >
+                            Interaction & Infrastructure
+                        </p>
+                        <p
+                            class="font-sans text-slate-200 font-light leading-relaxed"
+                        >
+                            Trust is built through performance. We replace
+                            legacy "Information Bloat" with a high-performance
+                            Astro ecosystem.
+                        </p>
+                    </div>
+                    <div class="space-y-6 pt-6 border-t border-white/10">
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Process</span
+                            >
+                            <p
+                                class="font-sans text-sm text-slate-300 leading-relaxed"
+                            >
+                                We utilize the same technical standards used by
+                                global leaders: zero-latency load times, 100%
+                                WCAG accessibility, and ironclad security.
+                            </p>
+                        </div>
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Result</span
+                            >
+                            <p
+                                class="font-sans text-sm text-white/90 font-medium leading-relaxed"
+                            >
+                                Reduced "Friction Tax" and immediate
+                                institutional credibility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Pillar 03 */}
+                <div
+                    class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex flex-col h-full"
+                >
+                    <FastForward class="w-8 h-8 text-teal-500/80 mb-8" />
+                    <div class="mb-6 flex-1">
+                        <span
+                            class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block mb-2"
+                            >Pillar 03</span
+                        >
+                        <h3 class="font-serif text-2xl mb-2">Velocity</h3>
+                        <p
+                            class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-4"
+                        >
+                            Action & Momentum
+                        </p>
+                        <p
+                            class="font-sans text-slate-200 font-light leading-relaxed"
+                        >
+                            The end goal is the acceleration of your mission.
+                        </p>
+                    </div>
+                    <div class="space-y-6 pt-6 border-t border-white/10">
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Process</span
+                            >
+                            <p
+                                class="font-sans text-sm text-slate-300 leading-relaxed"
+                            >
+                                We use Conversion Architecture to align user
+                                intent with institutional goals. Whether it is a
+                                $1M donation or a policy shift, we engineer the
+                                path of least resistance.
+                            </p>
+                        </div>
+                        <div>
+                            <span
+                                class="block font-mono text-[10px] text-slate-400 uppercase mb-1"
+                                >The Result</span
+                            >
+                            <p
+                                class="font-sans text-sm text-white/90 font-medium leading-relaxed"
+                            >
+                                Measurable growth tracked via the V2V Scorecard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

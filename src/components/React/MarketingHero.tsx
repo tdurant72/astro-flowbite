@@ -88,20 +88,20 @@ export default function MarketingHero() {
                 className="container flex justify-center items-center md:px-0 md:pt-30"
             >
                 <div className="md:w-full text-center px-4 mx-auto">
-                    <motion.h1 variants={contentVariants} className="text-5xl md:text-[8vw] font-bold text-gray-900 mb-4">
+                    <motion.h1 variants={contentVariants} className="text-5xl md:text-[7vw] font-bold text-gray-900 mb-4">
                         <motion.span className="inline-block" variants={contentVariants}>
-                            Digital Architecture for
+                            Your Mission is Essential.
                         </motion.span>
                         <br />
-                        <motion.span className="inline-block text-2xl md:text-[7vw] font-medium font-serif text-teal-500" variants={contentVariants}>
-                            Public Progress
+                        <motion.span className="inline-block text-2xl md:text-[5vw] font-medium font-serif text-teal-500" variants={contentVariants}>
+                            Make Sure the Future Can Find It.
                         </motion.span>
                     </motion.h1>
                     <motion.p
                         variants={contentVariants}
                         className="md:max-w-3xl text-2xl text-neutral-700 mb-8 text-center text-balance mx-auto"
                     >
-                        We partner with non-profits, foundations, and public-private partnerships to transform complex missions into high impact digital experiences. We don't just design websites; we build the front door for your organization's legacy.
+                        We architect high-performance digital infrastructure for non-profits and government entities. By bridging the gap between Human Storytelling and AI Search Discovery, we transform fragmented information into a unified engine for regional growth.
                     </motion.p>
                     <motion.div
                         variants={buttonVariants}
@@ -109,14 +109,20 @@ export default function MarketingHero() {
                         animate="visible"
                         className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
                     >
-                        <Button asChild
-                            className="h-14 px-8 bg-amber-500 dark:bg-amber-100 text-white dark:text-slate-900 text-lg font-bold hover:bg-amber-600 dark:hover:bg-amber-200 transition-all duration-300 rounded-full shadow-lg"
-                        >
-                            <a href="#contact-us">Get a High-Stakes Audit</a>
-                        </Button>
-                        <Button asChild className="h-14 px-8 bg-teal-500 text-white text-lg font-bold hover:bg-teal-600 transition-all duration-300 rounded-full shadow-lg hover:shadow-teal-500/25">
-                            <a href="/case-studies">View Case Studies</a>
-                        </Button>
+                        <div className='flex flex-col items-center gap-y-2.5'>
+                            <Button asChild
+                                className="h-14 px-8 bg-amber-500 dark:bg-amber-100 text-white dark:text-slate-900 text-lg font-bold hover:bg-amber-600 dark:hover:bg-amber-200 transition-all duration-300 rounded-full shadow-lg"
+                            >
+                                <a href="#contact-us">Request a High Stakes Audit</a>
+                            </Button>
+                            <p className='text-slate-700 text-[0.8rem]'>Identify your Friction Tax in 15 minutes.</p>
+                        </div>
+                        <div className='flex flex-col items-center gap-y-2.5'>
+                            <Button asChild className="h-14 px-8 bg-teal-500 text-white text-lg font-bold hover:bg-teal-600 transition-all duration-300 rounded-full shadow-lg hover:shadow-teal-500/25">
+                                <a href="/services/V2VFramework">The V2V Methodology</a>
+                            </Button>
+                            <p className='text-slate-700 text-[0.8rem]'>How we engineer institutional authority.</p>
+                        </div>
                     </motion.div>
                 </div>
             </motion.div>

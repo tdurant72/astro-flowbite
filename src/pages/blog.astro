@@ -35,18 +35,56 @@ try {
 } catch (error) {
   console.error("Error fetching YouTube feed:", error);
 }
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Sublime UX Videos and Writings",
+  description: "Card links to Sublime UX YouTube Videos and writings",
+  url: "https://www.sublimeux.com/blog",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      ...youtubeVideos.map((video, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "VideoObject",
+          name: video.title,
+          url: `https://www.youtube.com/watch?v=${video.id}`,
+          thumbnailUrl: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+          uploadDate: new Date().toISOString() // Assuming recent, could parse publish date from RSS if needed
+        }
+      })),
+      ...posts.map((post, index) => ({
+        "@type": "ListItem",
+        position: youtubeVideos.length + index + 1,
+        item: {
+          "@type": "BlogPosting",
+          headline: post.data.title,
+          description: post.data.description,
+          url: `https://www.sublimeux.com/posts/${post.id.replace('.md', '')}`,
+          datePublished: post.data.pubDate
+        }
+      }))
+    ]
+  }
+};
 ---
 
 <Layout
-  title="Sublime UX Blog"
-  description={siteData.siteDescription}
+  title="Sublime UX Videos and Writings"
+  description={jsonLd.description}
+  frontmatter={{ schema: jsonLd }}
   image={siteData.image.src}
 >
   <div
     class="flex flex-col gap-4 md:gap-8 items-center justify-center pt-16 md:pt-20"
   >
-    <h1 class="text-primaryDrk font-bold text-3xl pt-[8vh]">Sublime UX Blog</h1>
-    <p class="text-primaryDrk font-bold text-2xl">YouTube Channel Posts</p>
+    <h1 class="text-primaryDrk font-bold text-3xl pt-[8vh]">
+      Sublime UX Videos and Writings
+    </h1>
+    <p class="text-primaryDrk font-bold text-2xl">Sublime UX YouTube Posts</p>
     <div
       id="youtubePosts"
       class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl px-4"

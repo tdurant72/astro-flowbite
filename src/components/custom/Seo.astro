@@ -6,10 +6,15 @@ const {
   title,
   description,
   url = Astro.url,
-  image,
+  image, // Passed from Layout
   frontmatter,
   robots,
 } = Astro.props;
+
+// Prioritize the project-specific image from frontmatter for social sharing
+const seoImage = frontmatter?.projectimage?.src
+  ? new URL(frontmatter.projectimage.src, url)
+  : new URL(siteData.image.src, url);
 
 const jsonLD = jsonLDGenerator({
   type: frontmatter ? "post" : "website",
@@ -18,45 +23,25 @@ const jsonLD = jsonLDGenerator({
 });
 ---
 
-<!-- SEO -->
 <link rel="canonical" href={url} />
+{robots && <meta name="robots" content="noindex, nofollow" />}
 
-<!-- Open Graph -->
 <meta property="og:site_name" content={siteData.siteName} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
 <meta property="og:type" content={frontmatter ? "article" : "website"} />
-<meta
-  property="og:image"
-  content={new URL(image?.src || siteData.image.src, url)}
-/>
-<meta
-  property="og:image:url"
-  content={new URL(image?.src || siteData.image.src, url)}
-/>
-<meta
-  property="og:image:secure_url"
-  content={new URL(image?.src || siteData.image.src, url)}
-/>
-<meta property="og:image:type" content="image/webp" />
+<meta property="og:image" content={seoImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content={image?.alt || siteData.image.alt} />
+<meta
+  property="og:image:alt"
+  content={frontmatter?.projectimage?.alt || title}
+/>
 
-<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:card" content="summary_large_image" />
-<meta
-  name="twitter:image"
-  content={new URL(image?.src || siteData.image.src, url)}
-/>
-<meta name="twitter:image:alt" content={title} />
-<meta name="twitter:domain" content={url.host} />
-<meta name="twitter:site" content="@sublime_ux" />
+<meta name="twitter:image" content={seoImage} />
 
-{robots && <meta name="robots" content="noindex, nofollow" />}
-
-<!-- JSON LD -->
 <Fragment set:html={jsonLD} />

@@ -17,6 +17,7 @@ import FeaturedImpact from "@/components/FeaturedImpact.astro";
 import Pillars from "@/components/Pillars.astro";
 import Methodology from "@/components/Methodology.astro";
 import CaseStudyGallery from "@/components/Sections/CaseStudyGallery.astro";
+import V2VFramework from "@/components/React/V2VFramework.tsx";
 ---
 
 <Layout
@@ -34,12 +35,13 @@ import CaseStudyGallery from "@/components/Sections/CaseStudyGallery.astro";
 
     <Strategies />
 
-    <Methodology />
+    <!-- <Methodology /> -->
+    <V2VFramework client:load />
 
     <FeaturedImpact />
 
     <CaseStudyGallery />
-    <div data-aos="fade-up">
+    <!-- <div data-aos="fade-up">
       <Image
         src={Waves}
         height={50}
@@ -49,7 +51,7 @@ import CaseStudyGallery from "@/components/Sections/CaseStudyGallery.astro";
         class="w-full overflow-hidden object-cover"
       />
       <Pillars />
-    </div>
+    </div> -->
 
     <div data-aos="fade-up">
       <CustomerQuote />

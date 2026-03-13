@@ -1,7 +1,7 @@
 {
   "owner": "Sublime UX",
   "siteName": "Sublime UX",
-  "siteDescription": "Sublime UX partners with non-profits, foundations, and public-private partnerships to transform complex missions into high impact digital experiences. We don't just design websites; we build the front door for your organization's legacy. Let us audit your website to turn it into a conversion machine.",
+  "siteDescription": "High-stakes digital architecture and institutional indexing for non-profits, foundations, and public-private partnerships. Specializing in V2V (Visibility-to-Velocity) frameworks and AI search optimization.",
   "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
   "contact": {
     "email": "todurant@sublimeux.com",
@@ -27,7 +27,21 @@
     },
     {
       "title": "Services",
-      "href": "/services"
+      "href": "/services",
+      "subpages": [
+        {
+          "title": "V2V Framework",
+          "href": "/services/V2VFramework"
+        },
+        {
+          "title": "High-Stakes Audit",
+          "href": "/services/HighStakesAudit"
+        },
+        {
+          "title": "Content Blueprint",
+          "href": "/services/ContentBlueprint"
+        }
+      ]
     },
     {
       "title": "Blog",
@@ -85,5 +99,58 @@
       "type": "WordPress",
       "repo": "https://github.com"
     }
-  ]
+  ],
+  "schema": {
+    "telephone": "(336) 517-7923",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Greensboro",
+      "addressRegion": "NC",
+      "postalCode": "27405"
+    },
+    "knowsAbout": [
+      "Digital Architecture",
+      "Public-Private Partnerships",
+      "Institutional Indexing",
+      "AI Search Optimization",
+      "UX Audit",
+      "Conversion Rate Optimization",
+      "Astro Web Development"
+    ],
+    "areaServed": [
+      "United States",
+      "North Carolina",
+      "Georgia"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "description": "Initial Diagnostic and Institutional Alignment Briefing"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Institutional Design Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Conversion Architecture Review"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Stakeholder Alignment Workshop"
+          }
+        }
+      ]
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Executive Directors, Board Members, Public-Private Partnership Leads"
+    },
+    "priceRange": "$$"
+  }
 }

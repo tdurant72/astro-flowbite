@@ -21,7 +21,7 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<ProjectLayout title={project.data.title}>
+<ProjectLayout {...project.data}>
   <a
     href="/#gallery"
     class="inline-block bg-gray-100 p-2 mb-6 hover:bg-indigo-500 hover:text-white"

@@ -1,0 +1,324 @@
+---
+import {
+    ArrowRight,
+    Compass,
+    Crosshair,
+    LinkIcon,
+    Network,
+    Share2,
+} from "@lucide/astro";
+import Layout from "../../layouts/Layout.astro";
+import RotatingDocs from "../../components/React/RotatingDocs";
+import TypewriterAnimation from "@/components/React/TypewriterAnimation";
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Content Blueprint",
+    description:
+        "Our Content Blueprinting service helps you turn your organization's information into Digital DNA so you can be more easily discoverable by AI",
+    url: "https://www.sublimeux.com/services/content-blueprint",
+    image: "https://www.sublimeux.com/images/services/content-blueprint.jpg",
+    potentialAction: {
+        "@type": "ReadAction",
+        target: "https://www.sublimeux.com/services/content-blueprint",
+    },
+};
+---
+
+<Layout
+    title="Content Blueprint"
+    description={jsonLd.description}
+    frontmatter={{ schema: jsonLd }}
+>
+    <div class="pt-20 bg-white">
+        {/* Hero Section */}
+        <section
+            class="relative min-h-[70vh] flex items-center overflow-hidden bg-slate-800 text-white"
+        >
+            <div
+                class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+            >
+            </div>
+
+            <div class="max-w-4xl mx-auto px-6 w-full text-center z-10 py-32">
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <span
+                        class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-6 block"
+                        >The Digital DNA</span
+                    >
+                    <h1
+                        class="font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight text-balance mb-8"
+                    >
+                        Stop Guessing.<br />
+                        <span class="text-slate-300 italic"
+                            >Start Scaling Your Authority.</span
+                        >
+                    </h1>
+                    <p
+                        class="font-sans text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto"
+                    >
+                        We don't just build the engine; we provide the manual.
+                        Our Content Blueprinting service helps you turn your
+                        organization's information into "Digital DNA". By doing
+                        so, you'll be more easily discoverable and maintain
+                        institutional authority in the age of AI.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="py-32 bg-white border-b border-slate-800/10">
+            <div
+                class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                <div>
+                    <h2
+                        class="font-serif text-4xl md:text-5xl text-slate-800 mb-6"
+                    >
+                        The "Random Acts of Content" Trap
+                    </h2>
+                    <p
+                        class="font-sans text-lg text-slate-600 font-light leading-relaxed mb-8"
+                    >
+                        Most organizations create content that is invisible.
+                        They write for themselves, not for their stakeholders or
+                        the AI algorithms (LLMs) that now dictate search
+                        discovery.
+                    </p>
+                    <div class="bg-slate-800/5 border border-slate-800/10 p-8">
+                        <span
+                            class="font-mono text-xs text-teal-500 uppercase tracking-widest block mb-2"
+                            >The Friction Point</span
+                        >
+                        <p class="font-sans text-slate-700">
+                            Without a blueprint, your team is wasting hours on
+                            posts that never rank, never get cited by ChatGPT,
+                            and never convert a donor.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="relative h-full min-h-[400px] bg-slate-800/5 flex items-center justify-center border border-slate-800/10 overflow-hidden"
+                >
+                    <div class="absolute inset-0 bg-grid-pattern opacity-20">
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        {
+                            /* Abstract representation of scattered content vs aligned content */
+                        }
+                        <RotatingDocs client:only="react" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-32 bg-slate-800 text-white">
+            <div
+                class="max-w-7xl mx-auto px-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                <div class="mb-20 text-center max-w-3xl mx-auto">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6">
+                        The Blueprint Components
+                    </h2>
+                    <p class="font-sans text-xl text-slate-300 font-light">
+                        Don't sell "writing." Sell Infrastructure.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors"
+                    >
+                        <Compass class="w-8 h-8 text-teal-500 mb-8" />
+                        <h3 class="font-serif text-2xl mb-4">
+                            The Narrative Compass
+                        </h3>
+                        <p
+                            class="font-sans text-slate-300 font-light leading-relaxed"
+                        >
+                            A master guide to your organization's voice,
+                            ensuring every post reinforces Institutional Trust.
+                        </p>
+                    </div>
+
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors"
+                    >
+                        <Network class="w-8 h-8 text-teal-500 mb-8" />
+                        <h3 class="font-serif text-2xl mb-4">
+                            AI-First Semantic Frameworks
+                        </h3>
+                        <p
+                            class="font-sans text-slate-300 font-light leading-relaxed"
+                        >
+                            Structural templates for your writers that ensure
+                            every article is "Pre-Indexed" for LLMs
+                            (ChatGPT/Claude) through proper entity-linking.
+                        </p>
+                    </div>
+
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors"
+                    >
+                        <Share2 class="w-8 h-8 text-teal-500 mb-8" />
+                        <h3 class="font-serif text-2xl mb-4">
+                            The Distribution Engine
+                        </h3>
+                        <p
+                            class="font-sans text-slate-300 font-light leading-relaxed"
+                        >
+                            A repeatable workflow for taking one high-stakes
+                            report and "atomizing" it for social, newsletters,
+                            and policy briefs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            class="py-32 bg-white border-b border-slate-800/10 overflow-hidden"
+        >
+            <div
+                class="max-w-7xl mx-auto px-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                <div class="mb-16 text-center">
+                    <h2
+                        class="font-serif text-4xl md:text-5xl text-slate-800 mb-4"
+                    >
+                        The Design System for Words
+                    </h2>
+                    <p
+                        class="font-mono text-xs uppercase tracking-widest text-slate-800/40"
+                    >
+                        Technical Blueprint
+                    </p>
+                </div>
+
+                <div
+                    class="relative max-w-5xl mx-auto border border-slate-800/10 bg-white shadow-2xl"
+                >
+                    {/* Browser/Editor Chrome */}
+                    <div
+                        class="h-12 border-b border-slate-800/10 flex items-center px-4 gap-2 bg-slate-800/5"
+                    >
+                        <div class="w-3 h-3 rounded-full bg-slate-800/20"></div>
+                        <div class="w-3 h-3 rounded-full bg-slate-800/20"></div>
+                        <div class="w-3 h-3 rounded-full bg-slate-800/20"></div>
+                    </div>
+
+                    <div class="p-12 md:p-20 relative">
+                        {/* Typewriter Effect */}
+                        <TypewriterAnimation client:only="react" />
+
+                        {/* Blueprint Graphic */}
+                        <div class="relative">
+                            <div class="space-y-6 opacity-40">
+                                <div class="h-4 bg-slate-800/10 w-3/4"></div>
+                                <div class="h-4 bg-slate-800/10 w-full"></div>
+                                <div class="h-4 bg-slate-800/10 w-5/6"></div>
+                                <div class="h-4 bg-slate-800/10 w-full"></div>
+                            </div>
+
+                            {/* Callouts */}
+                            <div
+                                class="absolute top-4 -right-4 md:-right-12 flex items-center gap-2"
+                            >
+                                <div class="w-16 h-[1px] bg-teal-500"></div>
+                                <div
+                                    class="border border-teal-500 bg-white px-3 py-1 flex items-center gap-2"
+                                >
+                                    <Crosshair class="w-3 h-3 text-teal-500" />
+                                    <span
+                                        class="font-mono text-[10px] text-teal-500 uppercase tracking-widest"
+                                        >Semantic Nodes</span
+                                    >
+                                </div>
+                            </div>
+
+                            <div
+                                class="absolute top-16 -left-4 md:-left-12 flex items-center gap-2 flex-row-reverse"
+                            >
+                                <div class="w-16 h-[1px] bg-teal-500"></div>
+                                <div
+                                    class="border border-teal-500 bg-white px-3 py-1 flex items-center gap-2"
+                                >
+                                    <LinkIcon class="w-3 h-3 text-teal-500" />
+                                    <span
+                                        class="font-mono text-[10px] text-teal-500 uppercase tracking-widest"
+                                        >Entity Hooks</span
+                                    >
+                                </div>
+                            </div>
+
+                            <div
+                                class="absolute bottom-2 -right-4 md:-right-12 flex items-center gap-2"
+                            >
+                                <div class="w-16 h-[1px] bg-teal-500"></div>
+                                <div
+                                    class="border border-teal-500 bg-white px-3 py-1 flex items-center gap-2"
+                                >
+                                    <ArrowRight class="w-3 h-3 text-teal-500" />
+                                    <span
+                                        class="font-mono text-[10px] text-teal-500 uppercase tracking-widest"
+                                        >Conversion Anchors</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {/* The Business Outcome */}
+        <section
+            class="py-40 bg-slate-800 text-white text-center relative overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+        >
+            <div
+                class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+            >
+            </div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <span
+                    class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-8 block"
+                    >The Business Outcome</span
+                >
+                <h2
+                    class="font-serif text-4xl md:text-6xl leading-tight mb-16 text-balance"
+                >
+                    Turn your internal communications team into a
+                    high-performance Authority Engine.
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div class="border border-white/10 p-8 bg-white/5">
+                        <div class="font-serif text-6xl text-white mb-2">
+                            40%
+                        </div>
+                        <div
+                            class="font-mono text-xs text-slate-300 uppercase tracking-widest"
+                        >
+                            Reduction in production time
+                        </div>
+                    </div>
+                    <div class="border border-white/10 p-8 bg-white/5">
+                        <div class="font-serif text-6xl text-teal-500 mb-2">
+                            300%
+                        </div>
+                        <div
+                            class="font-mono text-xs text-slate-300 uppercase tracking-widest"
+                        >
+                            Increase in Search/AI Visibility
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

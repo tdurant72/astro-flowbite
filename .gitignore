@@ -28,3 +28,7 @@ pnpm-debug.log*
 
 #agent
 .agent/
+
+# chrome profile
+chrome_profile_notebooklm/
+.notebooklm-venv/

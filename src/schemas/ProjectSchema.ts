@@ -14,4 +14,8 @@ export const projectSchema = ({ image }: { image: any }) =>
     description: z.string().optional(),
     type: z.string(),
     developer: z.string().optional(),
+    deleloper: z.string().optional(),
+    projectimage: z.any().optional(),
+    projectvideo: z.any().optional(),
+    schema: z.any().optional(),
   });

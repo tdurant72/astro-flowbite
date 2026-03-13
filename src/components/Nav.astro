@@ -46,6 +46,65 @@ import Logo from "../assets/logo.png";
       >
         {
           data.pages.map((page) => {
+            if (page.subpages && page.subpages.length > 0) {
+              const dropdownId = `dropdownNavbar-${page.title.toLowerCase()}`;
+              return (
+                <li class="mx-2 relative group">
+                  <button
+                    id={`${dropdownId}Link`}
+                    data-dropdown-toggle={dropdownId}
+                    class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-amber-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                  >
+                    {page.title}{" "}
+                    <svg
+                      class="w-2.5 h-2.5 ms-2.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+                  {/* Dropdown menu */}
+                  <div
+                    id={dropdownId}
+                    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute xl:auto max-md:!relative max-md:!w-full max-md:!shadow-none max-md:!bg-transparent"
+                  >
+                    <ul
+                      class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                      aria-labelledby={`${dropdownId}Link`}
+                    >
+                      <li>
+                        <a
+                          href={page.href}
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Overview
+                        </a>
+                      </li>
+                      {page.subpages.map((sub: any) => (
+                        <li>
+                          <a
+                            href={sub.href}
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          >
+                            {sub.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              );
+            }
+
             return (
               <li class="mx-2">
                 <a
@@ -61,7 +120,7 @@ import Logo from "../assets/logo.png";
         }
         <li class="mx-2 mt-4 md:mt-0">
           <a
-            href="/#contact-us"
+            href="/RequestAudit"
             class="text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800 transition-colors"
           >
             Get a High-Stakes Audit
@@ -85,47 +144,33 @@ import Logo from "../assets/logo.png";
 </style>
 
 <script>
-  import { Collapse } from "flowbite";
+  import { Collapse, initDropdowns } from "flowbite";
   import type { CollapseInterface } from "flowbite";
-  // import type { InstanceOptions } from "flowbite";
+
   // set the target element that will be collapsed or expanded (eg. navbar menu)
   const $targetEl = document.getElementById("targetEl");
-  const $triggerEl: HTMLElement = document.getElementById("triggerEl");
-  // optionally set a trigger element (eg. a button, hamburger icon)
-  // const $triggerEl = document.getElementById("triggerEl");
+  const $triggerEl: HTMLElement | null = document.getElementById("triggerEl");
 
-  // optional options with default values and callback functions
-  // const options: CollapseOptions = {
-  //   onCollapse: () => {
-  //     console.log("element has been collapsed");
-  //   },
-  //   onExpand: () => {
-  //     console.log("element has been expanded");
-  //   },
-  //   onToggle: () => {
-  //     console.log("element has been toggled");
-  //   },
-  // };
-
-  // const instanceOptions: InstanceOptions = {
-  //   id: "targetEl",
-  //   override: true,
-  // };
-  /*
-   * $targetEl: required
-   * $triggerEl: optional
-   * options: optional
-   */
   // Ensure instance exists and elements are found
   if ($targetEl && $triggerEl) {
     const collapse: CollapseInterface = new Collapse($targetEl, $triggerEl);
 
-    // Initial state: expand if needed or just let it be
-    // collapse.expand();
-
     // Close menu on every page load (initial and after navigation)
     document.addEventListener("astro:page-load", () => {
       collapse.collapse();
+
+      // Explicitly close any open dropdowns since the Navbar is preserved with transition:persist
+      document
+        .querySelectorAll('div[id^="dropdownNavbar-"]')
+        .forEach((dropdown) => {
+          dropdown.classList.remove("block");
+          dropdown.classList.add("hidden");
+        });
+
+      initDropdowns();
     });
+
+    // Initialize dropdowns on first load
+    initDropdowns();
   }
 </script>

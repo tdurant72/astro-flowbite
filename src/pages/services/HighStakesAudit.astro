@@ -1,0 +1,247 @@
+---
+import {
+    ArrowRight,
+    Map,
+    Search,
+    Users,
+    Route as RouteIcon,
+} from "@lucide/astro";
+import Layout from "@/layouts/Layout.astro";
+import BlurprintAnimation from "../../components/React/BlurprintAnimation";
+import ReportSection from "../../components/React/ReportSection";
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "High Stakes Audit",
+    provider: {
+        "@type": "Organization",
+        name: "Sublime UX",
+        url: "https://sublimeux.com",
+    },
+    description:
+        "A comprehensive 360° diagnostic designed to identify the structural and narrative bottlenecks stalling your organization's digital growth.",
+    serviceType: "Digital Strategy",
+    areaServed: [
+        {
+            "@type": "Country",
+            name: "United States",
+        },
+        {
+            "@type": "Country",
+            name: "Canada",
+        },
+        {
+            "@type": "Country",
+            name: "United Kingdom",
+        },
+    ],
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "High Stakes Audit",
+        itemListElement: [
+            {
+                "@type": "Offer",
+                itemOffered: {
+                    "@type": "Service",
+                    name: "High Stakes Audit",
+                    description:
+                        "A comprehensive 360° diagnostic designed to identify the structural and narrative bottlenecks stalling your organization's digital growth.",
+                    serviceType: "Digital Strategy",
+                    areaServed: [
+                        {
+                            "@type": "Country",
+                            name: "United States",
+                        },
+                        {
+                            "@type": "Country",
+                            name: "Canada",
+                        },
+                        {
+                            "@type": "Country",
+                            name: "United Kingdom",
+                        },
+                    ],
+                },
+            },
+        ],
+    },
+};
+---
+
+<Layout
+    title="High Stakes Audit"
+    title="High Stakes Audit"
+    description={jsonLd.description}
+    frontmatter={{ schema: jsonLd }}
+>
+    <div class="pt-20 bg-slate-50">
+        <section
+            class="relative min-h-[80vh] flex items-center overflow-hidden bg-slate-800 text-white"
+        >
+            <div
+                class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+            >
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center z-10 py-20"
+            >
+                <div
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                    data-aos-delay="500"
+                >
+                    <span
+                        class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-6 block"
+                        >Strategic Diagnostics</span
+                    >
+                    <h1
+                        class="font-serif text-5xl md:text-7xl leading-[1.1] tracking-tight text-balance mb-8"
+                    >
+                        Stop Paying the<br />
+                        <span class="text-white/70 italic">Friction Tax.</span>
+                    </h1>
+                    <p
+                        class="font-sans text-xl text-white/90 font-light leading-relaxed max-w-lg"
+                    >
+                        A comprehensive 360° diagnostic designed to identify the
+                        structural and narrative bottlenecks stalling your
+                        organization's digital growth.
+                    </p>
+                </div>
+
+                {/* X-Ray / Blueprint Visual */}
+                <BlurprintAnimation client:load />
+            </div>
+        </section>
+
+        {/* 2. The Situation (The Reality Check) */}
+        <section class="py-32 bg-white border-b border-slate-800/10">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div>
+                        <span
+                            class="font-mono text-xs text-slate-800/80 uppercase tracking-widest mb-4 block"
+                            >The Situation</span
+                        >
+                        <p
+                            class="font-sans text-xl text-slate-800 font-light leading-relaxed"
+                        >
+                            Most institutional websites are built on legacy
+                            thinking. They are bloated with PDFs, fragmented by
+                            stakeholder opinions, and invisible to modern AI
+                            search engines.
+                        </p>
+                    </div>
+                    <div>
+                        <span
+                            class="font-mono text-xs text-teal-500 uppercase tracking-widest mb-4 block"
+                            >The Complication</span
+                        >
+                        <p
+                            class="font-sans text-xl text-slate-800/60 font-light leading-relaxed"
+                        >
+                            This isn't just a "design" problem; it's a <strong
+                                class="text-slate-800 font-medium"
+                                >capital leakage problem</strong
+                            >. Every minute a donor or partner spends confused
+                            on your site is a minute they spend losing trust in
+                            your mission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* 3. The 4 Pillars of the Audit */}
+        <section class="py-32 bg-slate-800 text-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-20">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-4">
+                        The Diagnostic Pillars
+                    </h2>
+                    <p
+                        class="font-mono text-xs uppercase tracking-widest text-white/40"
+                    >
+                        Audit Deliverables
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex gap-6"
+                    >
+                        <Map class="w-8 h-8 text-teal-500 shrink-0" />
+                        <div>
+                            <h3 class="font-serif text-2xl mb-3">
+                                Narrative Friction Map
+                            </h3>
+                            <p
+                                class="font-sans text-white/60 font-light leading-relaxed"
+                            >
+                                We find exactly where your messaging becomes
+                                "noise" and identify the structural dead-ends
+                                causing user drop-off.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex gap-6"
+                    >
+                        <Search class="w-8 h-8 text-teal-500 shrink-0" />
+                        <div>
+                            <h3 class="font-serif text-2xl mb-3">
+                                Institutional Indexing Report
+                            </h3>
+                            <p
+                                class="font-sans text-white/60 font-light leading-relaxed"
+                            >
+                                A technical "AI-Readiness" score showing exactly
+                                how well LLMs like ChatGPT and Google understand
+                                your data.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex gap-6"
+                    >
+                        <Users class="w-8 h-8 text-teal-500 shrink-0" />
+                        <div>
+                            <h3 class="font-serif text-2xl mb-3">
+                                Stakeholder Consensus Brief
+                            </h3>
+                            <p
+                                class="font-sans text-white/60 font-light leading-relaxed"
+                            >
+                                A summary of misalignments between your board's
+                                vision and your current digital reality.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="border border-white/10 p-10 bg-white/5 hover:bg-white/10 transition-colors flex gap-6"
+                    >
+                        <RouteIcon class="w-8 h-8 text-teal-500 shrink-0" />
+                        <div>
+                            <h3 class="font-serif text-2xl mb-3">
+                                The V2V Roadmap
+                            </h3>
+                            <p
+                                class="font-sans text-white/60 font-light leading-relaxed"
+                            >
+                                A prioritized, 12-month execution plan to turn
+                                your site from a static brochure into an
+                                authority engine.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <ReportSection client:load />
+    </div>
+</Layout>
