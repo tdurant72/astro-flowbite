@@ -54,6 +54,10 @@ const { id } = featuredProject[0];
                         <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
                             <Image
                                 src={FeaturedImage}
+                                widths={[800, 1200, 1600]}
+                                sizes="(max-width: 767px) 95vw, (max-width: 1279px) 90vw, 1200px"
+                                format="avif"
+                                quality={80}
                                 alt="Case Study"
                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                                 loading="lazy"

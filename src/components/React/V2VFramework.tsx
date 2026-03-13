@@ -31,8 +31,23 @@ const phases = [
 // Easing from interaction-design skill
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
-export default function V2VFramework() {
+interface V2VFrameworkProps {
+    v2v1?: string;
+    v2v2?: string;
+    v2v3?: string;
+}
+
+export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Overwrite phase images with optimized props if they exist
+    const optimizedPhases = phases.map((phase, i) => {
+        const optimizedSrc = i === 0 ? v2v1 : i === 1 ? v2v2 : v2v3;
+        return {
+            ...phase,
+            image: optimizedSrc ? { src: optimizedSrc } : phase.image
+        };
+    });
 
     // Offset offset: ["start start", "end end"]
     // Distance = 300vh (content) - 100vh (viewport) = 200vh
@@ -49,7 +64,7 @@ export default function V2VFramework() {
         >
             {/* Fixed Background Layer: This stays pinned while the section is in view */}
             <div className="sticky top-0 h-screen w-full overflow-hidden">
-                {phases.map((phase, i) => {
+                {optimizedPhases.map((phase, i) => {
                     // Mapping images across the 300vh scroll
                     // Phase 0: visible at 0% scroll
                     // Phase 1: peaks at 50% scroll
@@ -93,7 +108,7 @@ export default function V2VFramework() {
 
             {/* Scrolling Content Layer: Negative margin pulls cards over the sticky backgrounds */}
             <div className="relative z-30 -mt-[100vh]">
-                {phases.map((phase) => (
+                {optimizedPhases.map((phase) => (
                     <div key={`card-${phase.id}`} className="h-screen flex items-center justify-center px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}

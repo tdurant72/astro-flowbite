@@ -18,6 +18,14 @@ import Pillars from "@/components/Pillars.astro";
 import Methodology from "@/components/Methodology.astro";
 import CaseStudyGallery from "@/components/Sections/CaseStudyGallery.astro";
 import V2VFramework from "@/components/React/V2VFramework.tsx";
+import { getImage } from "astro:assets";
+import v2v1Src from "@/assets/images/V2V-image-1.avif";
+import v2v2Src from "@/assets/images/V2V-image-2.avif";
+import v2v3Src from "@/assets/images/V2V-image-3.avif";
+
+const v2v1 = await getImage({ src: v2v1Src, format: 'avif', quality: 75, width: 1600 });
+const v2v2 = await getImage({ src: v2v2Src, format: 'avif', quality: 75, width: 1600 });
+const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, width: 1600 });
 ---
 
 <Layout
@@ -36,7 +44,12 @@ import V2VFramework from "@/components/React/V2VFramework.tsx";
     <Strategies />
 
     <!-- <Methodology /> -->
-    <V2VFramework client:load />
+    <V2VFramework
+      client:load
+      v2v1={v2v1.src}
+      v2v2={v2v2.src}
+      v2v3={v2v3.src}
+    />
 
     <FeaturedImpact />
 

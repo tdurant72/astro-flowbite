@@ -18,11 +18,13 @@ import Boardroom from "public/images/board-room.webp";
             <div class="aspect-[4/5] rounded-[3rem] overflow-hidden">
                 <Image
                     src={Boardroom}
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 600px"
+                    format="avif"
+                    quality={80}
                     alt="The Boardroom"
                     class="w-full h-full object-cover grayscale-25"
                     loading="lazy"
-                    height={700}
-                    width={593}
                 />
             </div>
             <div

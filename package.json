@@ -16,6 +16,7 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
+    "@fontsource-variable/inter": "^5.2.8",
     "@justinribeiro/lite-youtube": "^1.5.0",
     "@lucide/astro": "^0.542.0",
     "@paper-design/shaders-react": "^0.0.54",

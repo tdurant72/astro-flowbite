@@ -30,9 +30,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     >
       <Image
         src={article.data.postimage.src}
-        alt={article.data.postimage.alt}
-        height={300}
-        width={533}
+        alt={title}
+        widths={[400, 800, 1200]}
+        sizes="(max-width: 767px) 90vw, (max-width: 1023px) 45vw, 364px"
+        format="avif"
+        quality={80}
         loading="lazy"
         class="rounded-xl aspect-video overflow-hidden object-cover w-full mb-6"
       />

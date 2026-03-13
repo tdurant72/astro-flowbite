@@ -43,10 +43,10 @@ const logos = [
           >
             <Image
               src={logo.src}
-              width={200}
-              height={200}
+              widths={[64, 128, 256]}
+              sizes="(max-width: 767px) 32px, 96px"
               format="avif"
-              quality={75}
+              quality={80}
               alt={logo.alt}
               class="h-8 md:h-24 w-auto object-contain"
             />
