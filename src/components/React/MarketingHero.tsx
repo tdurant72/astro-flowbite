@@ -7,7 +7,9 @@ const heroPoster = "https://images.pexels.com/videos/6774633/pexels-photo-677463
 
 export default function MarketingHero() {
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
     const { scrollY } = useScroll();
+
     useEffect(() => {
         // Determine if the page was reloaded or navigated to
         const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
@@ -17,6 +19,16 @@ export default function MarketingHero() {
             setHasAnimated(true);
         }
     }, []);
+
+    useEffect(() => {
+        // Only show the background video on desktop viewports to avoid mobile bandwidth and autoplay issues.
+        const mediaQuery = window.matchMedia("(min-width: 768px)");
+        const update = () => setIsDesktop(mediaQuery.matches);
+        update();
+        mediaQuery.addEventListener?.("change", update);
+        return () => mediaQuery.removeEventListener?.("change", update);
+    }, []);
+
     // Transform video size and width based on scroll with eased transitions
     const videoScale = useTransform(scrollY, [0, 500], [0.9, 1], {
         ease: easeOut,
@@ -106,10 +118,11 @@ export default function MarketingHero() {
                         We architect high-performance digital infrastructure for non-profits and government entities. By bridging the gap between Human Storytelling and AI Search Discovery, we transform fragmented information into a unified engine for regional growth.
                     </motion.p>
                     <motion.div
+                        id='ctaButtons'
                         variants={buttonVariants}
                         initial={hasAnimated ? "visible" : "hidden"}
                         animate="visible"
-                        className="flex gap-x-3 md:gap-x-6 justify-center mb-10"
+                        className="flex flex-col md:flex-row gap-x-3 md:gap-x-6 justify-center mb-10"
                     >
                         <div className='flex flex-col items-center gap-y-2.5'>
                             <Button asChild
@@ -144,17 +157,25 @@ export default function MarketingHero() {
                     }}
                     className="relative w-full md:w-auto"
                 >
-                    <video
-                        src={heroVideo}
-                        poster={heroPoster}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-auto object-cover pointer-events-none"
-                    >
-                        <track kind="captions" />
-                    </video>
+                    {isDesktop ? (
+                        <video
+                            src={heroVideo}
+                            poster={heroPoster}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-auto object-cover pointer-events-none"
+                        >
+                            <track kind="captions" />
+                        </video>
+                    ) : (
+                        <img
+                            src={heroPoster}
+                            alt="Abstract animated background"
+                            className="object-cover pointer-events-none aspect-video h-90 w-160"
+                        />
+                    )}
                 </motion.div>
             </motion.div>
         </section>

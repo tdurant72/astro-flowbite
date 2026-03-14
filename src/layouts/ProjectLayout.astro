@@ -4,13 +4,15 @@ import Layout from "./Layout.astro";
 import Breadcrumbs from "../components/custom/Breadcrumbs.astro";
 type Props = CollectionEntry<"projects">["data"];
 const { title, developer, tags, description, type, projectimage } = Astro.props;
+const projectImageSrc =
+  typeof projectimage === "string" ? projectimage : projectimage?.src;
 console.log("tags:", tags);
 ---
 
 <Layout
   title={title}
   description={description}
-  image={projectimage?.src}
+  image={projectImageSrc}
   frontmatter={Astro.props}
 >
   <div class="mx-auto max-w-(--breakpoint-xl) px-4 py-10">

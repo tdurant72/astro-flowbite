@@ -37,7 +37,7 @@ const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, width: 
     <!-- <Header /> -->
     <!-- <CustomHero /> -->
     <div data-aos="fade">
-      <MarketingHero client:load />
+      <MarketingHero client:visible />
     </div>
     <Customers />
 
@@ -45,7 +45,7 @@ const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, width: 
 
     <!-- <Methodology /> -->
     <V2VFramework
-      client:load
+      client:visible
       v2v1={v2v1.src}
       v2v2={v2v2.src}
       v2v3={v2v3.src}

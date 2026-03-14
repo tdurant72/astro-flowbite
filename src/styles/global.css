@@ -169,7 +169,7 @@
 
 @layer components {
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-b from-slate-500 to-transparent;
+    @apply text-transparent bg-clip-text bg-linear-to-b from-slate-500 to-transparent;
   }
 }
 

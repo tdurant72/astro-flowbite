@@ -5,8 +5,7 @@ export const imageSchema = ({ image }: SchemaContext) =>
     src: image(),
     alt: z.string(),
   });
-
-export const projectSchema = ({ image }: { image: any }) =>
+export const projectSchema = ({ image }: { image: any }) => // Use SchemaContext
   z.object({
     title: z.string(),
     cover: image(),
@@ -14,8 +13,9 @@ export const projectSchema = ({ image }: { image: any }) =>
     description: z.string().optional(),
     type: z.string(),
     developer: z.string().optional(),
-    deleloper: z.string().optional(),
-    projectimage: z.any().optional(),
+    // Corrected the key name to 'image' to match your MDX
+    projectimage: image().optional(),
+    alt: z.string().optional(),
     projectvideo: z.any().optional(),
     schema: z.any().optional(),
   });

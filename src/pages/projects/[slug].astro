@@ -29,18 +29,31 @@ const { Content } = await render(project);
   >
   <article>
     <div
-      class="w-full max-h-[500px] overflow-hidden rounded-3xl mb-12 shadow-2xl relative"
+      class="w-full max-h-125 overflow-hidden rounded-3xl mb-12 shadow-2xl relative"
     >
-      <Image
-        src={project.data.projectimage.src}
-        alt={project.data.projectimage.alt}
-        width={1200}
-        height={600}
-        class="w-full h-full object-cover"
-        transition:name={project.id}
-      />
+      {
+        (() => {
+          const projectImageSrc =
+            typeof project.data.projectimage === "string"
+              ? project.data.projectimage
+              : project.data.projectimage?.src;
+
+          if (!projectImageSrc) return null;
+
+          return (
+            <Image
+              src={projectImageSrc}
+              alt={project.data.alt}
+              width={1200}
+              height={600}
+              class="w-full h-full object-cover"
+              transition:name={project.id}
+            />
+          );
+        })()
+      }
       <div
-        class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"
+        class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent"
       >
       </div>
     </div>

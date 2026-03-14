@@ -10,6 +10,7 @@ export interface FeaturedProject {
     image: string;
     video?: string;
     preview?: string;
+    alt?: string; 
 }
 
 const FeaturedCaseStudies = ({ onHover, projects }: { onHover?: (id: string | null, image: string | null, videoSrc: string | null) => void, projects: FeaturedProject[] }) => {
@@ -53,7 +54,7 @@ const FeaturedCaseStudies = ({ onHover, projects }: { onHover?: (id: string | nu
                                 <div className="relative aspect-video overflow-hidden mb-8 bg-noir">
                                     <motion.img
                                         src={project.image}
-                                        alt={project.title}
+                                        alt={project.alt || project.title}
                                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out"
                                         referrerPolicy="no-referrer"
                                     />

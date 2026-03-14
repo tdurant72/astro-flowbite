@@ -17,9 +17,21 @@ export default defineConfig({
   })],
   adapter: netlify({
     edgeMiddleware: false,
+    // imageCDN: false,
   }),
-
+  image: {
+    service: { entrypoint: 'astro/assets/services/sharp' },
+    // Global defaults applied to all Astro Image/getImage calls
+    // These are forwarded to Netlify Image CDN in production
+    format: "avif",
+    quality: 75,
+  },
   vite: {
     plugins: [tailwindcss()],
+    // server: {
+    //   fs: {
+    //     allow: ['..'],
+    //   },
+    // },
   },
 });

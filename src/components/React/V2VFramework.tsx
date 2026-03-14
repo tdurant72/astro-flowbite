@@ -115,9 +115,9 @@ export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false, amount: 0.5 }}
                             transition={{ duration: 1, ease: easeOut }}
-                            className="bg-white/[0.03] backdrop-blur-3xl border border-white/10 p-10 md:p-16 max-w-4xl w-full flex flex-col md:flex-row gap-12 items-center md:items-start"
+                            className="bg-white/30 backdrop-blur-3xl border border-white/10 p-10 md:p-16 max-w-4xl w-full flex flex-col md:flex-row gap-12 items-center md:items-start"
                         >
-                            <div className="relative h-20 md:h-28 w-24 md:w-32 flex-shrink-0 flex items-center justify-center border border-white/5 bg-white/5">
+                            <div className="relative h-20 md:h-28 w-24 md:w-32 shrink-0 flex items-center justify-center border border-white/5 bg-white/5">
                                 <span className="font-mono text-5xl md:text-7xl text-white/20 tracking-tighter">
                                     {phase.id}
                                 </span>
@@ -137,7 +137,7 @@ export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
                                             Metric: <span className="text-white">{phase.metric}</span>
                                         </span>
                                     </div>
-                                    <div className="hidden md:block h-4 w-[1px] bg-white/10" />
+                                    <div className="hidden md:block h-4 w-1px bg-white/10" />
                                     <span className="font-mono text-[10px] text-white/20 uppercase tracking-widest">
                                         V2V Framework Protocol
                                     </span>

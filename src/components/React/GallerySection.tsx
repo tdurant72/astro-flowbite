@@ -66,7 +66,25 @@ const GallerySection = ({ caseStudies }: GalleryCardProps) => {
                                     </Suspense>
                                     <h3 className="text-lg font-semibold">{project.data.title}</h3>
                                     <p className="text-gray-600">{project.data.description}</p>
-                                    <img src={project.data.projectimage.src} alt={project.data.projectimage.alt} width="auto" height={500} className="rounded-xl aspect-video" />
+                                    {
+                            (() => {
+                                const imageSrc =
+                                    typeof project.data.projectimage === "string"
+                                        ? project.data.projectimage
+                                        : project.data.projectimage?.src;
+                                return (
+                                    imageSrc && (
+                                        <img
+                                            src={imageSrc}
+                                            alt={project.data.alt}
+                                            width="auto"
+                                            height={500}
+                                            className="rounded-xl aspect-video"
+                                        />
+                                    )
+                                );
+                            })()
+                        }
 
                                 </div>
                             </a>

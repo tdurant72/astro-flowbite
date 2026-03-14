@@ -20,7 +20,7 @@ const CustomCursor = ({ hoveredItem, previewImage, previewVideo }: { hoveredItem
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-48 h-48 pointer-events-none z-[100] flex items-center justify-center"
+            className="fixed top-0 left-0 w-48 h-48 pointer-events-none z-100 flex items-center justify-center"
             style={{
                 x: cursorX,
                 y: cursorY,

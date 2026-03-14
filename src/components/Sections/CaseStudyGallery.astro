@@ -13,18 +13,21 @@ const caseStudies = projects.filter(
 
 const formattedProjects = await Promise.all(
     caseStudies.map(async (project, index) => {
+        const projectImageSrc =
+            typeof project.data.projectimage === "string"
+                ? project.data.projectimage
+                : project.data.projectimage?.src;
+        const projectAlt = project.data.alt || project.data.title;
+
         // Pre-optimize image for the gallery card
-        let optimizedImage = null;
-        const projectImage = project.data.projectimage;
-        
-        if (projectImage && projectImage.src) {
-            optimizedImage = await getImage({
-                src: projectImage.src as any,
-                width: 600,
-                format: "avif",
-                quality: 80,
-            });
-        }
+        const optimizedImage = projectImageSrc
+            ? await getImage({
+                  src: projectImageSrc,
+                  width: 600,
+                  format: "avif",
+                  quality: 80,
+              })
+            : null;
 
         return {
             id: String(index + 1).padStart(2, "0"),
@@ -32,14 +35,15 @@ const formattedProjects = await Promise.all(
             title: project.data.title,
             category:
                 project.data.description || project.data.type || "Case Study",
-            image: optimizedImage?.src || "",
+            image: optimizedImage?.src || projectImageSrc || "",
             video: project.data.projectvideo?.src || "",
-            preview: optimizedImage?.src || "",
+            preview: optimizedImage?.src || projectImageSrc || "",
+            alt: projectAlt,
         };
     }),
 );
 
-// console.log(formattedProjects);
+console.log(formattedProjects[0]);
 ---
 
 <div

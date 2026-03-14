@@ -1,23 +1,28 @@
 import { defineCollection, z, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 
-export const imageSchema = ({ image }: SchemaContext) =>
-  z.object({
-    src: z.string(),
-    alt: z.string(),
-  });
+// export const imageSchema = ({ image }: SchemaContext) =>
+//   z.object({
+//     image: image(),
+//     alt: z.string(),
+//   });
 
 const posts = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/posts" }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       slug: z.string(),
       postimage: z
-        .object({
-          src: z.string(),
-          alt: z.string(),
-        })
+        .union([
+          image(),
+          z
+            .object({
+              src: z.string(),
+              alt: z.string(),
+            })
+            .optional(),
+        ])
         .optional(),
       author: z.string(),
       pubDate: z.string().transform((str) =>
@@ -35,12 +40,9 @@ const project = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      projectimage: z
-        .object({
-          src: image(),
-          alt: z.string(),
-        })
+      projectimage: image()
         .optional(),
+      alt: z.string().optional(),
       projectvideo: z
         .object({
           src: z.string(),

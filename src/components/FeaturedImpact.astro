@@ -17,7 +17,7 @@ const { id } = featuredProject[0];
         data-aos-delay="200">Featured Impact</span
     >
     <div
-        class="max-w-screen-xl mx-auto"
+        class="max-w-screen-7xl mx-auto"
         data-aos="fade-up"
         data-aos-delay="100"
     >
@@ -51,7 +51,7 @@ const { id } = featuredProject[0];
             {
                 featuredProject.map((f) => (
                     <>
-                        <div class="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+                        <div class="aspect-video overflow-hidden">
                             <Image
                                 src={FeaturedImage}
                                 widths={[800, 1200, 1600]}
@@ -87,7 +87,7 @@ const { id } = featuredProject[0];
                                 <span class="text-[10px] uppercase tracking-[0.3em] font-bold">
                                     01 / 04
                                 </span>
-                                <div class="h-[1px] w-32 bg-brand-paper/40" />
+                                <div class="h-px w-32 bg-brand-paper/40" />
                             </div>
                         </div>
                     </>

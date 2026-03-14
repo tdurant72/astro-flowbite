@@ -12,8 +12,13 @@ const {
 } = Astro.props;
 
 // Prioritize the project-specific image from frontmatter for social sharing
-const seoImage = frontmatter?.projectimage?.src
-  ? new URL(frontmatter.projectimage.src, url)
+const projectImageSrc =
+  typeof frontmatter?.projectimage === "string"
+    ? frontmatter.projectimage
+    : frontmatter?.projectimage?.src;
+
+const seoImage = projectImageSrc
+  ? new URL(projectImageSrc, url)
   : new URL(siteData.image.src, url);
 
 const jsonLD = jsonLDGenerator({
@@ -36,7 +41,7 @@ const jsonLD = jsonLDGenerator({
 <meta property="og:image:height" content="630" />
 <meta
   property="og:image:alt"
-  content={frontmatter?.projectimage?.alt || title}
+  content={frontmatter?.alt || title}
 />
 
 <meta name="twitter:card" content="summary_large_image" />

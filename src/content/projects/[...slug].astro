@@ -35,7 +35,7 @@ const { Content } = await render(entry);
     <CustomTags tags={entry.data.tags} />
     <Image
       src={entry.data.projectimage?.src ?? ""}
-      alt={entry.data.projectimage?.alt ?? entry.data.title}
+      alt={entry.data.alt ?? entry.data.title}
       height={400}
       width={Math.round((100 * 16) / 9)}
       class="w-full h-auto object-cover"
