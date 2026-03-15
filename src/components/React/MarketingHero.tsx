@@ -3,7 +3,7 @@ import { motion, useTransform, easeOut, useScroll } from 'motion/react'
 import type { Variants } from 'motion/react';
 import { Button } from '@/components/ui/button';
 const heroVideo = "https://videos.pexels.com/video-files/6774633/6774633-hd_1280_720_30fps.mp4"
-const heroPoster = "https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60"
+const heroPoster = "https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp"
 
 export default function MarketingHero() {
     const [hasAnimated, setHasAnimated] = useState(false);
