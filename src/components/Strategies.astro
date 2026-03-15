@@ -5,7 +5,7 @@ import crowd from "../assets/images/crowd.webp";
 
 <section
     id="strategy"
-    class="relative overflow-hidden py-8 md:py-12 px-6 bg-brand-ink text-brand-paper h-screen min-h-[500px] max-h-[1200px]"
+    class="relative overflow-hidden py-8 md:py-12 px-6 bg-brand-ink text-brand-paper h-screen min-h-125 max-h-300"
 >
     <!-- Background Element -->
     <!-- <div
@@ -74,12 +74,13 @@ import crowd from "../assets/images/crowd.webp";
             >
                 <Image
                     src={crowd}
-                    widths={[400, 800, 1200]}
-                    sizes="(max-width: 767px) 95vw, 600px"
+                    widths={[276, 312, 880]}
+                    sizes="(max-width: 767px) 95vw, 880px"
                     format="avif"
                     quality={80}
                     alt="Strategic session"
                     class="object-cover w-full h-full"
+                    loading="lazy"
                 />
             </div>
         </div>

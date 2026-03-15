@@ -62,7 +62,7 @@ import Seo from "@/components/custom/Seo.astro";
     <div class="relative bg-white dark:bg-slate-900 min-h-screen">
       <Nav />
       <slot />
-      <PulsingCircle client:only="react" />
+      <PulsingCircle client:idle  />
       <Footer />
     </div>
     <script>

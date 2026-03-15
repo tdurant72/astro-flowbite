@@ -23,9 +23,9 @@ import v2v1Src from "@/assets/images/V2V-image-1.avif";
 import v2v2Src from "@/assets/images/V2V-image-2.avif";
 import v2v3Src from "@/assets/images/V2V-image-3.avif";
 
-const v2v1 = await getImage({ src: v2v1Src, format: 'avif', quality: 75, width: 1600 });
-const v2v2 = await getImage({ src: v2v2Src, format: 'avif', quality: 75, width: 1600 });
-const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, width: 1600 });
+const v2v1 = await getImage({ src: v2v1Src, format: 'avif', quality: 75, widths: [320, 640, 880] });
+const v2v2 = await getImage({ src: v2v2Src, format: 'avif', quality: 75, widths: [320, 640, 880] });
+const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, widths: [320, 640, 880] });
 ---
 
 <Layout
@@ -46,9 +46,9 @@ const v2v3 = await getImage({ src: v2v3Src, format: 'avif', quality: 75, width: 
     <!-- <Methodology /> -->
     <V2VFramework
       client:visible
-      v2v1={v2v1.src}
-      v2v2={v2v2.src}
-      v2v3={v2v3.src}
+      v2v1={v2v1}
+      v2v2={v2v2}
+      v2v3={v2v3}
     />
 
     <FeaturedImpact />

@@ -7,7 +7,7 @@ export interface FeaturedProject {
     slug: string;
     title: string;
     category: string;
-    image: string;
+    image: any;
     video?: string;
     preview?: string;
     alt?: string; 
@@ -53,10 +53,14 @@ const FeaturedCaseStudies = ({ onHover, projects }: { onHover?: (id: string | nu
                             >
                                 <div className="relative aspect-video overflow-hidden mb-8 bg-noir">
                                     <motion.img
-                                        src={project.image}
+                                        src={project.image.src}
+                                        srcSet={project.image.srcSet}
+                                        sizes="(max-width: 767px) 100vw, 33vw"
                                         alt={project.alt || project.title}
                                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out"
                                         referrerPolicy="no-referrer"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                     <div className="absolute inset-0 bg-noir/20 group-hover:bg-noir/0 transition-colors duration-700" />
                                 </div>

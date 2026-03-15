@@ -32,12 +32,13 @@ const phases = [
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
 interface V2VFrameworkProps {
-    v2v1?: string;
-    v2v2?: string;
-    v2v3?: string;
+    v2v1?: any;
+    v2v2?: any;
+    v2v3?: any;
+    fetchpriority?: "high" | "low" | "auto";
 }
 
-export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
+export default function V2VFramework({ v2v1, v2v2, v2v3, fetchpriority }: V2VFrameworkProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Overwrite phase images with optimized props if they exist
@@ -45,7 +46,7 @@ export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
         const optimizedSrc = i === 0 ? v2v1 : i === 1 ? v2v2 : v2v3;
         return {
             ...phase,
-            image: optimizedSrc ? { src: optimizedSrc } : phase.image
+            image: optimizedSrc || phase.image
         };
     });
 
@@ -97,9 +98,14 @@ export default function V2VFramework({ v2v1, v2v2, v2v3 }: V2VFrameworkProps) {
                             <div className="absolute inset-0 bg-slate-950/70 z-10" />
                             <motion.img
                                 src={phase.image.src}
+                                srcSet={phase.image.srcSet}
+                                sizes="100vw"  // Since it's full-screen, always 100% of viewport width
                                 alt=""
                                 style={{ scale }}
                                 className="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                                fetchPriority={fetchpriority || "low"}
                             />
                         </motion.div>
                     );
