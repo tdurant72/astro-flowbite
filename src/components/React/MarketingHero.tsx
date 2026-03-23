@@ -102,13 +102,13 @@ export default function MarketingHero() {
                 className="container flex justify-center items-center md:px-0 md:pt-30"
             >
                 <div className="md:w-full text-center px-4 mx-auto">
-                    <motion.h1 variants={contentVariants} className="text-5xl md:text-[7vw] font-bold text-gray-900 mb-4">
+                    <motion.h1 variants={contentVariants} className="text-5xl md:text-[5vw] font-bold text-gray-900 mb-4">
                         <motion.span className="inline-block" variants={contentVariants}>
-                            Your Mission is Essential.
+                            Institutional Lead Generation for Public-Private Partnerships.
                         </motion.span>
                         <br />
-                        <motion.span className="inline-block text-2xl md:text-[5vw] font-medium font-serif text-brand-teal" variants={contentVariants}>
-                            Make Sure the Future Can Find It.
+                        <motion.span className="inline-block text-2xl md:text-[3.5vw] font-medium font-serif text-brand-teal" variants={contentVariants}>
+                            Make Sure the Future Can Find Your Mission.
                         </motion.span>
                     </motion.h1>
                     <motion.p

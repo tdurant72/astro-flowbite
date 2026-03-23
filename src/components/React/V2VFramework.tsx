@@ -38,6 +38,56 @@ interface V2VFrameworkProps {
     fetchpriority?: "high" | "low" | "auto";
 }
 
+interface PhaseBackgroundProps {
+    phase: any;
+    i: number;
+    scrollYProgress: any;
+}
+
+function PhaseBackground({ phase, i, scrollYProgress }: PhaseBackgroundProps) {
+    const peak = i * 0.5;
+    
+    // Use narrower peak for clarity, but ensured visibility with overlaps
+    // Phase 0: 0 to 0.4
+    // Phase 1: 0.1 to 0.9
+    // Phase 2: 0.6 to 1.0
+    const range = i === 0 ? [0, 0.45] : i === 1 ? [0.1, 0.5, 0.9] : [0.55, 1.0];
+    const output = i === 0 ? [1, 0] : i === 1 ? [0, 1, 0] : [0, 1];
+
+    const opacity = useTransform(scrollYProgress, range, output);
+    const scale = useTransform(scrollYProgress, [peak - 0.5, peak, peak + 0.5], [1.05, 1, 1.05]);
+
+    // Handle both Astro's getImage result and raw imports
+    const src = phase.image?.src || phase.image;
+    const srcSet = phase.image?.srcSet?.attribute || 
+                   (typeof phase.image?.srcSet === 'string' ? phase.image.srcSet : undefined);
+
+    if (!src) return null;
+
+    return (
+        <motion.div
+            className="absolute inset-0 w-full h-full overflow-hidden"
+            style={{
+                opacity,
+                zIndex: 10 + i, // Correct layering: 10, 11, 12
+            }}
+        >
+            {/* Reduced overlay opacity (15%) for much better visibility on dark themes */}
+            <div className="absolute inset-0 bg-slate-950/15 z-10" />
+            <motion.img
+                src={src}
+                srcSet={srcSet}
+                sizes="100vw"
+                alt=""
+                style={{ scale }}
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+            />
+        </motion.div>
+    );
+}
+
 export default function V2VFramework({ v2v1, v2v2, v2v3, fetchpriority }: V2VFrameworkProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -57,6 +107,11 @@ export default function V2VFramework({ v2v1, v2v2, v2v3, fetchpriority }: V2VFra
         offset: ["start start", "end end"]
     });
 
+    // Log scroll progress to debug transitions
+    // useIsomorphicLayoutEffect(() => {
+    //     return scrollYProgress.on("change", (v) => console.log("V2V Scroll:", v));
+    // }, [scrollYProgress]);
+
     return (
         <section
             id="v2v-framework"
@@ -64,52 +119,15 @@ export default function V2VFramework({ v2v1, v2v2, v2v3, fetchpriority }: V2VFra
             className="relative bg-slate-950 h-[300vh]"
         >
             {/* Fixed Background Layer: This stays pinned while the section is in view */}
-            <div className="sticky top-0 h-screen w-full overflow-hidden">
-                {optimizedPhases.map((phase, i) => {
-                    // Mapping images across the 300vh scroll
-                    // Phase 0: visible at 0% scroll
-                    // Phase 1: peaks at 50% scroll
-                    // Phase 2: peaks at 100% scroll
-                    const step = 0.5;
-                    const peak = i * step;
-
-                    const opacity = useTransform(
-                        scrollYProgress,
-                        [peak - 0.25, peak, peak + 0.25],
-                        [0, 1, 0]
-                    );
-
-                    // Scale effect for depth
-                    const scale = useTransform(
-                        scrollYProgress,
-                        [peak - 0.5, peak, peak + 0.5],
-                        [1.1, 1, 1.1]
-                    );
-
-                    return (
-                        <motion.div
-                            key={`bg-${phase.id}`}
-                            className="absolute inset-0 w-full h-full"
-                            style={{
-                                opacity,
-                                zIndex: 10 + i
-                            }}
-                        >
-                            <div className="absolute inset-0 bg-slate-950/70 z-10" />
-                            <motion.img
-                                src={phase.image.src}
-                                srcSet={phase.image.srcSet}
-                                sizes="100vw"  // Since it's full-screen, always 100% of viewport width
-                                alt=""
-                                style={{ scale }}
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                                decoding="async"
-                                fetchPriority={fetchpriority || "low"}
-                            />
-                        </motion.div>
-                    );
-                })}
+            <div className="sticky top-0 h-screen w-full overflow-hidden bg-slate-950">
+                {optimizedPhases.map((phase, i) => (
+                    <PhaseBackground 
+                        key={`bg-${phase.id}`}
+                        phase={phase}
+                        i={i}
+                        scrollYProgress={scrollYProgress}
+                    />
+                ))}
             </div>
 
             {/* Scrolling Content Layer: Negative margin pulls cards over the sticky backgrounds */}

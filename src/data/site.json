@@ -66,6 +66,17 @@
       "href": "https://www.linkedin.com/in/tyus-durant-98697511"
     }
   ],
+  "person": {
+    "name": "Tyus Durant",
+    "description": "Founder of Sublime UX and architect of the V2V (Visibility-to-Velocity) framework. Specialist in digital architecture for institutional trust and generative engine optimization.",
+    "jobTitle": "Chief Experience Officer",
+    "url": "https://www.sublimeux.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/tyus-durant-98697511",
+      "https://twitter.com/sublime_ux",
+      "https://www.youtube.com/@sublimeux"
+    ]
+  },
   "projects": [
     {
       "projectTitle": "Project 1",
@@ -117,10 +128,27 @@
       "Conversion Rate Optimization",
       "Astro Web Development"
     ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "(336) 517-7923",
+      "contactType": "Customer Service",
+      "email": "todurant@sublimeux.com",
+      "areaServed": ["US", "NC", "GA"],
+      "availableLanguage": ["English"]
+    },
     "areaServed": [
-      "United States",
-      "North Carolina",
-      "Georgia"
+      {
+        "@type": "Country",
+        "name": "United States"
+      },
+      {
+        "@type": "State",
+        "name": "North Carolina"
+      },
+      {
+        "@type": "State",
+        "name": "Georgia"
+      }
     ],
     "offers": {
       "@type": "Offer",
