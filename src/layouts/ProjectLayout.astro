@@ -6,7 +6,7 @@ type Props = CollectionEntry<"projects">["data"];
 const { title, developer, tags, description, type, projectimage } = Astro.props;
 const projectImageSrc =
   typeof projectimage === "string" ? projectimage : projectimage?.src;
-console.log("tags:", tags);
+// console.log("tags:", tags);
 ---
 
 <Layout

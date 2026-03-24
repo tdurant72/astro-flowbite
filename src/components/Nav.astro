@@ -5,7 +5,7 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 import Logo from "../assets/logo.png";
 ---
 
-<nav transition:persist class="glass fixed w-full z-9999 top-0 inset-s-0">
+<nav class="glass fixed w-full z-9999 top-0 inset-s-0">
   <div
     class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-6 animate-in fade-in slide-in-from-top-4 duration-700"
   >
@@ -82,7 +82,7 @@ import Logo from "../assets/logo.png";
                   {/* Dropdown menu */}
                   <div
                     id={dropdownId}
-                    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute xl:auto max-md:relative! max-md:w-full! max-md:shadow-none! max-md:bg-transparent!"
+                    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 md:absolute max-md:relative! max-md:w-full! max-md:shadow-none! max-md:bg-gray-50! dark:max-md:bg-slate-800! max-md:transform-none! max-md:top-auto! max-md:left-auto! max-md:mt-2!"
                   >
                     <ul
                       class="py-2 text-sm text-gray-700 dark:text-gray-400"
@@ -91,7 +91,7 @@ import Logo from "../assets/logo.png";
                       <li>
                         <a
                           href={page.href}
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          class="block px-4 max-md:pl-8 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Overview
                         </a>
@@ -100,7 +100,7 @@ import Logo from "../assets/logo.png";
                         <li>
                           <a
                             href={sub.href}
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            class="block px-4 max-md:pl-8 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           >
                             {sub.title}
                           </a>
@@ -151,33 +151,56 @@ import Logo from "../assets/logo.png";
 </style>
 
 <script>
-  import { Collapse, initDropdowns } from "flowbite";
-  import type { CollapseInterface } from "flowbite";
+  import { initDropdowns } from "flowbite";
 
-  // set the target element that will be collapsed or expanded (eg. navbar menu)
-  const $targetEl = document.getElementById("targetEl");
-  const $triggerEl: HTMLElement | null = document.getElementById("triggerEl");
+  function initNav() {
+    const $targetEl = document.getElementById("targetEl") as HTMLElement | null;
+    const $triggerEl = document.getElementById("triggerEl") as HTMLElement | null;
 
-  // Ensure instance exists and elements are found
-  if ($targetEl && $triggerEl) {
-    const collapse: CollapseInterface = new Collapse($targetEl, $triggerEl);
+    if (!$targetEl || !$triggerEl) return;
 
-    // Close menu on every page load (initial and after navigation)
-    document.addEventListener("astro:page-load", () => {
-      collapse.collapse();
+    // --- Hamburger toggle ---
+    // Remove existing listener by cloning the button
+    const newTrigger = $triggerEl.cloneNode(true) as HTMLElement;
+    $triggerEl.parentNode?.replaceChild(newTrigger, $triggerEl);
 
-      // Explicitly close any open dropdowns since the Navbar is preserved with transition:persist
-      document
-        .querySelectorAll('div[id^="dropdownNavbar-"]')
-        .forEach((dropdown) => {
-          dropdown.classList.remove("block");
-          dropdown.classList.add("hidden");
-        });
-
-      initDropdowns();
+    newTrigger.addEventListener("click", () => {
+      const isHidden = $targetEl.classList.contains("hidden");
+      if (isHidden) {
+        $targetEl.classList.remove("hidden");
+        $targetEl.classList.add("block");
+        newTrigger.setAttribute("aria-expanded", "true");
+      } else {
+        $targetEl.classList.add("hidden");
+        $targetEl.classList.remove("block");
+        newTrigger.setAttribute("aria-expanded", "false");
+      }
     });
 
-    // Initialize dropdowns on first load
+    // --- Force-close menu on any link click BEFORE navigation starts ---
+    // This prevents the InvalidStateError caused by Flowbite's animation
+    // conflicting with Astro's View Transition DOM capture.
+    $targetEl.querySelectorAll("a[href]").forEach((link) => {
+      link.addEventListener("click", () => {
+        // Instant sync hide — no animation, no Flowbite state conflict
+        $targetEl.classList.add("hidden");
+        $targetEl.classList.remove("block");
+        newTrigger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close any open dropdowns
+    document.querySelectorAll('div[id^="dropdownNavbar-"]').forEach((d) => {
+      d.classList.remove("block");
+      d.classList.add("hidden");
+    });
+
+    // Ensure menu starts closed on each page load
+    $targetEl.classList.add("hidden");
+    $targetEl.classList.remove("block");
+
     initDropdowns();
   }
+
+  document.addEventListener("astro:page-load", initNav);
 </script>

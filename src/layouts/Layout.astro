@@ -45,7 +45,11 @@ import Seo from "@/components/custom/Seo.astro";
     <title>{title}</title>
     <script is:inline>
       // Check for dark mode in local storage
-      if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
@@ -62,7 +66,7 @@ import Seo from "@/components/custom/Seo.astro";
     <div class="relative bg-white dark:bg-slate-900 min-h-screen">
       <Nav />
       <slot />
-      <PulsingCircle client:idle  />
+      <PulsingCircle client:only="react" />
       <Footer />
     </div>
     <script>

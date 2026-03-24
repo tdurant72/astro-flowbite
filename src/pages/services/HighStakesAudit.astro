@@ -112,7 +112,7 @@ const jsonLd = {
                 </div>
 
                 {/* X-Ray / Blueprint Visual */}
-                <BlurprintAnimation client:load />
+                <BlurprintAnimation client:only="react" />
             </div>
         </section>
 
@@ -242,6 +242,7 @@ const jsonLd = {
                 </div>
             </div>
         </section>
-        <ReportSection client:load />
+        <ReportSection client:only="react" />
+
     </div>
 </Layout>

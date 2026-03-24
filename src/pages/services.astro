@@ -97,7 +97,7 @@ const jsonLd = {
         </div>
 
         {/* 3D Wireframe Visual (SVG representation) */}
-        <ServicesAnimation client:only />
+        <ServicesAnimation client:only="react" />
       </div>
     </section>
 
@@ -322,7 +322,7 @@ const jsonLd = {
             <div
               class="w-32 h-1px bg-linear-gradient-to-r from-slate-800/20 to-brand-teal relative"
             >
-              <PathToAnimation client:load />
+              <PathToAnimation client:only="react" />
             </div>
             <div
               class="w-24 h-24 rounded-full border border-brand-teal bg-brand-teal/5 flex items-center justify-center text-brand-teal"
