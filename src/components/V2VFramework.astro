@@ -1,0 +1,267 @@
+---
+import { getImage } from "astro:assets";
+import V2VImage1 from "@/assets/images/V2V-image-1.avif";
+import V2VImage2 from "@/assets/images/V2V-image-2.avif";
+import V2VImage3 from "@/assets/images/V2V-image-3.avif";
+
+interface Props {
+    v2v1?: any;
+    v2v2?: any;
+    v2v3?: any;
+}
+
+const { v2v1, v2v2, v2v3 } = Astro.props;
+
+const phases = [
+    {
+        id: "01",
+        title: "Strategic Alignment",
+        description:
+            "We map your organization's information into Digital DNA so you can be more easily discoverable by AI",
+        image: V2VImage1,
+        metric: "100% Alignment",
+    },
+    {
+        id: "02",
+        title: "Technical Soul",
+        description:
+            "High-performance infrastructure built on modern stacks. The invisible engine that powers your mission.",
+        image: V2VImage2,
+        metric: "< 100ms Latency",
+    },
+    {
+        id: "03",
+        title: "Global Impact",
+        description:
+            "Aligns your digital presence so that it resonates across borders and scales with your ambition.",
+        image: V2VImage3,
+        metric: "99+ Lighthouse",
+    },
+];
+
+const optimizedPhases = phases.map((phase, i) => {
+    const optimizedSrc = i === 0 ? v2v1 : i === 1 ? v2v2 : v2v3;
+    return {
+        ...phase,
+        image: optimizedSrc || phase.image,
+    };
+});
+---
+
+<section
+    id="v2v-framework"
+    class="relative bg-slate-950"
+>
+    {
+        /* Fixed Background Layer: This stays pinned while the section is in view */
+    }
+    <div
+        class="v2v-pin fixed inset-0 h-screen w-full overflow-hidden bg-slate-950 pointer-events-none"
+        style="opacity: 0; visibility: hidden;"
+    >
+        {
+            optimizedPhases.map((phase, i) => {
+                const src = phase.image?.src || phase.image;
+                const srcSet =
+                    phase.image?.srcSet?.attribute ||
+                    (typeof phase.image?.srcSet === "string"
+                        ? phase.image.srcSet
+                        : undefined);
+
+                if (!src) return null;
+
+                return (
+                    <div
+                        class="absolute inset-0 w-full h-full overflow-hidden v2v-bg"
+                        data-index={i}
+                        style={`z-index: ${10 + i}; opacity: ${i === 0 ? 1 : 0};`}
+                    >
+                        {/* Reduced overlay opacity (15%) for much better visibility on dark themes */}
+                        <div class="absolute inset-0 bg-slate-950/15 z-10" />
+                        <img
+                            src={src}
+                            srcset={srcSet}
+                            sizes="100vw"
+                            alt=""
+                            class="v2v-img w-full h-full object-cover"
+                            loading="eager"
+                            decoding="async"
+                            style="transform: scale(1);"
+                        />
+                    </div>
+                );
+            })
+        }
+    </div>
+
+    {
+        /* Scrolling Content Layer */
+    }
+    <div class="relative z-30">
+        {
+            optimizedPhases.map((phase, i) => (
+                <div
+                    class="v2v-step h-screen flex items-center justify-center px-6"
+                    id={`v2v-step-${i + 1}`}
+                >
+                    <div
+                        class="v2v-card bg-white/30 backdrop-blur-3xl border border-white/10 p-10 md:p-16 max-w-4xl w-full flex flex-col md:flex-row gap-12 items-center md:items-start"
+                        style="opacity: 0; transform: translateY(50px);"
+                    >
+                        <div class="relative h-20 md:h-28 w-24 md:w-32 shrink-0 flex items-center justify-center border border-white/5 bg-white/5">
+                            <span class="font-mono text-5xl md:text-7xl text-white/20 tracking-tighter">
+                                {phase.id}
+                            </span>
+                        </div>
+
+                        <div class="space-y-6 flex-1 text-center md:text-left">
+                            <h3 class="font-serif text-3xl md:text-5xl text-white tracking-tight leading-tight">
+                                {phase.title}
+                            </h3>
+                            <p class="font-sans text-lg md:text-xl text-white/50 font-light leading-relaxed max-w-xl">
+                                {phase.description}
+                            </p>
+                            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-cobalt animate-pulse" />
+                                    <span class="font-mono text-xs text-white/40 uppercase tracking-[0.2em]">
+                                        Metric:{" "}
+                                        <span class="text-white">
+                                            {phase.metric}
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="hidden md:block h-4 w-1px bg-white/10" />
+                                <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">
+                                    V2V Framework Protocol
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<script>
+    import { animate, inView } from "motion";
+
+    let removeScrollListeners: (() => void) | null = null;
+    let stopInViewHandlers: Array<() => void> = [];
+
+    const destroyV2VFramework = () => {
+        if (removeScrollListeners) {
+            removeScrollListeners();
+            removeScrollListeners = null;
+        }
+        stopInViewHandlers.forEach((stop) => stop());
+        stopInViewHandlers = [];
+    };
+
+    const initV2VFramework = () => {
+        const container = document.getElementById("v2v-framework");
+        if (!container) return;
+        const pin = container.querySelector(".v2v-pin") as HTMLElement | null;
+
+        const bgs = container.querySelectorAll(
+            ".v2v-bg",
+        ) as NodeListOf<HTMLElement>;
+        const imgs = container.querySelectorAll(
+            ".v2v-img",
+        ) as NodeListOf<HTMLElement>;
+        const steps = container.querySelectorAll(
+            ".v2v-step",
+        ) as NodeListOf<HTMLElement>;
+
+        destroyV2VFramework();
+
+        const clamp = (value: number, min = 0, max = 1) =>
+            Math.min(Math.max(value, min), max);
+
+        // Keep each background tied to its matching card position so the
+        // transitions stay stable regardless of earlier animated sections.
+        let rafId = 0;
+        const runFrame = () => {
+            rafId = 0;
+            const containerRect = container.getBoundingClientRect();
+            const sectionInView =
+                containerRect.bottom > 0 &&
+                containerRect.top < window.innerHeight;
+            const pinProgress = clamp(
+                containerRect.top > 0
+                    ? 1 - containerRect.top / window.innerHeight
+                    : containerRect.bottom < window.innerHeight
+                      ? containerRect.bottom / window.innerHeight
+                      : 1,
+            );
+
+            if (pin) {
+                pin.style.visibility = sectionInView ? "visible" : "hidden";
+                pin.style.opacity = sectionInView ? `${pinProgress}` : "0";
+            }
+
+            const viewportCenter = window.innerHeight / 2;
+            const weights = Array.from(steps, (step) => {
+                const rect = step.getBoundingClientRect();
+                const stepCenter = rect.top + rect.height / 1.4;
+                const distance = Math.abs(stepCenter - viewportCenter);
+                return clamp(1 - distance / window.innerHeight);
+            });
+
+            const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+
+            bgs.forEach((bg, i) => {
+                const img = imgs[i];
+                const op =
+                    sectionInView && totalWeight > 0
+                        ? weights[i] / totalWeight
+                        : 0;
+                const scale = 1 + (1 - op) * 0.03;
+
+                bg.style.opacity = `${op}`;
+                if (img) img.style.transform = `scale(${scale})`;
+            });
+        };
+
+        const requestFrame = () => {
+            if (!rafId) rafId = requestAnimationFrame(runFrame);
+        };
+
+        window.addEventListener("scroll", requestFrame, { passive: true });
+        window.addEventListener("resize", requestFrame);
+        requestFrame();
+
+        removeScrollListeners = () => {
+            window.removeEventListener("scroll", requestFrame);
+            window.removeEventListener("resize", requestFrame);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
+
+        // Card in-view animation.
+        const cards = container.querySelectorAll(".v2v-card");
+        const easeOut = [0.16, 1, 0.3, 1] as const;
+
+        cards.forEach((card) => {
+            const stopInView = inView(
+                card,
+                () => {
+                    animate(
+                        card,
+                        {
+                            opacity: [0, 1],
+                            transform: ["translateY(50px)", "translateY(0px)"],
+                        },
+                        { duration: 1, ease: easeOut },
+                    );
+                },
+                { amount: 0.5 },
+            );
+            stopInViewHandlers.push(stopInView);
+        });
+    };
+
+    initV2VFramework();
+    document.addEventListener("astro:page-load", initV2VFramework);
+    document.addEventListener("astro:before-swap", destroyV2VFramework);
+</script>

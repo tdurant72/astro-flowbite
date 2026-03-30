@@ -1,0 +1,184 @@
+---
+// Import your UI components if they are React/Solid/Vue components
+// import { Button } from "@/components/ui/button";
+import Button from "./Button.astro";
+import ButtonAlt from "./ButtonAlt.astro";
+const heroVideo =
+    "https://videos.pexels.com/video-files/6774633/6774633-hd_1280_720_30fps.mp4";
+const heroPoster =
+    "https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp";
+const ctaButton1 = "Request a High Stakes Audit";
+const ctaButton2 = "The V2V Methodology";
+const ctaButton1Link = "#contact-us";
+const ctaButton2Link = "/services/V2VFramework";
+const ctaButton1Subtext = "Identify your Friction Tax in 15 minutes.";
+const ctaButton2Subtext = "How we engineer institutional authority.";
+---
+
+<section
+    id="hero-section"
+    class="relative bg-neutral-100 pt-20 flex flex-col items-center overflow-hidden"
+>
+    <div
+        id="hero-content"
+        class="container flex justify-center items-center md:px-0 md:pt-30 opacity-0"
+    >
+        <div class="md:w-full text-center px-4 mx-auto">
+            <h1 class="text-5xl md:text-[5vw] font-bold text-gray-900 mb-4">
+                <span class="hero-stagger inline-block"
+                    >Institutional Lead Generation for Public-Private
+                    Partnerships.</span
+                >
+                <br />
+                <span
+                    class="hero-stagger inline-block text-2xl md:text-[3.5vw] font-medium font-serif text-brand-teal"
+                >
+                    Make Sure the Future Can Find Your Mission.
+                </span>
+            </h1>
+            <p
+                class="hero-stagger md:max-w-3xl text-2xl text-neutral-700 mb-8 text-center text-balance mx-auto"
+            >
+                We architect high-performance digital infrastructure for
+                non-profits and government entities. By bridging the gap between
+                Human Storytelling and AI Search Discovery, we transform
+                fragmented information into a unified engine for growth.
+            </p>
+
+            <div
+                id="cta-buttons"
+                class="flex flex-col md:flex-row gap-x-3 md:gap-x-6 justify-center mb-10 opacity-0"
+            >
+                <div class="flex flex-col items-center gap-y-2.5">
+                    <Button
+                        href={ctaButton1Link}
+                        text={ctaButton1}
+                        bgColor="bg-brand-amber"
+                        textColor="text-slate-900"
+                        textWeight="font-bold"
+                        textSize="text-lg"
+                    />
+                    <p class="text-slate-700 text-[0.8rem]">
+                        Identify your Friction Tax in 15 minutes.
+                    </p>
+                </div>
+                <div class="flex flex-col items-center gap-y-2.5">
+                    <ButtonAlt
+                        href={ctaButton2Link}
+                        text={ctaButton2}
+                        bgColor="bg-teal-700"
+                        textColor="text-white"
+                        textWeight="font-bold"
+                        textSize="text-lg"
+                    />
+                    <p class="text-slate-700 text-[0.8rem]">
+                        How we engineer institutional authority.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        id="video-container-outer"
+        class="flex justify-center w-full md:px-0 opacity-0"
+    >
+        <div id="video-wrapper" class="relative overflow-hidden w-[85%]">
+            <div id="media-placeholder"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { animate, scroll, transform, stagger } from "motion";
+    const heroSection = document.querySelector("#hero-section");
+    const heroContent = document.querySelector("#hero-content");
+    const staggers = document.querySelectorAll(".hero-stagger");
+    const ctaButtons = document.querySelector("#cta-buttons");
+    const videoOuter = document.querySelector("#video-container-outer");
+    const videoWrapper = document.getElementById(
+        "video-wrapper",
+    ) as HTMLElement;
+    const mediaPlaceholder = document.getElementById("media-placeholder");
+
+    // 1. Desktop Check & Media Injection
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (mediaPlaceholder) {
+        if (isDesktop) {
+            mediaPlaceholder.innerHTML = `
+                <video src="https://videos.pexels.com/video-files/6774633/6774633-hd_1280_720_30fps.mp4" 
+                    poster="https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp"
+                    autoplay loop muted playsinline class="w-full h-auto object-cover pointer-events-none">
+                </video>`;
+        } else {
+            mediaPlaceholder.innerHTML = `
+                <img src="https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp" 
+                    alt="Hero background" class="object-cover pointer-events-none aspect-video h-90 w-full" />`;
+        }
+    }
+
+    // 2. Entrance Animations (Variants replacement)
+    // We only trigger if it's a fresh visit (mimicking your hasAnimated logic)
+    const navigation = window.performance.getEntriesByType(
+        "navigation",
+    )[0] as PerformanceNavigationTiming;
+    const isReload = navigation?.type !== "back_forward";
+
+    if (isReload) {
+        // Content Stagger
+        animate(heroContent!, { opacity: 1 }, { duration: 0.1 });
+        animate(
+            staggers,
+            {
+                opacity: [0, 1],
+                y: [40, 0],
+                filter: ["blur(10px)", "blur(0px)"],
+            },
+            { delay: stagger(0.1), duration: 0.9, ease: [0.25, 0.1, 0, 1] },
+        );
+
+        // Buttons
+        animate(
+            ctaButtons!,
+            { opacity: [0, 1], y: [20, 0], scale: [0.8, 1] },
+            { delay: 0.6, duration: 0.6 },
+        );
+
+        // Video Entrance
+        animate(
+            videoOuter!,
+            { opacity: [0, 1], y: [60, 0], scale: [0.95, 1] },
+            { delay: 0.8, duration: 1.2, ease: [0.25, 0.1, 0, 1] },
+        );
+    } else {
+        // Instant show if navigated back
+        animate(
+            [heroContent!, ctaButtons!, videoOuter!],
+            { opacity: 1 },
+            { duration: 0 },
+        );
+    }
+
+    // 3. Scroll Transformations (useTransform replacement)
+    scroll(
+        (progress: number) => {
+            const y = window.scrollY;
+            const scrollThreshold = 500;
+            const p = Math.min(y / scrollThreshold, 1);
+
+            if (videoWrapper) {
+                const width = transform(p, [0, 1], [85, 100]);
+                const scale = transform(p, [0, 1], [0.9, 1]);
+                const borderRadius = transform(p, [0, 1], [32, 0]);
+
+                videoWrapper.style.width = `${width}%`;
+                videoWrapper.style.transform = `scale(${scale})`;
+                videoWrapper.style.borderRadius = `${borderRadius}px`;
+            }
+        },
+        {
+            target: heroSection as HTMLElement, // Explicitly target the section
+            offset: ["start start", "end start"], // Track from top of section to when it leaves
+        },
+    );
+</script>

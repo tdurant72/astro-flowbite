@@ -1,0 +1,156 @@
+---
+// No props needed for this fixed utility
+---
+
+<div
+    id="magnetic-area"
+    class="fixed bottom-8 right-8 z-50 w-32 h-32 flex items-center justify-center"
+>
+    <a
+        href="/#contact-us"
+        id="magnetic-button"
+        class="relative w-20 h-20 flex items-center justify-center rounded-full bg-white shadow-xl transition-shadow hover:shadow-2xl no-underline"
+        aria-label="Contact us today"
+    >
+        <div class="absolute inset-0 rounded-full overflow-hidden opacity-80">
+            <div class="mesh-gradient"></div>
+        </div>
+
+        <svg
+            class="absolute inset-0 w-full h-full rotating-text pointer-events-none"
+            viewBox="0 0 100 100"
+        >
+            <defs>
+                <path
+                    id="circlePath"
+                    d="M 50, 50 m -30, 0 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0"
+                ></path>
+            </defs>
+            <text
+                class="text-[9px] uppercase tracking-[0.2em] font-bold"
+                fill="#0f172a"
+            >
+                <textPath href="#circlePath" startOffset="0%">
+                    contact us today • contact us today • contact us today •
+                </textPath>
+            </text>
+        </svg>
+
+        <div class="relative w-2 h-2 bg-brand-teal rounded-full animate-pulse">
+        </div>
+    </a>
+</div>
+
+<style>
+    /* High-performance Mesh Gradient Replacement for Shaders */
+    .mesh-gradient {
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        background-image:
+            radial-gradient(
+                at 0% 0%,
+                hsla(197, 100%, 87%, 1) 0,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 50% 0%,
+                hsla(305, 68%, 70%, 1) 0,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 100% 0%,
+                hsla(4, 100%, 62%, 1) 0,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 0% 100%,
+                hsla(152, 100%, 50%, 1) 0,
+                transparent 50%
+            ),
+            radial-gradient(
+                at 100% 100%,
+                hsla(48, 100%, 50%, 1) 0,
+                transparent 50%
+            );
+        filter: blur(10px);
+        animation: gradient-rotate 10s ease infinite alternate;
+    }
+
+    @keyframes gradient-rotate {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        100% {
+            transform: translate(-10%, -10%) rotate(10deg);
+        }
+    }
+
+    /* Smooth constant rotation handled by browser compositor */
+    .rotating-text {
+        animation: spin 15s linear infinite;
+        transform-origin: center;
+        scale: 1.4; /* Matches your original design's scale */
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Optional: Ensure text looks crisp */
+    text {
+        letter-spacing: 2px;
+    }
+</style>
+
+<script>
+    import { animate } from "motion";
+
+    const area = document.getElementById("magnetic-area");
+    const btn = document.getElementById("magnetic-button");
+
+    if (area && btn) {
+        area.addEventListener("mousemove", (e) => {
+            const rect = area.getBoundingClientRect();
+
+            // Calculate cursor position relative to the center of the magnetic area
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const distanceX = e.clientX - centerX;
+            const distanceY = e.clientY - centerY;
+
+            // "Magnetic" strength (0.4 means it moves 40% of the way to the cursor)
+            animate(
+                btn,
+                {
+                    x: distanceX * 0.4,
+                    y: distanceY * 0.4,
+                },
+                {
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 15,
+                    mass: 0.1,
+                },
+            );
+        });
+
+        area.addEventListener("mouseleave", () => {
+            // Snap back to original position
+            animate(
+                btn,
+                { x: 0, y: 0 },
+                {
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 10,
+                },
+            );
+        });
+    }
+</script>
