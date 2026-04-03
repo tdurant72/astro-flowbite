@@ -90,83 +90,104 @@ const ctaButton2Subtext = "How we engineer institutional authority.";
 </section>
 
 <script>
-    import { animate, scroll, transform, stagger } from "motion";
-    const heroSection = document.querySelector("#hero-section");
-    const heroContent = document.querySelector("#hero-content");
-    const staggers = document.querySelectorAll(".hero-stagger");
-    const ctaButtons = document.querySelector("#cta-buttons");
-    const videoOuter = document.querySelector("#video-container-outer");
-    const videoWrapper = document.getElementById(
-        "video-wrapper",
-    ) as HTMLElement;
-    const mediaPlaceholder = document.getElementById("media-placeholder");
+    import {
+        animate,
+        scroll,
+        transform,
+        stagger,
+        type AnimationPlaybackControlsWithThen,
+    } from "motion";
+    const heroVideoSrc =
+        "https://videos.pexels.com/video-files/6774633/6774633-hd_1280_720_30fps.mp4";
+    const heroPosterSrc =
+        "https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp";
+    let destroyScrollAnimation: (() => void) | undefined;
+    let heroAnimations: AnimationPlaybackControlsWithThen[] = [];
 
-    // 1. Desktop Check & Media Injection
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (mediaPlaceholder) {
+    const initMarketingHero = () => {
+        destroyMarketingHero();
+
+        const heroSection = document.querySelector("#hero-section");
+        const heroContent = document.querySelector("#hero-content");
+        const staggers = document.querySelectorAll(".hero-stagger");
+        const ctaButtons = document.querySelector("#cta-buttons");
+        const videoOuter = document.querySelector("#video-container-outer");
+        const videoWrapper = document.getElementById(
+            "video-wrapper",
+        ) as HTMLElement | null;
+        const mediaPlaceholder = document.getElementById("media-placeholder");
+
+        if (
+            !heroSection ||
+            !heroContent ||
+            !ctaButtons ||
+            !videoOuter ||
+            !videoWrapper ||
+            !mediaPlaceholder
+        ) {
+            return;
+        }
+
+        // Recreate the media node for the current viewport after each swap.
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
         if (isDesktop) {
             mediaPlaceholder.innerHTML = `
-                <video src="https://videos.pexels.com/video-files/6774633/6774633-hd_1280_720_30fps.mp4" 
-                    poster="https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp"
+                <video src="${heroVideoSrc}" 
+                    poster="${heroPosterSrc}"
                     autoplay loop muted playsinline class="w-full h-auto object-cover pointer-events-none">
                 </video>`;
         } else {
             mediaPlaceholder.innerHTML = `
-                <img src="https://images.pexels.com/videos/6774633/pexels-photo-6774633.jpeg?auto=compress&cs=tinysrgb&w=640&fit=crop&q=60&fm=webp" 
+                <img src="${heroPosterSrc}" 
                     alt="Hero background" class="object-cover pointer-events-none aspect-video h-90 w-full" />`;
         }
-    }
 
-    // 2. Entrance Animations (Variants replacement)
-    // We only trigger if it's a fresh visit (mimicking your hasAnimated logic)
-    const navigation = window.performance.getEntriesByType(
-        "navigation",
-    )[0] as PerformanceNavigationTiming;
-    const isReload = navigation?.type !== "back_forward";
+        // Reset entry state so the animation can replay when returning home.
+        heroContent.setAttribute("style", "opacity: 0;");
+        ctaButtons.setAttribute("style", "opacity: 0;");
+        videoOuter.setAttribute("style", "opacity: 0;");
+        staggers.forEach((staggered) => {
+            (staggered as HTMLElement).setAttribute(
+                "style",
+                "opacity: 0; transform: translateY(40px); filter: blur(10px);",
+            );
+        });
+        videoWrapper.style.width = "85%";
+        videoWrapper.style.transform = "scale(0.9)";
+        videoWrapper.style.borderRadius = "32px";
 
-    if (isReload) {
-        // Content Stagger
-        animate(heroContent!, { opacity: 1 }, { duration: 0.1 });
-        animate(
-            staggers,
-            {
-                opacity: [0, 1],
-                y: [40, 0],
-                filter: ["blur(10px)", "blur(0px)"],
-            },
-            { delay: stagger(0.1), duration: 0.9, ease: [0.25, 0.1, 0, 1] },
-        );
+        heroAnimations = [
+            animate(heroContent, { opacity: 1 }, { duration: 0.1 }),
+            animate(
+                staggers,
+                {
+                    opacity: [0, 1],
+                    y: [40, 0],
+                    filter: ["blur(10px)", "blur(0px)"],
+                },
+                {
+                    delay: stagger(0.1),
+                    duration: 0.9,
+                    ease: [0.25, 0.1, 0, 1],
+                },
+            ),
+            animate(
+                ctaButtons,
+                { opacity: [0, 1], y: [20, 0], scale: [0.8, 1] },
+                { delay: 0.6, duration: 0.6 },
+            ),
+            animate(
+                videoOuter,
+                { opacity: [0, 1], y: [60, 0], scale: [0.95, 1] },
+                { delay: 0.8, duration: 1.2, ease: [0.25, 0.1, 0, 1] },
+            ),
+        ];
 
-        // Buttons
-        animate(
-            ctaButtons!,
-            { opacity: [0, 1], y: [20, 0], scale: [0.8, 1] },
-            { delay: 0.6, duration: 0.6 },
-        );
-
-        // Video Entrance
-        animate(
-            videoOuter!,
-            { opacity: [0, 1], y: [60, 0], scale: [0.95, 1] },
-            { delay: 0.8, duration: 1.2, ease: [0.25, 0.1, 0, 1] },
-        );
-    } else {
-        // Instant show if navigated back
-        animate(
-            [heroContent!, ctaButtons!, videoOuter!],
-            { opacity: 1 },
-            { duration: 0 },
-        );
-    }
-
-    // 3. Scroll Transformations (useTransform replacement)
-    scroll(
-        (progress: number) => {
-            const y = window.scrollY;
-            const scrollThreshold = 500;
-            const p = Math.min(y / scrollThreshold, 1);
-
-            if (videoWrapper) {
+        destroyScrollAnimation = scroll(
+            () => {
+                const y = window.scrollY;
+                const scrollThreshold = 500;
+                const p = Math.min(y / scrollThreshold, 1);
                 const width = transform(p, [0, 1], [85, 100]);
                 const scale = transform(p, [0, 1], [0.9, 1]);
                 const borderRadius = transform(p, [0, 1], [32, 0]);
@@ -174,11 +195,21 @@ const ctaButton2Subtext = "How we engineer institutional authority.";
                 videoWrapper.style.width = `${width}%`;
                 videoWrapper.style.transform = `scale(${scale})`;
                 videoWrapper.style.borderRadius = `${borderRadius}px`;
-            }
-        },
-        {
-            target: heroSection as HTMLElement, // Explicitly target the section
-            offset: ["start start", "end start"], // Track from top of section to when it leaves
-        },
-    );
+            },
+            {
+                target: heroSection as HTMLElement,
+                offset: ["start start", "end start"],
+            },
+        );
+    };
+
+    const destroyMarketingHero = () => {
+        heroAnimations.forEach((animation) => animation.stop());
+        heroAnimations = [];
+        destroyScrollAnimation?.();
+        destroyScrollAnimation = undefined;
+    };
+
+    document.addEventListener("astro:page-load", initMarketingHero);
+    document.addEventListener("astro:before-swap", destroyMarketingHero);
 </script>
