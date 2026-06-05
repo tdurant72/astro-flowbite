@@ -4,37 +4,61 @@ import V2VHeroAnimation from "../../components/React/V2VHeroAnimation";
 import Layout from "../../layouts/Layout.astro";
 
 const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "The V2V Framework: Visibility-to-Velocity",
+    type: "Service",
+    "@id": "https://www.sublimeux.com/services/V2VFramework#service",
+    name: "The V2V Framework (Visibility-to-Velocity)",
+    serviceType: "Institutional Engineering & GEO",
     description:
-        "An institutional engineering framework for Visibility-to-Velocity (V2V). Specializing in Generative Engine Optimization (GEO), Information Gain, and AI search authority for non-profits and PPPs.",
-    mainEntity: {
-        "@type": "Methodology",
-        name: "V2V Framework",
-        description:
-            "A proprietary three-phase digital architecture system focusing on Information Gain and Institutional Indexing.",
-        steps: [
+        "A proprietary three-phase digital architecture system focusing on Information Gain and Institutional Indexing for Non-Profits and PPPs.",
+    provider: {
+        "@type": "LocalBusiness",
+        "@id": "https://www.sublimeux.com/#organization",
+        name: "Sublime UX",
+        url: "https://www.sublimeux.com",
+    },
+    about: [
+        {
+            "@type": "Thing",
+            name: "Generative Engine Optimization",
+            sameAs: "https://en.wikipedia.org/wiki/Search_engine_optimization",
+        },
+        {
+            "@type": "Thing",
+            name: "Information Gain",
+            sameAs: "https://en.wikipedia.org/wiki/Information_gain_in_decision_trees",
+        },
+    ],
+    hasHowTo: {
+        "@type": "HowTo",
+        name: "The V2V Implementation Process",
+        step: [
             {
                 "@type": "HowToStep",
                 name: "Visibility",
-                itemListElement:
-                    "Generative Engine Optimization and Entity Alignment",
+                text: "Generative Engine Optimization and Entity Alignment to ensure institutional indexing.",
             },
             {
                 "@type": "HowToStep",
                 name: "Trust",
-                itemListElement:
-                    "High-Performance Infrastructure and Accessibility",
+                text: "Optimizing for High-Performance Infrastructure and ADA Accessibility standards.",
             },
             {
                 "@type": "HowToStep",
                 name: "Velocity",
-                itemListElement:
-                    "Conversion Architecture and Mission Acceleration",
+                text: "Implementing Conversion Architecture to accelerate mission-critical objectives.",
             },
         ],
     },
+    faq: [
+        {
+            question: "What is the V2V Framework?",
+            answer: "The V2V Framework is a three-phase digital architecture (Visibility, Trust, Velocity) designed to help non-profits and PPPs achieve high AI search authority through Generative Engine Optimization.",
+        },
+        {
+            question: "How does GEO benefit non-profits?",
+            answer: "Generative Engine Optimization (GEO) ensures that non-profit missions are accurately synthesized and cited by AI agents like ChatGPT and Google Gemini, increasing institutional influence.",
+        },
+    ],
     keywords:
         "V2V Framework, Generative Engine Optimization, GEO for Non-Profits, Information Gain SEO, Institutional Digital Architecture",
 };

@@ -45,3 +45,16 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## 🛠️ Maintenance & Under Construction Mode
+
+We have configured a customizable "Under Construction" page with automatic redirection via Netlify that serves a proper HTTP `503 Service Unavailable` status code to prevent search engine crawler index degradation.
+
+### How to Toggle Maintenance Mode
+
+1. Open [netlify.toml](file:///Users/tyusdurant/Documents/GitHub/astro-flowbite/netlify.toml).
+2. Scroll to the **Temporary Under Construction / Maintenance Redirects** block at the bottom of the file.
+3. **To turn maintenance mode ON**: Keep the `[[redirects]]` rules uncommented.
+4. **To turn maintenance mode OFF**: Comment out (using `#`) or delete the redirect rules so that the default routing is restored.
+5. Save the file and trigger a new deployment.
+

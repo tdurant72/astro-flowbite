@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-15T13:13:00Z",
+  "title": "Design System: Astro Flowbite",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Impact Teal",
+        "canonical": "#3DE4C1",
+        "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#3DE4C1", "#f8fafc"]
+      },
+      "brand-teal": {
+        "role": "secondary",
+        "displayName": "Steady Teal",
+        "canonical": "#2db3a1"
+      }
+    },
+    "shadows": [
+      {
+        "name": "Clarity Layer",
+        "value": "backdrop-blur-xl bg-white/70",
+        "purpose": "Creating depth through transparency while maintaining legibility."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call to action. High contrast Teal on Slate.",
+      "html": "<button class=\"ds-btn-primary\">GET FOUND BY AI</button>",
+      "css": ".ds-btn-primary { background: #3DE4C1; color: #0f172a; padding: 12px 24px; border-radius: 0.625rem; font-weight: 700; border: none; transition: all 0.2s; cursor: pointer; } .ds-btn-primary:hover { background: #2db3a1; transform: translateY(-1px); }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "description": "A layered container for secondary context. Use with extreme caution.",
+      "html": "<div class=\"ds-card-glass\"><h3 class=\"ds-heading\">Helpful Insight</h3><p class=\"ds-text\">AI search favors semantic clarity over keyword density.</p></div>",
+      "css": ".ds-card-glass { backdrop-filter: blur(24px); background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.625rem; padding: 24px; } .ds-heading { font-weight: 800; color: #0f172a; margin-bottom: 8px; } .ds-text { color: #334155; line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Beacon of Clarity",
+    "overview": "A bold, helpful design system for non-profits navigating the AI era. Rejects AI slop in favor of structural clarity.",
+    "keyCharacteristics": [
+      "High-contrast typography",
+      "Strategic Impact Teal",
+      "Layered and Transparent elevation",
+      "Machine-readable semantic structure"
+    ],
+    "rules": [
+      { "name": "The No-Slop Rule", "body": "Avoid generic AI 'purple-to-blue' gradients.", "section": "colors" },
+      { "name": "The Clarity Layer Rule", "body": "Transparency must never compromise legibility.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use high-contrast typography.",
+      "Do prioritize semantic HTML tags for AI indexing."
+    ],
+    "donts": [
+      "Don't use generic AI purples or neon glows.",
+      "Don't use glassmorphism as a default (extreme caution)."
+    ]
+  }
+}

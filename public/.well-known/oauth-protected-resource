@@ -1,0 +1,7 @@
+{
+  "resource": "https://sublimeux.com/",
+  "authorization_servers": [
+    "https://sublimeux.com/"
+  ],
+  "scopes_supported": ["openid"]
+}

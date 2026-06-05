@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://sublimeux.com/",
+      "service-doc": [
+        { "href": "https://sublimeux.com/" }
+      ],
+      "service-desc": [
+        { "href": "https://sublimeux.com/rss.xml", "type": "application/rss+xml" }
+      ]
+    }
+  ]
+}

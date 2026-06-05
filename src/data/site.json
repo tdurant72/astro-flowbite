@@ -112,7 +112,15 @@
     }
   ],
   "schema": {
+    "@type": "ProfessionalService",
     "telephone": "(336) 517-7923",
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "logo": "https://www.sublimeux.com/images/socialImage.webp",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "36.1088",
+      "longitude": "-79.7495"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Greensboro",
@@ -121,6 +129,8 @@
     },
     "knowsAbout": [
       "Digital Architecture",
+      "Generative Engine Optimization",
+      "Information Gain SEO",
       "Public-Private Partnerships",
       "Institutional Indexing",
       "AI Search Optimization",

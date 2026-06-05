@@ -26,8 +26,12 @@ pnpm-debug.log*
 # Local Netlify folder
 .netlify
 
-#agent
+# agent
 .agent/
+! .agent/skills/
+
+# generated public agent skills
+public/.well-known/agent-skills/
 
 # chrome profile
 chrome_profile_notebooklm/

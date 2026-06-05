@@ -68,15 +68,25 @@ export default function jsonLDGenerator({ type, post, url }) {
     });
   }
 
-  // 3. Default: Homepage LocalBusiness / Organization (Always included as identity signal)
+  // 3. Default: Homepage Business / Organization (Always included as identity signal)
   schemas.push({
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": siteData.schema["@type"] || "ProfessionalService",
     "name": siteData.siteName,
     "image": `https://www.sublimeux.com${siteData.image.src}`,
+    "logo": siteData.schema.logo,
     "telephone": siteData.schema.telephone,
     "email": siteData.contact.email,
     "address": siteData.schema.address,
+    "geo": siteData.schema.geo,
+    "openingHours": siteData.schema.openingHours,
+    "founder": {
+      "@type": "Person",
+      "name": siteData.person.name,
+      "url": siteData.person.url,
+      "sameAs": siteData.person.sameAs,
+      "jobTitle": siteData.person.jobTitle
+    },
     "contactPoint": siteData.schema.contactPoint,
     "knowsAbout": siteData.schema.knowsAbout,
     "areaServed": siteData.schema.areaServed,

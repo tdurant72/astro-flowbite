@@ -19,4 +19,5 @@ export const postSchema = ({ image }: { image: any }) =>
     tags: z.array(z.string()),
     description: z.string().optional(),
     category: z.string().optional(),
+    schema: z.any().optional(),
   });

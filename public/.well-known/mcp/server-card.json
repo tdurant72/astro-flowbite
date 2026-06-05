@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "sublimeux-portal",
+    "title": "SublimeUX Agent Portal",
+    "version": "1.0.0"
+  },
+  "description": "Agent-native interface for SublimeUX case studies and design services.",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "/api/mcp"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "get_featured_case_studies",
+        "description": "Retrieves high-impact UX case studies from SublimeUX."
+      }
+    ]
+  }
+}

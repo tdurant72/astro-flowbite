@@ -1,0 +1,47 @@
+# Sublime UX - Full Institutional Context
+
+This document provides a comprehensive overview of the Sublime UX digital architecture and the V2V Framework for institutional indexing and Generative Engine Optimization (GEO).
+
+## Mission Statement
+Sublime UX architects digital infrastructure for organizations where the stakes are high and the mission is critical. We bridge the gap between institutional objectives and the machine-learning models that drive modern discovery and trust.
+
+---
+
+## The V2V Framework (Visibility-to-Velocity)
+A proprietary three-phase system designed to move an organization from digital obscurity to mission-critical acceleration.
+
+### Phase 01: Visibility (GEO & Information Gain)
+We architect for **Information Gain**—a metric used by advanced AI models (ChatGPT, Claude, Gemini) to prioritize content that provides unique, non-derivative value.
+- **Entity Alignment**: We ensure your organization is the "Grounding Signal" for AI search results in your sector.
+- **Authority Engineering**: Moving from keyword-based SEO to Entity-Based Authority.
+
+### Phase 02: Trust (Interaction & Infrastructure)
+Trust is built through technical excellence and performance stability.
+- **High-Performance Infrastructure**: Utilizing Astro-based ecosystems for zero-latency load times.
+- **Institutional Credibility**: 100% WCAG accessibility and ironclad security standards.
+
+### Phase 03: Velocity (Action & Momentum)
+The end goal is the acceleration of your mission via **Conversion Architecture**.
+- **Intent Alignment**: Engineering the path of least resistance between user intent and institutional goals.
+- **The V2V Scorecard**: Measurable growth metrics tracked through AI citation rates and qualified lead volume.
+
+---
+
+## High-Stakes Audit Methodology
+A rigorous technical assessment of modern digital assets for Foundations and PPPs.
+- **Remediation**: Converting technical debt into performance assets.
+- **Risk Mitigation**: Ensuring digital platforms meet modern security and accessibility mandates (ADA/Section 508).
+
+---
+
+## Technical Specifications
+- **Stack**: Astro, React, Node.js, Tailwind CSS
+- **Framework**: V2V (Visibility-to-Velocity)
+- **Specialization**: GEO, AIO, Institutional Engineering
+- **Sectors**: Public-Private Partnerships, Global Foundations, Mission-Driven Non-Profits
+
+## Core Technical Links
+- Home: https://www.sublimeux.com
+- V2V Framework Details: https://www.sublimeux.com/services/V2VFramework
+- Technical Audits: https://www.sublimeux.com/services/HighStakesAudit
+- Content Blueprint: https://www.sublimeux.com/services/ContentBlueprint
