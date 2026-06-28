@@ -40,29 +40,29 @@
 
 # Temporary Under Construction / Maintenance Redirects
 # 1. Allow access to the under construction page itself
-[[redirects]]
-  from = "/under-construction"
-  to = "/under-construction"
-  status = 200
-  force = true
+# [[redirects]]
+#  from = "/under-construction"
+#  to = "/under-construction"
+#  status = 200
+#  force = true
 
 # 2. Allow access to static assets (JS, CSS, images, etc.) so the page renders correctly
-[[redirects]]
-  from = "/_astro/*"
-  to = "/_astro/:splat"
-  status = 200
-  force = true
+# [[redirects]]
+#  from = "/_astro/*"
+#  to = "/_astro/:splat"
+#  status = 200
+#  force = true
 
-[[redirects]]
-  from = "/images/*"
-  to = "/images/:splat"
-  status = 200
-  force = true
+# [[redirects]]
+#  from = "/images/*"
+#  to = "/images/:splat"
+#  status = 200
+#  force = true
 
 # 3. Redirect all other traffic to under construction with a 503 Service Unavailable status
-[[redirects]]
-  from = "/*"
-  to = "/under-construction"
-  status = 503
-  force = true
+# [[redirects]]
+#   from = "/*"
+#   to = "/under-construction"
+#   status = 503
+#   force = true
 
