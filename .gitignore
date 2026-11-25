@@ -37,3 +37,6 @@ public/.well-known/agent-skills/
 chrome_profile_notebooklm/
 .notebooklm-venv/
 *.report.html
+
+
+/docs/

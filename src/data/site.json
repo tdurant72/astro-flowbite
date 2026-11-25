@@ -1,7 +1,7 @@
 {
   "owner": "Sublime UX",
   "siteName": "Sublime UX",
-  "siteDescription": "High-stakes digital architecture and institutional indexing for non-profits, foundations, and public-private partnerships. Specializing in V2V (Visibility-to-Velocity) frameworks and AI search optimization.",
+  "siteDescription": "Digital architecture, institutional indexing, and modern AI search optimization (AEO/SEO) for non-profits, public-private partnerships, and growing regional businesses.",
   "about": "Sublime UX is dedicated to build fast, modern websites that deliver great user experience",
   "contact": {
     "email": "todurant@sublimeux.com",
@@ -40,6 +40,10 @@
         {
           "title": "Content Blueprint",
           "href": "/services/ContentBlueprint"
+        },
+        {
+          "title": "Small Business SEO & AEO",
+          "href": "/services/small-business-seo-aeo"
         }
       ]
     },
@@ -130,6 +134,10 @@
     "knowsAbout": [
       "Digital Architecture",
       "Generative Engine Optimization",
+      "Answer Engine Optimization (AEO)",
+      "Local SEO",
+      "Google Business Profile Optimization",
+      "Entity Schema Architecture",
       "Information Gain SEO",
       "Public-Private Partnerships",
       "Institutional Indexing",
@@ -167,7 +175,7 @@
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Institutional Design Services",
+      "name": "Sublime UX Digital & Search Architecture Services",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -182,13 +190,27 @@
             "@type": "Service",
             "name": "Stakeholder Alignment Workshop"
           }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Small Business SEO & AI Search Optimization (AEO)",
+            "description": "Local search grounding, entity schema fortification, and generative AI search optimization to move local businesses from invisible to indispensable."
+          }
         }
       ]
     },
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Executive Directors, Board Members, Public-Private Partnership Leads"
-    },
+    "audience": [
+      {
+        "@type": "Audience",
+        "audienceType": "Executive Directors, Board Members, Public-Private Partnership Leads"
+      },
+      {
+        "@type": "Audience",
+        "audienceType": "Small Business Owners, Regional Founders, Local Service Providers"
+      }
+    ],
     "priceRange": "$$"
   }
 }

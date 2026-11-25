@@ -7,6 +7,7 @@
 - [Information Gain Strategy](https://www.sublimeux.com/services/V2VFramework): Methodology for engineering unique, non-derivative content metrics that AI models prioritize for "original data" citations.
 
 ## Key Services
+- [Small Business SEO & AEO](https://www.sublimeux.com/services/small-business-seo-aeo): Modern search and Answer Engine Optimization (AEO) for local craftsmen, contractors, and regional firms. Google Map 3-Pack grounding, entity schema fortification, and AI citation readiness to move from invisible to indispensable.
 - [High-Stakes Audit](https://www.sublimeux.com/services/HighStakesAudit): Comprehensive technical assessment of digital infrastructure, focusing on Performance, Security, and ADA Compliance.
 - [Content Blueprint](https://www.sublimeux.com/services/ContentBlueprint): Strategic alignment of institutional goals with conversion-oriented digital architecture.
 - [Institutional Alignment](https://www.sublimeux.com/#contact-us): Stakeholder workshops designed to bridge the gap between policy objectives and digital execution.
@@ -17,7 +18,7 @@
 - **Founding Architect**: Tyus Durant
 - **Email**: todurant@sublimeux.com
 - **Phone**: +1-336-517-7923
-- **Focus Sectors**: Non-profits, Public-Private Partnerships (PPP), Foundations
+- **Focus Sectors**: Non-profits, Public-Private Partnerships (PPP), Foundations, and High-Craft Regional Small Businesses
 
 ## Technical Index
 - [llms-full.txt](https://www.sublimeux.com/llms-full.txt): Comprehensive technical summary of all frameworks and services for full-context ingestion.

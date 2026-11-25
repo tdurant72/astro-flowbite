@@ -34,14 +34,24 @@ A rigorous technical assessment of modern digital assets for Foundations and PPP
 
 ---
 
+## Small Business Search Velocity Protocol
+A specialized framework tailored for master craftsmen, contractors, and regional service leaders to move from "invisible to indispensable":
+- **Pillar 01 (Google Map 3-Pack Grounding)**: Exact-coordinate geo mapping, review sentiment grounding, and service-area verification where >70% of high-intent calls originate.
+- **Pillar 02 (Entity Schema Fortification)**: Deep JSON-LD injection (`LocalBusiness`, `Service`, `FAQPage`) connecting physical locations to regional knowledge graphs.
+- **Pillar 03 (Generative Engine Optimization - AEO/GEO)**: Training AI engines (ChatGPT, Perplexity, Google AI Overviews) to recommend the business by name. Framing AI as a loyal day-one employee that communicates the authentic heart and soul of the craft.
+- **Pillar 04 (Sub-Second Astro Architecture)**: Sub-0.8s static code eliminating mobile drop-offs with 100/100 Core Web Vitals.
+
+---
+
 ## Technical Specifications
 - **Stack**: Astro, React, Node.js, Tailwind CSS
-- **Framework**: V2V (Visibility-to-Velocity)
-- **Specialization**: GEO, AIO, Institutional Engineering
-- **Sectors**: Public-Private Partnerships, Global Foundations, Mission-Driven Non-Profits
+- **Frameworks**: V2V (Visibility-to-Velocity) Framework & Small Business Search Velocity Protocol
+- **Specialization**: GEO, AEO, Local SEO, Institutional Engineering, Schema Architecture
+- **Sectors**: Public-Private Partnerships, Global Foundations, Mission-Driven Non-Profits, Master Craftsmen & Regional Small Businesses
 
 ## Core Technical Links
 - Home: https://www.sublimeux.com
+- Small Business SEO & AEO: https://www.sublimeux.com/services/small-business-seo-aeo
 - V2V Framework Details: https://www.sublimeux.com/services/V2VFramework
 - Technical Audits: https://www.sublimeux.com/services/HighStakesAudit
 - Content Blueprint: https://www.sublimeux.com/services/ContentBlueprint

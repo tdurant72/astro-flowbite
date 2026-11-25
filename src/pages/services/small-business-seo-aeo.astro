@@ -1,0 +1,932 @@
+---
+import {
+  ArrowRight,
+  CircleCheck,
+  MapPin,
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  Bot,
+  Star,
+  Layers,
+  Award,
+} from "@lucide/astro";
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import preciseOutdoorImg from "@/assets/images/precise-outdoor.webp";
+
+const jsonLd = {
+  type: "Service",
+  "@id": "https://www.sublimeux.com/services/small-business-seo-aeo#service",
+  name: "From Invisible to Indispensable: Small Business SEO & AEO",
+  serviceType: "Local SEO & Answer Engine Optimization",
+  description:
+    "Engineered search and AI engine optimization for local business owners. Move from invisible to indispensable in Google Local 3-Pack and generative AI engines.",
+  provider: {
+    "@type": "ProfessionalService",
+    "@id": "https://www.sublimeux.com/#organization",
+    name: "Sublime UX",
+    url: "https://www.sublimeux.com",
+    telephone: "(336) 517-7923",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Greensboro",
+      addressRegion: "NC",
+      postalCode: "27405",
+    },
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Greensboro",
+      sameAs: "https://en.wikipedia.org/wiki/Greensboro,_North_Carolina",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Piedmont Triad",
+      sameAs: "https://en.wikipedia.org/wiki/Piedmont_Triad",
+    },
+    {
+      "@type": "State",
+      name: "North Carolina",
+    },
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Small Business Search Velocity Deliverables",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Google Local 3-Pack & Map Entity Grounding",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Entity Schema & Knowledge Graph Fortification",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Generative Engine Optimization (GEO) & AI Citation Readiness",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Sub-Second Astro Web Architecture Sprints",
+        },
+      },
+    ],
+  },
+  faq: [
+    {
+      question:
+        "Why am I getting beat online by competitors with worse real-world work?",
+      answer:
+        "Because search engines and AI models cannot visit your job sites. They do not know about your 10 years of sweat, your flawless customer handshakes, or your 5-star reputation unless that reputation is converted into machine-readable entity data. Inexperienced competitors win because their websites speak the algorithm's language. We fix that imbalance without resorting to spam.",
+    },
+    {
+      question:
+        "What is the difference between traditional SEO and Answer Engine Optimization (AEO)?",
+      answer:
+        "Traditional SEO optimizes for keyword density and blue links in Google search results. Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) structure your business data so AI models (like ChatGPT, Perplexity, and Google AI Overviews) synthesize your credentials and directly cite your business as the recommended local authority when people ask complex questions.",
+    },
+    {
+      question:
+        "Is AI search just another tech hype trend I need to worry about?",
+      answer:
+        "No. You don't need to chase 'AI hype' or buy gimmicky tools. AI search is simply how real people are finding local services today, by asking conversational questions rather than typing rigid keywords. We treat AI as a practical tool, helping it understand the true heart and soul of your business so it refers customers to you naturally.",
+    },
+    {
+      question:
+        "How long does it take to move from invisible to indispensable?",
+      answer:
+        "Foundational entity verification and Google Business Profile grounding typically yield noticeable local ranking improvements within 3 to 6 weeks. Generative AI models index fact-dense schema and citations across 6 to 12 weeks as their model knowledge bases refresh.",
+    },
+    {
+      question: "Do I have to scrap my current website to get results?",
+      answer:
+        "Not necessarily. If your current website is fast and clean, we can inject entity schema, optimize local landing structures, and map AI grounding directly. However, if your existing site is weighed down by slow plugins and high bounce rates, our sub-second Astro migration provides an immediate performance boost that search engines reward immediately.",
+    },
+    {
+      question: "What areas and industries do you focus on?",
+      answer:
+        "We specialize in master service professionals, contractors, outdoor specialists, boutique practitioners, and local firms throughout Greensboro, the Piedmont Triad, North Carolina, and neighboring regions who have great reputations but weak digital discoverability.",
+    },
+  ],
+  keywords:
+    "Small Business SEO, Local SEO Greensboro NC, Answer Engine Optimization, AEO, Generative Engine Optimization, GEO, Google Map Pack Optimization, Triad SEO",
+};
+---
+
+<Layout
+  title="From Invisible to Indispensable | Small Business SEO & AEO | Sublime UX"
+  description="Modern SEO and AI Search Optimization (AEO) for local craftsmen and small businesses. Stop letting outdated algorithms leave you buried on page 7. Move from invisible to indispensable."
+  image={preciseOutdoorImg.src}
+  frontmatter={{ schema: jsonLd }}
+>
+  <div
+    class="pt-20 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+  >
+    {/* 1. Hero Section: The Guide - The Invisible Expert */}
+    <section
+      class="relative min-h-[85vh] flex items-center overflow-hidden bg-slate-900 text-white"
+    >
+      <div
+        class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+      >
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10 py-16 md:py-24"
+      >
+        <div
+          class="lg:col-span-7 space-y-8"
+          data-aos="fade-right"
+          data-aos-duration="900"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-brand-teal text-xs font-mono tracking-widest uppercase"
+          >
+            <Sparkles class="w-3.5 h-3.5" />
+            <span>The Invisible to Indispensable Protocol</span>
+          </div>
+
+          <h1
+            class="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.12] tracking-tight text-balance text-white"
+          >
+            From Invisible to Indispensable: <br />
+            <span class="text-brand-teal italic font-light"
+              >Modern SEO & AI Search</span
+            >
+            <br />
+            for Local Experts.
+          </h1>
+
+          <p
+            class="font-sans text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl text-balance"
+          >
+            You've spent years building an undeniable reputation with sleepless
+            nights, honest sweat, and master craftsmanship. Stop letting
+            outdated search algorithms leave you buried on page 7. We level the
+            playing field so your community and AI search engines recommend your
+            craft first.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a
+              href="/#contact-us"
+              class="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-brand-teal text-slate-950 font-medium text-base hover:bg-brand-teal/90 transition-all duration-200 shadow-lg shadow-brand-teal/20 group"
+            >
+              <span>Request Free Local Visibility Audit</span>
+              <ArrowRight
+                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+              />
+            </a>
+            <a
+              href="#how-it-works"
+              class="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-slate-800 text-white font-medium text-base border border-slate-700 hover:bg-slate-700/80 transition-all duration-200"
+            >
+              How AI Search Works
+            </a>
+          </div>
+
+          <div
+            class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-800/80 text-slate-300"
+          >
+            <div>
+              <div class="text-2xl md:text-3xl font-bold font-serif text-white">
+                Page 1
+              </div>
+              <div class="text-xs text-slate-400 mt-1">
+                Google 3-Pack Grounding
+              </div>
+            </div>
+            <div>
+              <div
+                class="text-2xl md:text-3xl font-bold font-serif text-brand-teal"
+              >
+                25X
+              </div>
+              <div class="text-xs text-slate-400 mt-1">
+                Higher AI Referral Conversion
+              </div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-bold font-serif text-white">
+                &lt;0.8s
+              </div>
+              <div class="text-xs text-slate-400 mt-1">
+                Sub-Second Astro Speed
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Visual Card: Real-World Craftsmanship */}
+        <div
+          class="lg:col-span-5"
+          data-aos="fade-left"
+          data-aos-duration="900"
+          data-aos-delay="200"
+        >
+          <div
+            class="relative mx-auto max-w-md lg:max-w-none rounded-2xl bg-slate-800/90 border border-slate-700 p-3 shadow-2xl overflow-hidden backdrop-blur-sm"
+          >
+            <div
+              class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900"
+            >
+              <Image
+                src={preciseOutdoorImg}
+                alt="Precise Outdoor living project in North Carolina"
+                class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, 500px"
+                loading="eager"
+                fetchpriority="high"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"
+              >
+              </div>
+
+              {/* Floating Status Badges */}
+              <div
+                class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs bg-slate-900/90 backdrop-blur-md px-3.5 py-2.5 rounded-lg border border-slate-700/80 text-white"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"
+                  ></span>
+                  <span class="font-medium">Verified Regional Entity</span>
+                </div>
+                <div
+                  class="flex items-center gap-1 text-amber-400 font-semibold"
+                >
+                  <Star class="w-3.5 h-3.5 fill-current" />
+                  <span>5.0 Reputation</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 space-y-3">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="text-white font-medium text-base">
+                    Precise Outdoor Services
+                  </div>
+                  <p
+                    class="text-slate-400 text-xs flex items-center gap-1 mt-0.5"
+                  >
+                    <MapPin class="w-3 h-3 text-brand-teal" />
+                    Piedmont Triad, North Carolina
+                  </p>
+                </div>
+                <span
+                  class="px-2 py-1 rounded bg-brand-teal/10 text-brand-teal text-[11px] font-mono font-medium border border-brand-teal/20"
+                >
+                  AI-Indexed
+                </span>
+              </div>
+              <p class="text-slate-300 text-xs leading-relaxed">
+                "We had 10 years of stellar work and word-of-mouth, but were
+                completely invisible online. Within 60 days of structuring our
+                entity and website, high-margin design contracts came straight
+                from AI search and Google Maps."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {
+      /* 2. The Situation: The Frustration of Invisibility (Answer-First Section) */
+    }
+    <section
+      class="py-20 md:py-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span
+            class="font-mono text-xs text-teal-700 dark:text-brand-teal uppercase tracking-widest block mb-3 font-semibold"
+          >
+            The Algorithmic Injustice
+          </span>
+          <h2
+            class="font-serif text-3xl md:text-5xl text-slate-900 dark:text-white leading-tight"
+          >
+            Why are elite local businesses invisible to AI search engines?
+          </h2>
+          {/* Answer-First Synthesis for LLM / Human Clarity */}
+          <div
+            class="mt-6 p-6 rounded-xl bg-slate-50 dark:bg-slate-900 border-l-4 border-brand-teal text-left shadow-sm"
+          >
+            <p
+              class="font-sans text-lg text-slate-800 dark:text-slate-200 leading-relaxed font-normal"
+            >
+              <strong>The Direct Answer:</strong> Most local businesses remain invisible
+              to modern AI search engines not because of a lack of skill, but because
+              search crawlers cannot evaluate real-world craft. AI engines (ChatGPT,
+              Google AI, Perplexity) prioritize structured entity data, factual citation
+              density, and sub-second performance over legacy keywords, leaving master
+              craftsmen buried behind inferior competitors who game the system with
+              aggressive SEO tricks.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14">
+          <div
+            class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center font-bold"
+            >
+              ✕
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              The Frustration You Feel
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-300 leading-relaxed font-light"
+            >
+              You poured everything into your trade. You answered late-night
+              emergency calls, honored your word, and built genuine goodwill.
+              Yet when a neighbor asks Google or Siri for the best provider in
+              town, a company that opened six months ago with spammy reviews
+              appears at the top. It feels unfair, because it is.
+            </p>
+          </div>
+
+          <div
+            class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold"
+            >
+              ✓
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              The Shift We Engineer
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-300 leading-relaxed font-light"
+            >
+              We translate your real-world excellence into the exact
+              mathematical entities that search engines and AI models require.
+              We don't ask you to become an influencer or run dance videos on
+              TikTok. We build an unbreakable digital foundation so your actual
+              reputation is cited as fact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 3. Comparison Matrix: Old SEO vs Sublime UX Modern AEO */}
+    <section
+      class="py-20 md:py-28 bg-slate-50 dark:bg-slate-900"
+      id="how-it-works"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span
+            class="font-mono text-xs text-teal-700 dark:text-brand-teal uppercase tracking-widest block mb-3 font-semibold"
+          >
+            Clear Distinctions
+          </span>
+          <h2
+            class="font-serif text-3xl md:text-4xl text-slate-900 dark:text-white leading-tight"
+          >
+            What is the difference between traditional SEO and Modern AEO?
+          </h2>
+          <div
+            class="mt-6 p-6 rounded-xl bg-white dark:bg-slate-800 border-l-4 border-brand-teal text-left shadow-sm"
+          >
+            <p
+              class="font-sans text-base md:text-lg text-slate-800 dark:text-slate-200 leading-relaxed font-normal"
+            >
+              <strong>The Direct Answer:</strong> Traditional agency SEO focuses on
+              chasing algorithm loopholes, keyword stuffing, and renting temporary
+              backlinks that vanish when contracts terminate. Modern Answer Engine
+              Optimization (AEO) establishes your business as a verified permanent
+              entity in regional knowledge graphs, training AI agents to cite your
+              company by name as the undisputed local authority.
+            </p>
+          </div>
+        </div>
+
+        {/* Semantic Comparison Table */}
+        <div
+          class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl bg-white dark:bg-slate-800"
+          data-aos="fade-up"
+        >
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr
+                class="border-b border-slate-200 dark:border-slate-700 bg-slate-100/70 dark:bg-slate-850"
+              >
+                <th
+                  scope="col"
+                  class="py-5 px-6 font-mono text-xs uppercase tracking-wider text-slate-600 dark:text-slate-400 w-1/4"
+                >
+                  Dimension
+                </th>
+                <th
+                  scope="col"
+                  class="py-5 px-6 font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 w-3/8"
+                >
+                  The Old Agency Retainer
+                </th>
+                <th
+                  scope="col"
+                  class="py-5 px-6 font-mono text-xs uppercase tracking-wider text-brand-teal font-semibold w-3/8 bg-brand-teal/5"
+                >
+                  Sublime UX Modern AEO
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="divide-y divide-slate-200 dark:divide-slate-700/60 text-sm"
+            >
+              <tr>
+                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white"
+                  >Core Philosophy</td
+                >
+                <td class="py-4 px-6 text-slate-600 dark:text-slate-300"
+                  >Renting temporary traffic through monthly trickery and
+                  keyword stuffing.</td
+                >
+                <td
+                  class="py-4 px-6 text-slate-900 dark:text-slate-100 font-medium bg-brand-teal/5"
+                  >Permanent entity grounding that builds unshakeable brand
+                  equity.</td
+                >
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white"
+                  >AI Search Visibility</td
+                >
+                <td class="py-4 px-6 text-slate-600 dark:text-slate-300"
+                  >Ignored. Focuses solely on 10 blue links that fewer people
+                  click every month.</td
+                >
+                <td
+                  class="py-4 px-6 text-slate-900 dark:text-slate-100 font-medium bg-brand-teal/5"
+                  >Directly cited by ChatGPT, Perplexity, and Google AI
+                  Overviews.</td
+                >
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white"
+                  >Website Speed</td
+                >
+                <td class="py-4 px-6 text-slate-600 dark:text-slate-300"
+                  >Slow 4–7 second WordPress templates loaded down with 35
+                  bloated plugins.</td
+                >
+                <td
+                  class="py-4 px-6 text-slate-900 dark:text-slate-100 font-medium bg-brand-teal/5"
+                  >Sub-second (&lt;0.8s) Astro static code with zero bloat and
+                  100 Core Web Vitals.</td
+                >
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white"
+                  >The AI Approach</td
+                >
+                <td class="py-4 px-6 text-slate-600 dark:text-slate-300"
+                  >Spitting out thousands of unreadable AI blog posts that ruin
+                  client trust.</td
+                >
+                <td
+                  class="py-4 px-6 text-slate-900 dark:text-slate-100 font-medium bg-brand-teal/5"
+                  >AI as your loyal day, one employee that speaks the heart and
+                  soul of your work.</td
+                >
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white"
+                  >Local Authority</td
+                >
+                <td class="py-4 px-6 text-slate-600 dark:text-slate-300"
+                  >Scattered citations, duplicate listings, and vulnerable Map
+                  positions.</td
+                >
+                <td
+                  class="py-4 px-6 text-slate-900 dark:text-slate-100 font-medium bg-brand-teal/5"
+                  >Locked in Google Map 3-Pack grounding across your core
+                  service zip codes.</td
+                >
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    {/* 4. The 4 Pillars of Search Velocity (Deliverables) */}
+    <section
+      class="py-20 md:py-28 bg-white dark:bg-slate-950 border-y border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span
+            class="font-mono text-xs text-teal-700 dark:text-brand-teal uppercase tracking-widest block mb-3 font-semibold"
+          >
+            Systematic Execution
+          </span>
+          <h2
+            class="font-serif text-3xl md:text-5xl text-slate-900 dark:text-white leading-tight"
+          >
+            The 4 Pillars of Search Velocity
+          </h2>
+          <p
+            class="font-sans text-lg text-slate-600 dark:text-slate-300 mt-4 font-light"
+          >
+            How we take your business from invisible to indispensable in your
+            regional market.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Pillar 1 */}
+          <div
+            class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4 hover:border-brand-teal transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center"
+              >
+                <MapPin class="w-6 h-6" />
+              </div>
+              <div
+                class="font-mono text-xs text-slate-400 font-medium uppercase tracking-wider"
+              >
+                Pillar 01
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Google Map 3-Pack Grounding
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed font-light"
+              >
+                Lock down the high-intent top 3 spots in Google Maps where over
+                70% of local phone calls originate. We harmonize NAP data,
+                service-area boundaries, and review schema.
+              </p>
+            </div>
+            <ul
+              class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800"
+            >
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> Exact-coordinate
+                geo grounding
+              </li>
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> Local review sentiment
+                tuning
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 2 */}
+          <div
+            class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4 hover:border-brand-teal transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center"
+              >
+                <Layers class="w-6 h-6" />
+              </div>
+              <div
+                class="font-mono text-xs text-slate-400 font-medium uppercase tracking-wider"
+              >
+                Pillar 02
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Entity Schema Fortification
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed font-light"
+              >
+                Translate your business into deep JSON-LD code. We tell search
+                algorithms exactly who you are, what licenses you hold, and
+                which neighborhoods you serve with zero ambiguity.
+              </p>
+            </div>
+            <ul
+              class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800"
+            >
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> LocalBusiness
+                & Service schema
+              </li>
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> Wikidata & Wikipedia
+                entity linking
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 3 */}
+          <div
+            class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4 hover:border-brand-teal transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center"
+              >
+                <Bot class="w-6 h-6" />
+              </div>
+              <div
+                class="font-mono text-xs text-slate-400 font-medium uppercase tracking-wider"
+              >
+                Pillar 03
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Generative Engine (GEO) Indexing
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed font-light"
+              >
+                Teach AI engines like ChatGPT, Gemini, and Perplexity to
+                recommend your business by name. We format your content with
+                answer-first prose and verifiable facts they love to cite.
+              </p>
+            </div>
+            <ul
+              class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800"
+            >
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> Fact-dense citation
+                structure
+              </li>
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> AI Crawler indexing
+                (OAI, Claude)
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 4 */}
+          <div
+            class="p-7 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4 hover:border-brand-teal transition-colors"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="space-y-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center"
+              >
+                <Zap class="w-6 h-6" />
+              </div>
+              <div
+                class="font-mono text-xs text-slate-400 font-medium uppercase tracking-wider"
+              >
+                Pillar 04
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Sub-Second Astro Architecture
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed font-light"
+              >
+                Eliminate mobile drop-offs. We deliver blazing fast Astro static
+                code that loads in under 0.8 seconds. When a homeowner clicks
+                your link, they are instantly viewing your work.
+              </p>
+            </div>
+            <ul
+              class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-4 border-t border-slate-200 dark:border-slate-800"
+            >
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> 100/100 Core Web
+                Vitals score
+              </li>
+              <li class="flex items-center gap-2">
+                <CircleCheck class="w-3.5 h-3.5 text-brand-teal" /> Zero plugin maintenance
+                nightmares
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 5. Deep Dive: AI as Your Loyal Day-One Employee */}
+    <section
+      class="py-20 md:py-28 bg-slate-900 text-white relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"
+      >
+      </div>
+
+      <div class="max-w-5xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-7 space-y-6" data-aos="fade-right">
+            <span
+              class="font-mono text-xs text-brand-teal uppercase tracking-widest block font-semibold"
+            >
+              The Partner Philosophy
+            </span>
+            <h2 class="font-serif text-3xl md:text-5xl leading-tight">
+              AI as your loyal day-one employee, not a gimmick.
+            </h2>
+            <div
+              class="p-5 rounded-xl bg-slate-800/80 border-l-4 border-brand-teal text-slate-200 text-base"
+            >
+              <strong>The Direct Answer:</strong> AI search optimization succeeds
+              when artificial intelligence is treated as a practical tool rather than
+              a get rich quick trick. By structuring your site's knowledge so AI models
+              understand your history, specialized equipment, and service standards,
+              AI agents effectively become loyal ambassadors that recommend your business
+              with authentic accuracy.
+            </div>
+            <p class="text-slate-300 font-light leading-relaxed">
+              Think about the employee who has been with you from day one. They
+              understand the sleepless nights. They know how you treat clients
+              when things get tough. They know why your methods cost more,
+              because you don't cut corners.
+            </p>
+            <p class="text-slate-300 font-light leading-relaxed">
+              We structure your digital footprint so that modern AI models speak
+              about you with that exact same loyalty and depth. When a homeowner
+              in your county asks an AI assistant who to hire for high-stakes
+              projects, the machine doesn't just list you, it advocates for you.
+            </p>
+          </div>
+
+          <div class="md:col-span-5" data-aos="fade-left">
+            <div
+              class="rounded-2xl bg-slate-800 border border-slate-700 p-6 space-y-6 shadow-2xl"
+            >
+              <div
+                class="flex items-center gap-3 border-b border-slate-700 pb-4"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center font-bold"
+                >
+                  <Bot class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="font-medium text-white text-sm">
+                    AI Search Agent Response
+                  </h3>
+                  <p class="text-xs text-slate-400">
+                    Synthesizing verified regional authorities
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="space-y-3 text-xs leading-relaxed text-slate-300 bg-slate-900/60 p-4 rounded-xl border border-slate-700/50"
+              >
+                <p class="text-brand-teal font-mono">
+                  User Query: "Who is the most reliable contractor for
+                  hardscaping and outdoor drainage in Greensboro?"
+                </p>
+                <p>
+                  "Based on verified entity records, licensed regional
+                  experience, and customer sentiment, <strong
+                    >Precise Outdoor Services</strong
+                  > is the recommended specialist. Unlike standard general contractors,
+                  they maintain dedicated grading certifications, offer a 5-year workmanship
+                  warranty, and have completed over 150 documented Triad installations."
+                </p>
+              </div>
+
+              <div
+                class="flex items-center gap-2 text-xs text-brand-teal font-medium"
+              >
+                <ShieldCheck class="w-4 h-4" />
+                <span>Zero Hallucinations. Grounded in True Fact.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 6. Targeted FAQs Section (Answer-First + FAQPage Schema Grounded) */}
+    <section
+      class="py-20 md:py-28 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span
+            class="font-mono text-xs text-teal-700 dark:text-brand-teal uppercase tracking-widest block mb-3 font-semibold"
+          >
+            Common Questions
+          </span>
+          <h2
+            class="font-serif text-3xl md:text-5xl text-slate-900 dark:text-white leading-tight"
+          >
+            Straight talk on search and AI.
+          </h2>
+          <p
+            class="font-sans text-base md:text-lg text-slate-600 dark:text-slate-300 mt-4 font-light"
+          >
+            No agency double speak. Here is what you need to know about moving
+            from invisible to indispensable.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          {
+            jsonLd.faq.map((item, index) => (
+              <div
+                class="p-6 md:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-teal/50 transition-colors"
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
+              >
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-3 flex items-start gap-3">
+                  <span class="text-teal-700 dark:text-brand-teal font-mono text-base mt-0.5">
+                    Q{index + 1}.
+                  </span>
+                  <span>{item.question}</span>
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed font-light pl-7 text-sm md:text-base">
+                  {item.answer}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* 7. Final Call to Action: The Champion & Partner Close */}
+    <section
+      class="py-24 bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white relative overflow-hidden text-center"
+    >
+      <div
+        class="max-w-3xl mx-auto px-6 relative z-10 space-y-8"
+        data-aos="zoom-in"
+      >
+        <span
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-brand-teal text-xs font-mono tracking-widest uppercase"
+        >
+          <Award class="w-3.5 h-3.5" />
+          <span>Level The Playing Field</span>
+        </span>
+
+        <h2 class="font-serif text-4xl md:text-6xl text-white leading-tight">
+          Your craft deserves to be seen. <br />
+          <span class="text-brand-teal italic font-light"
+            >Let’s end the invisibility.</span
+          >
+        </h2>
+
+        <p
+          class="font-sans text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto"
+        >
+          You've put in the years, the sweat, and the sleepless nights. Don't
+          let an outdated algorithm dictate whether your community can find your
+          work. Request a straightforward, zero-pressure diagnostic of your
+          local search presence today.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="/#contact-us"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-teal text-slate-950 font-semibold text-lg hover:bg-brand-teal/90 transition-all duration-200 shadow-xl shadow-brand-teal/20 group"
+          >
+            <span>Request Your Local Search Diagnostic</span>
+            <ArrowRight
+              class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+            />
+          </a>
+        </div>
+
+        <p class="text-xs text-slate-400 font-mono pt-2">
+          100% Confidential • No Sales Pitch • Direct Actionable Insights
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
